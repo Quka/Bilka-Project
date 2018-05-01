@@ -14,7 +14,7 @@ namespace Stock_Management.Model
 	    public string Name { get; set; }
 	    public double Price { get; set; }
 	    public int Stock { get; set; }
-	    //To DO 
+	    //TODO Add enum types
         public enum Status { }
 
 	    public string Description { get; set; }
