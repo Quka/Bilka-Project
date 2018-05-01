@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ProductCatalogSingleton.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -108,7 +109,6 @@
     <Compile Include="Model\Interface\ISupplier.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\ProductCatalogSingleTon.cs" />
     <Compile Include="Model\ProductReturn.cs" />
     <Compile Include="Model\ReturnList.cs" />
     <Compile Include="Model\Supplier.cs" />

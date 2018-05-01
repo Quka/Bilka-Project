@@ -8,28 +8,12 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-    class ProductCatalogSingleTon : IProductCatalogSingleton
+    class ProductCatalogSingleton : IProductCatalogSingleton
     {
-
-
-
-        private static ProductCatalogSingleTon instance;
-
-        private ProductCatalogSingleTon()
+        private static ProductCatalogSingleton _instance;
+        public static ProductCatalogSingleton Instance
         {
-        }
-
-        public static ProductCatalogSingleTon Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ProductCatalogSingleTon();
-                }
-
-                return instance;
-            }
+            get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
         }
 
         public void CreateProduct(Product p)
@@ -42,12 +26,17 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public List<Product> FindProducts(string s)
+        public void UpdateProduct(Product p)
         {
             throw new NotImplementedException();
         }
 
         public Product FindSpecificProduct(int i)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> FindProducts(string s)
         {
             throw new NotImplementedException();
         }
@@ -58,11 +47,6 @@ namespace Stock_Management.Model
         }
 
         public void OrderProduct(Product p, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateProduct(Product p)
         {
             throw new NotImplementedException();
         }
