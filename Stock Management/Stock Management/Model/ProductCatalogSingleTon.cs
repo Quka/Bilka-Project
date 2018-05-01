@@ -15,7 +15,9 @@ namespace Stock_Management.Model
 
         private static ProductCatalogSingleTon instance;
 
-        private ProductCatalogSingleTon() { }
+        private ProductCatalogSingleTon()
+        {
+        }
 
         public static ProductCatalogSingleTon Instance
         {
@@ -25,56 +27,44 @@ namespace Stock_Management.Model
                 {
                     instance = new ProductCatalogSingleTon();
                 }
+
                 return instance;
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         public void CreateProduct(Product p)
         {
-            instance.CreateProduct(p);
+            throw new NotImplementedException();
         }
 
         public void DeleteProduct(Product p)
         {
-            instance.DeleteProduct(p);
+            throw new NotImplementedException();
         }
 
         public List<Product> FindProducts(string s)
         {
-            return instance.FindProducts(s);
+            throw new NotImplementedException();
         }
 
         public Product FindSpecificProduct(int i)
         {
-            return instance.FindSpecificProduct(i);
+            throw new NotImplementedException();
         }
 
         public ObservableCollection<Product> LoadProductsAsync()
         {
-            return instance.LoadProductsAsync();
+            throw new NotImplementedException();
         }
 
         public void OrderProduct(Product p, int amount)
         {
-            instance.OrderProduct(p, amount);
+            throw new NotImplementedException();
         }
 
         public void UpdateProduct(Product p)
         {
-            instance.UpdateProduct(p);
+            throw new NotImplementedException();
         }
     }
 }
