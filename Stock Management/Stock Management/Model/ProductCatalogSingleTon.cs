@@ -10,39 +10,35 @@ namespace Stock_Management.Model
 {
     class ProductCatalogSingleTon : IProductCatalogSingleton
     {
-
-
-
-        private static ProductCatalogSingleTon instance;
-
-        private ProductCatalogSingleTon() { }
-
-        public static ProductCatalogSingleTon Instance
+        public sealed class ProductCatalogSingleton
         {
-            get
+            private static ProductCatalogSingleton instance = null;
+            private static readonly object padlock = new object();
+
+            ProductCatalogSingleton()
             {
-                if (instance == null)
+            }
+
+            public static ProductCatalogSingleton Instance
+            {
+                get
                 {
-                    instance = new ProductCatalogSingleTon();
+                    lock (padlock)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ProductCatalogSingleton();
+                        }
+                        return Instance;
+                    }
                 }
-                return instance;
             }
         }
+    }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        public void CreateProduct(Product p)
+    public void CreateProduct(Product p)
         {
             instance.CreateProduct(p);
         }
