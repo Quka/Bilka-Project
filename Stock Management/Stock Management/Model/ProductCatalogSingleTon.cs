@@ -10,67 +10,61 @@ namespace Stock_Management.Model
 {
     class ProductCatalogSingleTon : IProductCatalogSingleton
     {
-        public sealed class ProductCatalogSingleton
+
+
+
+        private static ProductCatalogSingleTon instance;
+
+        private ProductCatalogSingleTon()
         {
-            private static ProductCatalogSingleton instance = null;
-            private static readonly object padlock = new object();
+        }
 
-            ProductCatalogSingleton()
+        public static ProductCatalogSingleTon Instance
+        {
+            get
             {
-            }
-
-            public static ProductCatalogSingleton Instance
-            {
-                get
+                if (instance == null)
                 {
-                    lock (padlock)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ProductCatalogSingleton();
-                        }
-                        return Instance;
-                    }
+                    instance = new ProductCatalogSingleTon();
                 }
+
+                return instance;
             }
         }
-    }
 
-
-
-    public void CreateProduct(Product p)
+        public void CreateProduct(Product p)
         {
-            instance.CreateProduct(p);
+            throw new NotImplementedException();
         }
 
         public void DeleteProduct(Product p)
         {
-            instance.DeleteProduct(p);
+            throw new NotImplementedException();
         }
 
         public List<Product> FindProducts(string s)
         {
-            return instance.FindProducts(s);
+            throw new NotImplementedException();
         }
 
         public Product FindSpecificProduct(int i)
         {
-            return instance.FindSpecificProduct(i);
+            throw new NotImplementedException();
         }
 
         public ObservableCollection<Product> LoadProductsAsync()
         {
-            return instance.LoadProductsAsync();
+            throw new NotImplementedException();
         }
 
         public void OrderProduct(Product p, int amount)
         {
-            instance.OrderProduct(p, amount);
+            throw new NotImplementedException();
         }
 
         public void UpdateProduct(Product p)
         {
-            instance.UpdateProduct(p);
+            throw new NotImplementedException();
         }
     }
 }
