@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock_Management
+namespace Stock_Management.PersistencyService.Interface
 {
-    class Test
-    {
-    }
+	interface IPersistencyService
+	{
+	}
 }

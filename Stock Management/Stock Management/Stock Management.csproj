@@ -98,8 +98,22 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Interface\IEmployee.cs" />
+    <Compile Include="Model\Interface\ILoginModel.cs" />
+    <Compile Include="Model\Interface\IOrder.cs" />
+    <Compile Include="Model\Interface\IProduct.cs" />
+    <Compile Include="Model\Interface\IProductCatalogSingleton.cs" />
+    <Compile Include="Model\Interface\IProductReturn.cs" />
+    <Compile Include="Model\Interface\ISupplier.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductReturn.cs" />
+    <Compile Include="Model\ReturnList.cs" />
+    <Compile Include="Model\Supplier.cs" />
+    <Compile Include="PersistencyService\Interface\IPersistencyService.cs" />
+    <Compile Include="PersistencyService\PersistencyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -131,6 +145,10 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.8</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Viewmodel\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
