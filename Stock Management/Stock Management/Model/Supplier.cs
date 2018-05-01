@@ -7,7 +7,15 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-	class Supplier : ISupplier
+    public class Supplier : ISupplier
 	{
+	    public string Name { get; set; }
+
+	    public string Address { get; set; }
+
+	    public string Email { get; set; }
+
+        //  Are we sure this should be a string and not an int? - Søren
+	    public string Phone { get; set; }
 	}
 }

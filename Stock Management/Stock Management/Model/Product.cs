@@ -8,7 +8,7 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-	class Product : IProduct
+    public class Product : IProduct
 	{
 	    public int ItemNr { get; set; }
 	    public string Name { get; set; }
