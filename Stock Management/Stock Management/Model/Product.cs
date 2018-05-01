@@ -10,6 +10,21 @@ namespace Stock_Management.Model
 {
 	class Product : IProduct
 	{
+	    public int ItemNr { get; set; }
+	    public string Name { get; set; }
+	    public double Price { get; set; }
+	    public int Stock { get; set; }
+	    //To DO 
+        public enum Status { }
+
+	    public string Description { get; set; }
+	    public Supplier Supplier { get; set; }
+	    public int MinStock { get; set; }
+	    public int RestockAmount { get; set; }
+	    public DateTime RestockPeriod { get; set; }
+	    public ObservableCollection<Order> OrderList { get; set; }
+	    public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
+
 	    public ObservableCollection<Order> GetOrderList()
 	    {
 	        throw new NotImplementedException();
