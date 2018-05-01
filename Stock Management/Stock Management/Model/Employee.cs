@@ -7,7 +7,7 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-	class Employee : IEmployee
+    public class Employee : IEmployee
 	{
 	}
 }
