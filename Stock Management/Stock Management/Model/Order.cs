@@ -7,7 +7,7 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-	class Order : IOrder
+    public class Order : IOrder
 	{
 	}
 }

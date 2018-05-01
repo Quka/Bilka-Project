@@ -7,7 +7,7 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-	class ProductReturn : IProductReturn
+    public class ProductReturn : IProductReturn
 	{
 	}
 }
