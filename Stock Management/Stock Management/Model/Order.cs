@@ -9,5 +9,20 @@ namespace Stock_Management.Model
 {
     public class Order : IOrder
 	{
+	    public Product Product { get; set; }
+
+	    public int Amount { get; set; }
+
+	    public Supplier Supplier { get; set; }
+
+      // TODO Add types to the enum.
+	    public enum Status { } 
+
+	    public DateTime DateTime { get; set; }
+
+	    public DateTime EstDelivery { get; set; }
+
+	    public bool IsApproved { get; set; }
+
 	}
 }
