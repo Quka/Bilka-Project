@@ -14,7 +14,7 @@ namespace Stock_Management.PersistencyService
 	    public void InsertProductAsync(Product p)
 	    {
 		    throw new NotImplementedException();
-	    }
+		}
 		public void UpdateProductAsync(Product p)
 	    {
 		    throw new NotImplementedException();
