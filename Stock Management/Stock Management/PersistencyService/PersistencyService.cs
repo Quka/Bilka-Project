@@ -11,7 +11,15 @@ namespace Stock_Management.PersistencyService
 {
     class PersistencyService : IPersistencyService
     {
-        public void DeleteProductAsync(Product p)
+	    public void InsertProductAsync(Product p)
+	    {
+		    throw new NotImplementedException();
+	    }
+		public void UpdateProductAsync(Product p)
+	    {
+		    throw new NotImplementedException();
+	    }
+		public void DeleteProductAsync(Product p)
         {
             throw new NotImplementedException();
         }
@@ -22,11 +30,6 @@ namespace Stock_Management.PersistencyService
         }
 
         public void InsertOrder(Order o)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertProductAsync(Product p)
         {
             throw new NotImplementedException();
         }
@@ -47,11 +50,6 @@ namespace Stock_Management.PersistencyService
         }
 
         public void UpdateOrder(Order o)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateProductAsync(Product p)
         {
             throw new NotImplementedException();
         }
