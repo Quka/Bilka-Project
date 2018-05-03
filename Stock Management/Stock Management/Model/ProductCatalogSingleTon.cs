@@ -10,12 +10,26 @@ namespace Stock_Management.Model
 {
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
+        #region Singleton
+
+        
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
         }
+        #endregion
 
+        #region Observable Collection
+        public ObservableCollection<Product> ProductList;
+
+        private ProductCatalogSingleton()
+        {
+            ProductList = new ObservableCollection<Product>();
+        }
+        #endregion
+
+        #region Exeptions
         public void CreateProduct(Product p)
         {
             throw new NotImplementedException();
@@ -50,5 +64,6 @@ namespace Stock_Management.Model
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
