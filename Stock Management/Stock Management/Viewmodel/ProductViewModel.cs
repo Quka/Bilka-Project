@@ -12,7 +12,7 @@ namespace Stock_Management.Viewmodel
     {
         public Product SelectedProduct { get; set; }
         public Product Product { get; set; }
-        public ProductCatalogSingleTon ProductCatalogSingleTon { get; set; }
+        public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
         public List<Supplier> ListSupplier { get; set; }
         public ICommand FindProductsCommand { get; set; }
         public ICommand SelectProductCommand { get; set; }
