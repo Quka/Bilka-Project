@@ -16,7 +16,10 @@ namespace Stock_Management.Model
 	    public Supplier Supplier { get; set; }
 
       // TODO Add types to the enum.
-	    public enum Status { } 
+	    public enum Status
+	    {
+	        PENDING, RECEIVED, CONFIRMED
+        } 
 
 	    public DateTime DateTime { get; set; }
 
