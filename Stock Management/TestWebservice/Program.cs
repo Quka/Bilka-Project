@@ -20,6 +20,7 @@ namespace TestWebservice
 			using (var client = new HttpClient(handler))
 			{
 				Product p = new Product();
+
 				client.BaseAddress = new Uri(serverUrl);
 				client.DefaultRequestHeaders.Clear();
 				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
