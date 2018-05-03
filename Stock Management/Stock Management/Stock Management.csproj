@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Common\RelayArgCommand.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Handler\IProductHandler.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
