@@ -12,7 +12,7 @@ namespace Stock_Management.Model
 	{
 	    public int ItemNr { get; set; }
 	    public string Name { get; set; }
-	    public double Price { get; set; }
+	    public decimal Price { get; set; }
 	    public int Stock { get; set; }
 	    //TODO Add enum types
         public enum Status { }
@@ -24,7 +24,7 @@ namespace Stock_Management.Model
 	    public ObservableCollection<Order> OrderList { get; set; }
 	    public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
 
-		public Product(int itemNr, string name, double price, int stock, string description, Supplier supplier, int minStock, int restockAmount, DateTime restockPeriod)
+		public Product(int itemNr, string name, decimal price, int stock, string description, Supplier supplier, int minStock, int restockAmount, DateTime restockPeriod)
 		{
 			ItemNr = itemNr;
 			Name = name;
