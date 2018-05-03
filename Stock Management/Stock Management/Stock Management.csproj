@@ -98,6 +98,7 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
+    <Compile Include="Viewmodel\ProductViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
