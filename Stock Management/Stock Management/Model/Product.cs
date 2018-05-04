@@ -22,8 +22,6 @@ namespace Stock_Management.Model
 	    public int MinStock { get; set; }
 	    public int RestockAmount { get; set; }
 	    public DateTime RestockPeriod { get; set; }
-	    public ObservableCollection<Order> OrderList { get; set; }
-	    public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
         #endregion
 
 	    #region Constructor
@@ -38,9 +36,16 @@ namespace Stock_Management.Model
 			MinStock = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
-			OrderList = this.GetOrderList();
-			ProductReturnList = this.GetProductReturnList();
 		}
+        #endregion
+
+        #region ObservableCollection
+   
+        public ObservableCollection<Order> OrderList;
+	    private Product()
+	    {
+	        OrderList = new ObservableCollection<Order>();
+	    }
         #endregion
 
         #region Exeptions

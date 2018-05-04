@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Stock_Management.Model.Interface;
+using Stock_Management.Viewmodel;
 
 namespace Stock_Management.Model
 {
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
         #region Singleton
-
-        
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
@@ -26,10 +25,13 @@ namespace Stock_Management.Model
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
+            
         }
+
+        
         #endregion
 
-       
+        
 
         #region Exeptions
         public void CreateProduct(Product p)

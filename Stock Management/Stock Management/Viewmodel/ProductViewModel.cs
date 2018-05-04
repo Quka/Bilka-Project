@@ -23,6 +23,7 @@ namespace Stock_Management.Viewmodel
         public ICommand ReturnProductCommand { get; set; }
         public ICommand ApproveOrderCommand { get; set; }
         public ICommand KeyUpSearchSupplier { get; set; }
+       
 
     }
 }
