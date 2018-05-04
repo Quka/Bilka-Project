@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Store;
 using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
@@ -29,23 +30,28 @@ namespace Stock_Management.Model
         }
         #endregion
 
-        #region Exeptions
-        public void CreateProduct(Product p)
+       
+        public void CreateProduct()
         {
-            throw new NotImplementedException();
+        
+            int p = 2;
+           
+            ProductList.Add(p);
+            LoadProductsAsync().Add(p);
+
         }
 
         public void DeleteProduct(Product p)
         {
-            throw new NotImplementedException();
+            ProductList.Remove(p);
         }
 
-        public void UpdateProduct(Product p)
+        public void UpdateProduct(Product f)
         {
             throw new NotImplementedException();
         }
 
-        public Product FindSpecificProduct(int i)
+        public Product FindSpecificProduct(int x)
         {
             throw new NotImplementedException();
         }
@@ -64,6 +70,6 @@ namespace Stock_Management.Model
         {
             throw new NotImplementedException();
         }
-        #endregion
+      
     }
 }
