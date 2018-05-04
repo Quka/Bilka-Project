@@ -29,14 +29,7 @@ namespace Stock_Management.Model
         }
         #endregion
 
-        #region Methods
-
-        public void CreateProduct(Product P)
-        {
-            
-        }
-
-        #endregion
+       
 
         #region Exeptions
         public void CreateProduct(Product p)
