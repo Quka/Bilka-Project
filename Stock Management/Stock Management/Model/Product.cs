@@ -10,7 +10,8 @@ namespace Stock_Management.Model
 {
     public class Product : IProduct
 	{
-	    public int ItemNr { get; set; }
+        #region Properties
+        public int ItemNr { get; set; }
 	    public string Name { get; set; }
 	    public decimal Price { get; set; }
 	    public int Stock { get; set; }
@@ -23,8 +24,10 @@ namespace Stock_Management.Model
 	    public DateTime RestockPeriod { get; set; }
 	    public ObservableCollection<Order> OrderList { get; set; }
 	    public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
+        #endregion
 
-		public Product(int itemNr, string name, decimal price, int stock, string description, Supplier supplier, int minStock, int restockAmount, DateTime restockPeriod)
+	    #region Constructor
+        public Product(int itemNr, string name, decimal price, int stock, string description, Supplier supplier, int minStock, int restockAmount, DateTime restockPeriod)
 		{
 			ItemNr = itemNr;
 			Name = name;
@@ -38,8 +41,10 @@ namespace Stock_Management.Model
 			OrderList = this.GetOrderList();
 			ProductReturnList = this.GetProductReturnList();
 		}
+        #endregion
 
-	    public ObservableCollection<Order> GetOrderList()
+        #region Exeptions
+        public ObservableCollection<Order> GetOrderList()
 	    {
 	        throw new NotImplementedException();
 	    }
@@ -53,5 +58,6 @@ namespace Stock_Management.Model
 	    {
 	        throw new NotImplementedException();
 	    }
-	}
+        #endregion
+    }
 }
