@@ -24,5 +24,9 @@ namespace Stock_Management.Viewmodel
         public ICommand ApproveOrderCommand { get; set; }
         public ICommand KeyUpSearchSupplier { get; set; }
 
+        public ProductViewModel()
+        {
+
+        }
     }
 }
