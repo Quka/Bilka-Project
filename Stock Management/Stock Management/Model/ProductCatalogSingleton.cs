@@ -4,32 +4,27 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Appointments.AppointmentsProvider;
 using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-    class ProductCatalogSingleton : IProductCatalogSingleton
+    public class ProductCatalogSingleton : IProductCatalogSingleton
     {
-        #region Singleton
-
-        
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
         }
-        #endregion
-
-        #region Observable Collection
-        public ObservableCollection<Product> ProductList;
+        
+        public ObservableCollection<Product> ProductList { get; set; }
 
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
+            LoadProductsAsync();
         }
-        #endregion
-
-        #region Exeptions
+        
         public void CreateProduct(Product p)
         {
             throw new NotImplementedException();
@@ -55,15 +50,19 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Product> LoadProductsAsync()
+        // TODO Add async later :)
+        public void LoadProductsAsync()
         {
-            throw new NotImplementedException();
-        }
+            ProductList.Add(new Product(1, "Cola", 19.95m, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
+            ProductList.Add(new Product(2, "Cola2", 19.95m, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
+
+            ProductList.Add(new Product(3, "Cola2", 19.95m, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
+            ProductList.Add(new Product(4, "Cola2", 19.95m, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
+        }   
 
         public void OrderProduct(Product p, int amount)
         {
             throw new NotImplementedException();
         }
-        #endregion
     }
 }
