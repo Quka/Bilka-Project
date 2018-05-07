@@ -73,7 +73,7 @@ namespace StockManagementWS
 
 			modelBuilder.Entity<Supplier>()
 				.Property(e => e.Address)
-				.HasPrecision(8, 2);
+				.IsUnicode(false);
 
 			modelBuilder.Entity<Supplier>()
 				.Property(e => e.Email)

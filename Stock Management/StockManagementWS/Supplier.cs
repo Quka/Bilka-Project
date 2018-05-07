@@ -22,7 +22,9 @@ namespace StockManagementWS
         [StringLength(100)]
         public string Name { get; set; }
 
-        public decimal Address { get; set; }
+	    [Required]
+	    [StringLength(200)]
+		public string Address { get; set; }
 
         [Required]
         [StringLength(200)]
