@@ -54,10 +54,10 @@ namespace Stock_Management.Model
 	        throw new NotImplementedException();
 	    }
 
-	    public void ApproveOrder(Order o)
-	    {
-	        throw new NotImplementedException();
-	    }
+        public void ApproveOrder(Order o)
+        {
+            throw new NotImplementedException();
+        }
 
 	    public ObservableCollection<ProductReturn> GetProductReturnList()
 	    {
