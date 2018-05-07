@@ -4,8 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Store;
 using Stock_Management.Model.Interface;
-using Stock_Management.Viewmodel;
+using Stock_Management.PersistencyService;
 
 namespace Stock_Management.Model
 {
@@ -20,7 +21,7 @@ namespace Stock_Management.Model
         #endregion
 
         #region Observable Collection
-        public ObservableCollection<Product> ProductList;
+        public ObservableCollection<Product> ProductList { get; set; }
 
         private ProductCatalogSingleton()
         {
@@ -31,25 +32,22 @@ namespace Stock_Management.Model
         
         #endregion
 
-        
-
-        #region Exeptions
         public void CreateProduct(Product p)
         {
-            throw new NotImplementedException();
+            ProductList.Add(p);
+            PersistencyService.InsertProductAsync(ProductList);
         }
-
         public void DeleteProduct(Product p)
         {
-            throw new NotImplementedException();
+            ProductList.Remove(p);
+            LoadProductsAsync().Remove(p);
         }
-
         public void UpdateProduct(Product p)
         {
-            throw new NotImplementedException();
+            //p.Description
         }
 
-        public Product FindSpecificProduct(int i)
+        public Product FindSpecificProduct(int x)
         {
             throw new NotImplementedException();
         }
@@ -68,6 +66,6 @@ namespace Stock_Management.Model
         {
             throw new NotImplementedException();
         }
-        #endregion
+      
     }
 }
