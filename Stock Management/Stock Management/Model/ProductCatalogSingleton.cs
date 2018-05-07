@@ -57,7 +57,7 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Product> LoadProductsAsync()
+        public void LoadProductsAsync()
         {
             throw new NotImplementedException();
         }

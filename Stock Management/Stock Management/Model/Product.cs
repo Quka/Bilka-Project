@@ -37,19 +37,8 @@ namespace Stock_Management.Model
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
 		}
-        #endregion
-
-        #region ObservableCollection
-   
-        public ObservableCollection<Order> OrderList;
-	    private Product()
-	    {
-	        OrderList = new ObservableCollection<Order>();
-	    }
-        #endregion
-
-        #region Exeptions
-        public ObservableCollection<Order> GetOrderList()
+        
+	    public ObservableCollection<Order> GetOrderList()
 	    {
 	        throw new NotImplementedException();
 	    }
@@ -63,6 +52,10 @@ namespace Stock_Management.Model
 	    {
 	        throw new NotImplementedException();
 	    }
-        #endregion
-    }
+
+	    public override string ToString()
+	    {
+	        return $"{nameof(ItemNr)}: {ItemNr}, {nameof(Name)}: {Name}, {nameof(Price)}: {Price}, {nameof(Stock)}: {Stock}, {nameof(Description)}: {Description}, {nameof(Supplier)}: {Supplier}, {nameof(MinStock)}: {MinStock}, {nameof(RestockAmount)}: {RestockAmount}, {nameof(RestockPeriod)}: {RestockPeriod}";
+	    }
+	}
 }
