@@ -35,8 +35,6 @@ namespace Stock_Management.Model
 			MinStock = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
-			OrderList = this.GetOrderList();
-			ProductReturnList = this.GetProductReturnList();
 		}
 
 		public ObservableCollection<Order> GetOrderList()
