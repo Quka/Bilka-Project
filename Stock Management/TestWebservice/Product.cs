@@ -10,28 +10,31 @@ namespace Stock_Management.Model
 {
 	public class Product
 	{
+		public int Id { get; set; }
+		public int SupplierId { get; set; }
 		public int ItemNr { get; set; }
 		public string Name { get; set; }
 		public decimal Price { get; set; }
 		public int Stock { get; set; }
 		//TODO Add enum types
-		public enum Status { }
+		public string Status { get; set; }
 		public string Description { get; set; }
-		public Supplier Supplier { get; set; }
 		public int MinStock { get; set; }
 		public int RestockAmount { get; set; }
 		public DateTime RestockPeriod { get; set; }
 		public ObservableCollection<Order> OrderList { get; set; }
 		public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
+		public Supplier Supplier { get; set; }
 
-		public Product(int itemNr, string name, decimal price, int stock, string description, Supplier supplier, int minStock, int restockAmount, DateTime restockPeriod)
+		public Product(int supplierId, int itemNr, string name, decimal price, int stock, string status, string description, int minStock, int restockAmount, DateTime restockPeriod)
 		{
+			SupplierId = supplierId;
 			ItemNr = itemNr;
 			Name = name;
 			Price = price;
 			Stock = stock;
+			Status = status;
 			Description = description;
-			Supplier = supplier;
 			MinStock = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
