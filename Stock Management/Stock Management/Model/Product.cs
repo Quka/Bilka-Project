@@ -35,10 +35,8 @@ namespace Stock_Management.Model
 			MinStock = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
-			OrderList = this.GetOrderList();
-			ProductReturnList = this.GetProductReturnList();
 		}
-
+        
 	    public ObservableCollection<Order> GetOrderList()
 	    {
 	        throw new NotImplementedException();
@@ -52,6 +50,11 @@ namespace Stock_Management.Model
 	    public ObservableCollection<ProductReturn> GetProductReturnList()
 	    {
 	        throw new NotImplementedException();
+	    }
+
+	    public override string ToString()
+	    {
+	        return $"{nameof(ItemNr)}: {ItemNr}, {nameof(Name)}: {Name}, {nameof(Price)}: {Price}, {nameof(Stock)}: {Stock}, {nameof(Description)}: {Description}, {nameof(Supplier)}: {Supplier}, {nameof(MinStock)}: {MinStock}, {nameof(RestockAmount)}: {RestockAmount}, {nameof(RestockPeriod)}: {RestockPeriod}";
 	    }
 	}
 }
