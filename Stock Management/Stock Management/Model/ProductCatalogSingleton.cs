@@ -13,8 +13,6 @@ namespace Stock_Management.Model
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
         #region Singleton
-
-        
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
@@ -28,7 +26,10 @@ namespace Stock_Management.Model
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
+            
         }
+
+        
         #endregion
 
         public void CreateProduct(Product p)
