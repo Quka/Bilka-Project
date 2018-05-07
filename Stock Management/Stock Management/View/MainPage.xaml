@@ -30,10 +30,10 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView HorizontalAlignment="Left" Height="390" Margin="548,100,0,0" VerticalAlignment="Top" Width="282" CanReorderItems="True" ItemsSource="{Binding ProductCatalogSingleton.ProductList}" SelectionChanged="ListView_SelectionChanged">
+        <ListView HorizontalAlignment="Left" Height="390" Margin="498,101,0,0" VerticalAlignment="Top" Width="282" CanReorderItems="True" ItemsSource="{Binding ProductCatalogSingleton.ProductList}" SelectionChanged="ListView_SelectionChanged">
             <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
         </ListView>
-        <ListView HorizontalAlignment="Left" Height="161" Margin="286,266,0,0" VerticalAlignment="Top" Width="257"/>
+        <ListView HorizontalAlignment="Left" Height="213" Margin="223,247,0,0" VerticalAlignment="Top" Width="250" IsSynchronizedWithCurrentItem="False"/>
 
     </Grid>
 </Page>
