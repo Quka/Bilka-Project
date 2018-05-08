@@ -61,15 +61,6 @@ namespace Stock_Management.Model
         public void LoadProductsAsync()
         {
             ProductList.Add(new Product(1, "Cola", 19.95m, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(2, "Vand", 32.95m, 2, "Vand uden brus", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(3, "Samsung Galaxy s8", 2999.95m, 5, "Lækkert mobil fordi Benjamin har den.", new Supplier(), 1,5, DateTime.Now));
-            ProductList.Add(new Product(4, "Lenovo Legion Y520", 7999.95m, 2,"lækkert PC", new Supplier(), 1,5,DateTime.Now));
-            ProductList.Add(new Product(5, "Samsung Galaxy s9", 5000m, 3, "Nyeste i serien", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(6, "Græsk Pony", 34999.95m, 2,"Flot hest, som minder om hakan<3",new Supplier(), 1,3,DateTime.Now));
-            ProductList.Add(new Product(7, "Dildo", 999.95m, 2, "lækkert forlængerledning", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(8, "Swordfish", 99.95m, 2, "Skulle smage godt", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(9, "Gamer Stol fra SHABZ", 9999.95m, 2, "Det ikke en stol", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(10, "Mus", 7999.95m, 2, "Gamer mus fra MacDonald", new Supplier(), 1, 5, DateTime.Now));
         }
 
         public void OrderProduct(Product p, int amount)
