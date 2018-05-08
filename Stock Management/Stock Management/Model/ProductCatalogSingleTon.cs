@@ -36,12 +36,12 @@ namespace Stock_Management.Model
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
-            PersistencyService.InsertProductAsync(ProductList);
+        //   PersistencyService.InsertProductAsync(ProductList);
         }
         public void DeleteProduct(Product p)
         {
             ProductList.Remove(p);
-            LoadProductsAsync().Remove(p);
+       //     LoadProductsAsync().Remove(p);
         }
         public void UpdateProduct(Product p)
         {
