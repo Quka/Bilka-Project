@@ -83,6 +83,7 @@ namespace TestWebservice
 			*/
 
 			// UPDATE example
+			/*
 			using (var client = new HttpClient(handler))
 			{
 				Product p = new Product(1, 12345, "UPDATE TEST", 123.12m, 5, "Test status", "test description", 3, 2, DateTime.Now);
@@ -115,7 +116,30 @@ namespace TestWebservice
 					Console.WriteLine(ex);
 				}
 			}
+			*/
 
+			// DELETE example
+			/*
+			using (var client = new HttpClient(handler))
+			{
+				client.BaseAddress = new Uri(serverUrl);
+				client.DefaultRequestHeaders.Clear();
+				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+				try
+				{
+					Console.WriteLine("DELETE Product\n");
+
+					Console.WriteLine(client.DeleteAsync("api/Products/2").Result);
+					Console.ReadKey();
+				}
+				catch (Exception ex)
+				{
+					//new MessageDialog(ex.Message).ShowAsync();
+					Console.WriteLine(ex);
+				}
+			}
+			*/
 		}
 	}
 }
