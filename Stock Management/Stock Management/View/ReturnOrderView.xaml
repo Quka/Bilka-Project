@@ -27,6 +27,7 @@
             <Run Text="d"/>
         </TextBlock>
         <Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308"/>
+        <Image HorizontalAlignment="Left" Height="377" Margin="683,330,0,0" VerticalAlignment="Top" Width="500" Source="ms-appx:///Assets/bilka_logo.png"/>
 
     </Grid>
 </Page>
