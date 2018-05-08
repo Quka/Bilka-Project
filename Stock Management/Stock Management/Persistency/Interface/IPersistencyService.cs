@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Stock_Management.Model;
 
-namespace Stock_Management.PersistencyService.Interface
+namespace Stock_Management.Persistency.Interface
 {
 	interface IPersistencyService
 	{

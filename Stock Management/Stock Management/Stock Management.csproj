@@ -120,8 +120,8 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductReturn.cs" />
     <Compile Include="Model\Supplier.cs" />
-    <Compile Include="PersistencyService\Interface\IPersistencyService.cs" />
-    <Compile Include="PersistencyService\PersistencyService.cs" />
+    <Compile Include="Persistency\Interface\IPersistencyService.cs" />
+    <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,10 +166,6 @@
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Product.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProductOrderView.xaml">
       <SubType>Designer</SubType>

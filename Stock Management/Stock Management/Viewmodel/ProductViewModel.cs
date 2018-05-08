@@ -10,17 +10,10 @@ namespace Stock_Management.Viewmodel
 {
     class ProductViewModel
     {
-
-
-
-        #region Stuff that I think we'll need   
-
         public int ItemNr { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
-
-        #endregion
 
         public Product SelectedProduct { get; set; }
         public Product Product { get; set; }

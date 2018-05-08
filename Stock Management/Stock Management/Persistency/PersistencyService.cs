@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using Stock_Management.Model;
-using Stock_Management.PersistencyService.Interface;
 
-namespace Stock_Management.PersistencyService
+namespace Stock_Management.Persistency
 {
     class PersistencyService
     {

@@ -16,12 +16,15 @@ namespace Stock_Management.Model
 	    public string Name { get; set; }
 	    public decimal Price { get; set; }
 	    public int Stock { get; set; }
-		public enum EnumStatus
+		/*
+		 public enum EnumStatus
 		{
 			AVAILABLE,
 			SOLDOUT
 		}
 		public EnumStatus Status { get; set; }
+        */
+	    public string Status { get; set; }
 	    public string Description { get; set; }
 	    public int MinStock { get; set; }
 	    public int RestockAmount { get; set; }
@@ -30,7 +33,7 @@ namespace Stock_Management.Model
 		public ObservableCollection<Order> OrderList { get; set; }
 		public ObservableCollection<ProductReturn> ProductReturns { get; set; }	
 
-        public Product(int supplierId, int itemNr, string name, decimal price, int stock, EnumStatus status, string description, int minStock, int restockAmount, DateTime restockPeriod)
+        public Product(int supplierId, int itemNr, string name, decimal price, int stock, string status, string description, int minStock, int restockAmount, DateTime restockPeriod)
         {
 	        SupplierId = supplierId;
 			ItemNr = itemNr;
