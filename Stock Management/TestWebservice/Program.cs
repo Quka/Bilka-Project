@@ -35,7 +35,10 @@ namespace TestWebservice
 						var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;
 						products = products.ToList();
 
-						Console.WriteLine(products);
+						foreach (Product p in products)
+						{
+							Console.WriteLine("Product id: " + p.Id);
+						}
 					}
 
 					Console.WriteLine(response.RequestMessage);
