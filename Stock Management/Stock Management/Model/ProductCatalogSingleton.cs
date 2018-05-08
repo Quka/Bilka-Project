@@ -12,35 +12,28 @@ namespace Stock_Management.Model
 {
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
-        #region Singleton
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
         }
-        #endregion
 
-        #region Observable Collection
         public ObservableCollection<Product> ProductList { get; set; }
 
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
-            
         }
-
-        
-        #endregion
 
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
-            PersistencyService.InsertProductAsync(ProductList);
+            //PersistencyService.InsertProductAsync(ProductList);
         }
         public void DeleteProduct(Product p)
         {
             ProductList.Remove(p);
-            LoadProductsAsync().Remove(p);
+            //LoadProductsAsync().Remove(p);
         }
         public void UpdateProduct(Product p)
         {

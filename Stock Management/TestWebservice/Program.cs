@@ -21,7 +21,6 @@ namespace TestWebservice
 			handler.UseDefaultCredentials = true;
 
 			// SELECT example
-			/*
 			using (var client = new HttpClient(handler))
 			{
 				client.BaseAddress = new Uri(serverUrl);
@@ -47,7 +46,6 @@ namespace TestWebservice
 					throw;
 				}
 			}
-			*/
 
 			// INSERT example
 			/*
