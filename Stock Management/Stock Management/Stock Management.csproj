@@ -103,6 +103,7 @@
     <Compile Include="Handler\ProductHandler.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
+    <Compile Include="Model\Xaml tools\AutoSuggestBox.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
     <Compile Include="Viewmodel\ProductViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">
@@ -166,10 +167,6 @@
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Product.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProductOrderView.xaml">
       <SubType>Designer</SubType>
