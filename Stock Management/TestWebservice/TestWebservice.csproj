@@ -63,5 +63,25 @@
       <Name>StockManagementWS</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\openshareicon-10x10.jpg" />
+    <Content Include="Content\openshareicon-10x10.png" />
+    <Content Include="Content\openshareicon-128x128.jpg" />
+    <Content Include="Content\openshareicon-128x128.png" />
+    <Content Include="Content\openshareicon-12x12.jpg" />
+    <Content Include="Content\openshareicon-12x12.png" />
+    <Content Include="Content\openshareicon-14x14.jpg" />
+    <Content Include="Content\openshareicon-14x14.png" />
+    <Content Include="Content\openshareicon-150x150.jpg" />
+    <Content Include="Content\openshareicon-150x150.png" />
+    <Content Include="Content\openshareicon-16x16.jpg" />
+    <Content Include="Content\openshareicon-16x16.png" />
+    <Content Include="Content\openshareicon-24x24.jpg" />
+    <Content Include="Content\openshareicon-24x24.png" />
+    <Content Include="Content\openshareicon-32x32.jpg" />
+    <Content Include="Content\openshareicon-32x32.png" />
+    <Content Include="Content\openshareicon-64x64.jpg" />
+    <Content Include="Content\openshareicon-64x64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

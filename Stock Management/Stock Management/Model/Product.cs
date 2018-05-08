@@ -24,7 +24,7 @@ namespace Stock_Management.Model
 	    public DateTime RestockPeriod { get; set; }
         #endregion
 
-	    #region Constructor
+	    
         public Product(int itemNr, string name, decimal price, int stock, string description, Supplier supplier, int minStock, int restockAmount, DateTime restockPeriod)
 		{
 			ItemNr = itemNr;
