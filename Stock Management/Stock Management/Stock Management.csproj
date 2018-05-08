@@ -121,8 +121,8 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductReturn.cs" />
     <Compile Include="Model\Supplier.cs" />
-    <Compile Include="PersistencyService\Interface\IPersistencyService.cs" />
-    <Compile Include="PersistencyService\PersistencyService.cs" />
+    <Compile Include="Persistency\Interface\IPersistencyService.cs" />
+    <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

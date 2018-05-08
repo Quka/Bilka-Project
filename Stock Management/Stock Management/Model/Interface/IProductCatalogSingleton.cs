@@ -16,8 +16,6 @@ namespace Stock_Management.Model.Interface
 		Product FindSpecificProduct(int i);
 		List<Product> FindProducts(String s);
 
-		void LoadProductsAsync();
-
 		void OrderProduct(Product p, int amount);
 	}
 }

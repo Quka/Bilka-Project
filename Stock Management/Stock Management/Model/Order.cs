@@ -9,23 +9,34 @@ namespace Stock_Management.Model
 {
     public class Order : IOrder
 	{
-	    public Product Product { get; set; }
+		public int Id { get; set; }
+		public int ProductId { get; set; }
+		public int SupplierId { get; set; }
 
-	    public int Amount { get; set; }
+		public enum EnumStatus
+		{
+			PENDING,
+			RECEIVED,
+			CONFIRMED
+		}
+		public EnumStatus Status { get; set; }
+		public int Amount { get; set; }
+		public DateTime Date { get; set; }
+		public DateTime EstDelivery { get; set; }
+		public bool Approved { get; set; }
+
+		public Product Product { get; set; }
+
+	    
 
 	    public Supplier Supplier { get; set; }
+		
 
-      // TODO Add types to the enum.
-	    public enum Status
-	    {
-	        PENDING, RECEIVED, CONFIRMED
-        } 
+		
 
-	    public DateTime DateTime { get; set; }
+	    
 
-	    public DateTime EstDelivery { get; set; }
-
-	    public bool IsApproved { get; set; }
+	    
 
 	}
 }
