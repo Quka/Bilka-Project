@@ -21,7 +21,6 @@ namespace TestWebservice
 			handler.UseDefaultCredentials = true;
 
 			// SELECT example
-			/*
 			using (var client = new HttpClient(handler))
 			{
 				client.BaseAddress = new Uri(serverUrl);
@@ -36,7 +35,10 @@ namespace TestWebservice
 						var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;
 						products = products.ToList();
 
-						Console.WriteLine(products);
+						foreach (Product p in products)
+						{
+							Console.WriteLine("Product id: " + p.Id);
+						}
 					}
 
 					Console.WriteLine(response.RequestMessage);
@@ -47,7 +49,6 @@ namespace TestWebservice
 					throw;
 				}
 			}
-			*/
 
 			// INSERT example
 			/*

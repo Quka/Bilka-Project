@@ -12,15 +12,12 @@ namespace Stock_Management.Model
 {
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
-        #region Singleton
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
         }
-        #endregion
 
-        #region Observable Collection
         public ObservableCollection<Product> ProductList { get; set; }
 
         private ProductCatalogSingleton()
@@ -29,9 +26,6 @@ namespace Stock_Management.Model
             LoadProductsAsync();
             
         }
-
-        
-        #endregion
 
         public void CreateProduct(Product p)
         {

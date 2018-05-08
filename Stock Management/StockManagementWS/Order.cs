@@ -15,6 +15,8 @@ namespace StockManagementWS
 
         public int SupplierId { get; set; }
 
+	    public int Amount { get; set; }
+
         [Required]
         [StringLength(200)]
         public string Status { get; set; }

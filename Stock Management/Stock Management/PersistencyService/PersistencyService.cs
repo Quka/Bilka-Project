@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Stock_Management.Model;
@@ -9,7 +11,7 @@ using Stock_Management.PersistencyService.Interface;
 
 namespace Stock_Management.PersistencyService
 {
-    class PersistencyService : IPersistencyService
+    class PersistencyService
     {
 	    public void InsertProductAsync(Product p)
 	    {
@@ -34,20 +36,46 @@ namespace Stock_Management.PersistencyService
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Order> LoadOrdersAsync()
+        public static async Task<List<Order>> LoadOrdersAsync()
         {
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<ProductReturn> LoadProductReturnsAsync()
+        public static async Task<List<ProductReturn>> LoadProductReturnsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Product> LoadProductsAsync()
+        public static async Task<List<Product>> LoadProductsAsync()
         {
-            throw new NotImplementedException();
-        }
+	        string serverUrl = "http://localhost:55001";
+	        HttpClientHandler HttpClientHandler = new HttpClientHandler();
+	        HttpClientHandler.UseDefaultCredentials = true;
+
+			using (var client = new HttpClient(HttpClientHandler))
+			{
+				client.BaseAddress = new Uri(serverUrl);
+				client.DefaultRequestHeaders.Clear();
+				client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+				try
+				{
+					var response = client.GetAsync("api/Products").Result;
+					if (response.IsSuccessStatusCode)
+					{
+						var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;
+
+						return products.ToList();
+					}
+
+					return null;
+				}
+				catch (Exception)
+				{
+					throw;
+				}
+			}
+		}
 
         public void UpdateOrder(Order o)
         {
