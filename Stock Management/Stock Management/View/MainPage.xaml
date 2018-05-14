@@ -20,11 +20,9 @@
         </DataTemplate>
         <DataTemplate x:Key="ProductName1">
             
-            <StackPanel HorizontalAlignment="Left" Height="100" Margin="417,658,0,0" VerticalAlignment="Top" Width="100">
-                <StackPanel Margin="0,0,-58,0" Orientation="Horizontal"/>
+            
                 <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
-                <TextBlock TextWrapping="Wrap" Text="{Binding ItemNr}"/>
-            </StackPanel>
+               
 
         </DataTemplate>
 
@@ -59,7 +57,7 @@
         </ListView>
         <Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
         <Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
-        <AutoSuggestBox HorizontalAlignment="Left" Margin="603,481,0,0" VerticalAlignment="Top" Width="224"  ItemsSource="{Binding ProductCatalogSingleton.ProductList}" TextChanged="AutoSuggestBox_TextChanged" ItemTemplate="{StaticResource ProductName1}"/>
+        <AutoSuggestBox HorizontalAlignment="Left" Margin="603,345,0,0" VerticalAlignment="Top" Width="224"  ItemsSource="{Binding ProductCatalogSingleton.ProductList}" TextChanged="AutoSuggestBox_TextChanged" ItemTemplate="{StaticResource ProductName1}"/>
         
 
 
