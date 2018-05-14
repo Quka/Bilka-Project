@@ -26,7 +26,7 @@ namespace Stock_Management.Model
             LoadProductsAsync();
             
         }
-
+        #region
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
