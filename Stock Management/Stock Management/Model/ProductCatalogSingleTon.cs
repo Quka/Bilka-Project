@@ -29,9 +29,10 @@ namespace Stock_Management.Model
             
         }
 
-        
+
         #endregion
 
+        #region Methods
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
@@ -46,7 +47,9 @@ namespace Stock_Management.Model
         {
             //p.Description
         }
+        #endregion
 
+        #region Exeptions
         public Product FindSpecificProduct(int x)
         {
             throw new NotImplementedException();
@@ -66,6 +69,6 @@ namespace Stock_Management.Model
         {
             throw new NotImplementedException();
         }
-      
+        #endregion
     }
 }
