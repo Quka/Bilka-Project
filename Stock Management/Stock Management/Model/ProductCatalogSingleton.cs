@@ -26,6 +26,7 @@ namespace Stock_Management.Model
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
+            LoadProductsAsync();
             
         }
 
@@ -36,12 +37,12 @@ namespace Stock_Management.Model
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
-            PersistencyService.InsertProductAsync(ProductList);
+        //   PersistencyService.InsertProductAsync(ProductList);
         }
         public void DeleteProduct(Product p)
         {
             ProductList.Remove(p);
-            LoadProductsAsync().Remove(p);
+       //     LoadProductsAsync().Remove(p);
         }
         public void UpdateProduct(Product p)
         {
@@ -60,9 +61,9 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Product> LoadProductsAsync()
+        public void LoadProductsAsync()
         {
-            throw new NotImplementedException();
+            ProductList.Add(new Product(1, "Cola", 19.95m, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
         }
 
         public void OrderProduct(Product p, int amount)
