@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Stock_Management.Model;
 using Stock_Management.Viewmodel;
 
 namespace Stock_Management.Handler
