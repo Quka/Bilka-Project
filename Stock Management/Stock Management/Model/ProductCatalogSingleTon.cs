@@ -13,7 +13,7 @@ namespace Stock_Management.Model
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
         #region Singleton
-        private static ProductCatalogSingleton _instance;
+        private static ProductCatalogSingleton _instance = null;
         public static ProductCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
@@ -26,11 +26,15 @@ namespace Stock_Management.Model
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
-            
+            LoadProductsAsync();
         }
-
-        
         #endregion
+
+        public async void LoadProductsAsync()
+        {
+            var products = await PersistencyService.
+
+        }
 
         public void CreateProduct(Product p)
         {
@@ -57,10 +61,10 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<Product> LoadProductsAsync()
-        {
-            throw new NotImplementedException();
-        }
+        //public ObservableCollection<Product> LoadProductsAsync()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void OrderProduct(Product p, int amount)
         {
