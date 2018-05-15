@@ -24,13 +24,11 @@ namespace Stock_Management.Model
         {
             ProductList = new ObservableCollection<Product>();
             LoadProductsAsync();
-            
         }
 
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
-
 	        PersistencyService.InsertProductAsync(p);
         }
         public void DeleteProduct(Product p)
@@ -40,7 +38,10 @@ namespace Stock_Management.Model
         }
         public void UpdateProduct(Product p)
         {
-            //p.Description
+			// TODO update product in the ProductCatalogSingleton list as well
+
+			// Update product in DB
+            PersistencyService.UpdateProductAsync(p);
         }
 
         public Product FindSpecificProduct(int x)
