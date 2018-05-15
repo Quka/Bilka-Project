@@ -20,7 +20,7 @@ namespace Stock_Management.Handler
 
         public void SetSelectedProduct(Product p)
         {
-            throw new NotImplementedException();
+            ProductViewModel.SelectedProduct = p;
         }
 
         public void CreateProduct()

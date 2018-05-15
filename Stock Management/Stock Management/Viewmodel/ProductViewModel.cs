@@ -15,12 +15,14 @@ namespace Stock_Management.Viewmodel
         public decimal Price { get; set; }
         public int Stock { get; set; }
 
+        
         public Product SelectedProduct { get; set; }
         public Product Product { get; set; }
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
         public List<Supplier> ListSupplier { get; set; }
         public ICommand FindProductsCommand { get; set; }
-        public ICommand SelectProductCommand { get; set; }
+        private ICommand _selectProductCommand;
+       
         public ICommand CreateProductCommand { get; set; }
         public ICommand UpdateProductCommand { get; set; }
         public ICommand DeleteProductCommand { get; set; }
@@ -28,7 +30,14 @@ namespace Stock_Management.Viewmodel
         public ICommand ReturnProductCommand { get; set; }
         public ICommand ApproveOrderCommand { get; set; }
         public ICommand KeyUpSearchSupplier { get; set; }
-       
+
+
+        public ICommand SelectProductCommand
+        {
+            get;
+            set;
+        }
+
 
         public ProductViewModel()
         {
