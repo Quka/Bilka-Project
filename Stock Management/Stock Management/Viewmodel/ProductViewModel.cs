@@ -13,6 +13,7 @@ namespace Stock_Management.Viewmodel
     class ProductViewModel
 	{
 		// We might only need Product property, instead of itemnr etc...
+        // Pretty sure we need the other properties when we bind them later on, at least they were indeeded in the eventmaker example.
 		public Product Product { get; set; }
 		public int ItemNr { get; set; }
         public string Name { get; set; }
@@ -25,10 +26,12 @@ namespace Stock_Management.Viewmodel
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _createProductCommand;
+	    private ICommand _selectedProductCommand;
 		private ICommand _updateProductCommand;
 
 		public ICommand FindProductsCommand { get; set; }
-		public ICommand SelectProductCommand { get; set; }
+		
+
 		public ICommand CreateProductCommand
 	    {
 		    get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
@@ -46,6 +49,13 @@ namespace Stock_Management.Viewmodel
 		public ICommand ApproveOrderCommand { get; set; }
 		public ICommand KeyUpSearchSupplier { get; set; }
        
+
+        public ICommand SelectProductCommand
+        {
+            get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
+            set { _selectedProductCommand = value; }
+        }
+
 
         public ProductViewModel()
         {
