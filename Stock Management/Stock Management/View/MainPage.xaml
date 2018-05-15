@@ -49,7 +49,7 @@
 		<Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
 		<Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
 		<AutoSuggestBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="246" Margin="627,336,0,0" QueryIcon="Find" ItemsSource="{Binding ProductCatalogSingleton.ProductList}"/>
-		<Button Content="Se produkt (hardcoded)" HorizontalAlignment="Left" Margin="428,238.5,0,0" VerticalAlignment="Top" Height="45" Width="205" Grid.Row="1">
+		<Button Content="Se produkt (hardcoded)" HorizontalAlignment="Left" Margin="242,0.5,0,0" VerticalAlignment="Top" Height="45" Width="205" Grid.Row="1">
 			<Interactivity:Interaction.Behaviors>
 				<Core:EventTriggerBehavior EventName="Click">
 					<Core:NavigateToPageAction TargetPage="Stock_Management.View.ProductView"/>
