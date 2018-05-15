@@ -12,13 +12,27 @@ namespace Stock_Management.Viewmodel
 {
     class ProductViewModel
 	{
-		// We might only need Product property, instead of itemnr etc...
+        // We might only need Product property, instead of itemnr etc...
         // Pretty sure we need the other properties when we bind them later on, at least they were indeeded in the eventmaker example.
-		public Product Product { get; set; }
-		public int ItemNr { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
+
+
+        #region Søren's playzone
+
+	    public int SupplierId { get; set; }
+	    public int ItemNr { get; set; }
+	    public string Name { get; set; }
+	    public decimal Price { get; set; }
+	    public int Stock { get; set; }
+	    public string Status { get; set; }
+	    public string Description { get; set; }
+	    public int MinStock { get; set; }
+	    public int RestockAmount { get; set; }
+	    public DateTime RestockPeriod { get; set; } 
+
+        #endregion
+
+
+        public Product Product { get; set; }
 		public List<Supplier> ListSupplier { get; set; }
 
 		public static Product SelectedProduct { get; set; }
@@ -32,11 +46,11 @@ namespace Stock_Management.Viewmodel
 		public ICommand FindProductsCommand { get; set; }
 		
 
-		public ICommand CreateProductCommand
-	    {
-		    get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
-		    set { _createProductCommand = value; }
-		}
+		//public ICommand CreateProductCommand
+	 //   {
+		//    get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
+		//    set { _createProductCommand = value; }
+		//}
 		public ICommand UpdateProductCommand
 		{
 			get { return _updateProductCommand ?? (_updateProductCommand = new RelayCommand(ProductHandler.UpdateProduct)); }

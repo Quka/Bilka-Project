@@ -29,24 +29,35 @@ namespace Stock_Management.Handler
             ProductViewModel.SelectedProduct = p;
         }
 
-        public void CreateProduct()
-        {
-	        // TODO add dynamic product and remove test produt
-	        Product testProduct = new Product(
-		        1,
-		        9909,
-		        "Test Product",
-		        500.50m,
-		        5,
-		        "Test status",
-		        "test description",
-		        3,
-		        2,
-		        DateTime.Now
-	        );
+//        public void CreateProduct()
+//        {
+//// TODO add dynamic product and remove test produt
 
-			ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
-		}
+//            Product CreateNewProduct = 
+//                new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name, 
+//                            ProductViewModel.Price, ProductViewModel.Stock, ProductViewModel.Status, 
+//                            ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount, 
+//                            ProductViewModel.RestockPeriod);
+//            ProductViewModel.ProductCatalogSingleton.CreateProduct(CreateNewProduct);
+            
+
+
+            
+//	  //      Product testProduct = new Product( 1,9909,"Name of the product",500.50m,5,"The status of the product","Description",3,2,DateTime.Now
+//		 //       //1,
+//		 //       //9909,
+//		 //       //"Test Product",
+//		 //       //500.50m,
+//		 //       //5,
+//		 //       //"Test status",
+//		 //       //"test description",
+//		 //       //3,
+//		 //       //2,
+//		 //       //DateTime.Now
+//	  //      );
+
+//			//ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
+//		}
 
         public void UpdateProduct()
         {
