@@ -73,12 +73,12 @@ namespace TestWebservice
 					/*Console.WriteLine(postBody);
 					Console.WriteLine(content.ToString());*/
 
-					/*
+					
 					HttpResponseMessage response = client.PostAsync("api/Products", content).Result;
 
-					string responseBody = response.Content.ReadAsStringAsync();
+					string responseBody = response.Content.ReadAsStringAsync().ToString();
 
-					Console.WriteLine(.Content);*/
+					Console.WriteLine(responseBody);
 					Console.ReadKey();
 				}
 				catch (Exception ex)

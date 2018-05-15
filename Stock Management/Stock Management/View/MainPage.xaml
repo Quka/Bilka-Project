@@ -29,13 +29,14 @@
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition/>
+			<RowDefinition Height="502.5"/>
+			<RowDefinition Height="497.5"/>
 		</Grid.RowDefinitions>
-		<Grid Margin="-1,0,440,828" d:IsLocked="True"/>
+		<Grid Margin="-1,0,440,330.5" d:IsLocked="True"/>
 		<Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
-		<Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
+		<Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True" Grid.RowSpan="2"/>
 		<Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
-		<Grid HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" d:IsLocked="True"/>
+		<Grid HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" d:IsLocked="True" Grid.RowSpan="2"/>
 
 		<Grid HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500" d:IsLocked="True"/>
 		<Button Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317"/>
@@ -48,7 +49,7 @@
 		<Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
 		<Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
 		<AutoSuggestBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="246" Margin="627,336,0,0" QueryIcon="Find" ItemsSource="{Binding ProductCatalogSingleton.ProductList}"/>
-		<Button Content="Se produkt (hardcoded)" HorizontalAlignment="Left" Margin="428,741,0,0" VerticalAlignment="Top" Height="45" Width="205">
+		<Button Content="Se produkt (hardcoded)" HorizontalAlignment="Left" Margin="428,238.5,0,0" VerticalAlignment="Top" Height="45" Width="205" Grid.Row="1">
 			<Interactivity:Interaction.Behaviors>
 				<Core:EventTriggerBehavior EventName="Click">
 					<Core:NavigateToPageAction TargetPage="Stock_Management.View.ProductView"/>
@@ -59,6 +60,13 @@
 			<Interactivity:Interaction.Behaviors>
 				<Core:EventTriggerBehavior EventName="Click">
 					<Core:NavigateToPageAction TargetPage="Stock_Management.View.CreateProduct"/>
+				</Core:EventTriggerBehavior>
+			</Interactivity:Interaction.Behaviors>
+		</Button>
+		<Button Content="View UpdateProductPage" HorizontalAlignment="Left" Margin="264,404,0,0" VerticalAlignment="Top">
+			<Interactivity:Interaction.Behaviors>
+				<Core:EventTriggerBehavior EventName="Click">
+					<Core:NavigateToPageAction TargetPage="Stock_Management.View.EditProductView"/>
 				</Core:EventTriggerBehavior>
 			</Interactivity:Interaction.Behaviors>
 		</Button>

@@ -15,11 +15,10 @@
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<Button Content="Create TestProduct" HorizontalAlignment="Left" Margin="726,527,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
-
-		<Button Content="Tilbage" HorizontalAlignment="Left" Margin="213,205,0,763">
+		<Button Content="Tilbage" HorizontalAlignment="Left" Margin="278,244,0,0" VerticalAlignment="Top">
 			<Interactivity:Interaction.Behaviors>
 				<Core:EventTriggerBehavior EventName="Click">
-					<Core:NavigateToPageAction TargetPage="Stock_Management.View.MainPage"/>
+					<Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
 				</Core:EventTriggerBehavior>
 			</Interactivity:Interaction.Behaviors>
 		</Button>

@@ -25,17 +25,21 @@ namespace Stock_Management.Viewmodel
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _createProductCommand;
+		private ICommand _updateProductCommand;
 
 		public ICommand FindProductsCommand { get; set; }
 		public ICommand SelectProductCommand { get; set; }
-
 		public ICommand CreateProductCommand
 	    {
 		    get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
 		    set { _createProductCommand = value; }
 		}
+		public ICommand UpdateProductCommand
+		{
+			get { return _updateProductCommand ?? (_updateProductCommand = new RelayCommand(ProductHandler.UpdateProduct)); }
+			set { _createProductCommand = value; }
+		}
 
-		public ICommand UpdateProductCommand { get; set; }
 		public ICommand DeleteProductCommand { get; set; }
 		public ICommand ManualOrderCommand { get; set; }
 		public ICommand ReturnProductCommand { get; set; }
