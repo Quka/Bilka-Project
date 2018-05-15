@@ -12,7 +12,7 @@ namespace Stock_Management.Handler
     {
         List<Product> FindProducts(String s);
         void SetSelectedProduct(Product p);
-       // void CreateProduct();
+        void CreateProduct();
         void UpdateProduct();
         void DeleteProduct();
         void ManualOrder();

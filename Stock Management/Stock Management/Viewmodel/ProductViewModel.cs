@@ -44,14 +44,14 @@ namespace Stock_Management.Viewmodel
 		private ICommand _updateProductCommand;
 
 		public ICommand FindProductsCommand { get; set; }
-		
 
-		//public ICommand CreateProductCommand
-	 //   {
-		//    get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
-		//    set { _createProductCommand = value; }
-		//}
-		public ICommand UpdateProductCommand
+
+        public ICommand CreateProductCommand
+        {
+            get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
+            set { _createProductCommand = value; }
+        }
+        public ICommand UpdateProductCommand
 		{
 			get { return _updateProductCommand ?? (_updateProductCommand = new RelayCommand(ProductHandler.UpdateProduct)); }
 			set { _createProductCommand = value; }
@@ -75,6 +75,9 @@ namespace Stock_Management.Viewmodel
         {
             ProductCatalogSingleton = ProductCatalogSingleton.Instance;
 	        ProductHandler = new ProductHandler(this);
+
+            CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
+
 		}
 
         
