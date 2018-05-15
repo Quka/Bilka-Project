@@ -25,6 +25,7 @@ namespace Stock_Management.Viewmodel
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _createProductCommand;
+	    private ICommand _selectedProductCommand;
 
 		public ICommand FindProductsCommand { get; set; }
 		
@@ -45,8 +46,8 @@ namespace Stock_Management.Viewmodel
 
         public ICommand SelectProductCommand
         {
-            get;
-            set;
+            get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
+            set { _selectedProductCommand = value; }
         }
 
 
