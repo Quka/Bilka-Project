@@ -103,6 +103,7 @@
     <Compile Include="Handler\ProductHandler.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
+    <Compile Include="Model\Xaml tools\AutoSuggestBox.cs" />
     <Compile Include="Viewmodel\LoginViewModel.cs" />
     <Compile Include="Viewmodel\ProductViewModel.cs" />
     <Compile Include="View\CreateProduct.xaml.cs">

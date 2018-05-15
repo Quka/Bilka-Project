@@ -42,7 +42,7 @@ namespace Stock_Management.Model
 			Stock = stock;
 	        Status = status;
 			Description = description;
-			MinStock = minStock;
+			MinStock  = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
 		}
