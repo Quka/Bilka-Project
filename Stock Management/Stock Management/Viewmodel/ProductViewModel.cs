@@ -27,7 +27,7 @@ namespace Stock_Management.Viewmodel
 		private ICommand _createProductCommand;
 
 		public ICommand FindProductsCommand { get; set; }
-		public ICommand SelectProductCommand { get; set; }
+		
 
 		public ICommand CreateProductCommand
 	    {
