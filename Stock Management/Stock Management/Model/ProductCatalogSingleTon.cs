@@ -30,7 +30,8 @@ namespace Stock_Management.Model
         public void CreateProduct(Product p)
         {
             ProductList.Add(p);
-        //   PersistencyService.InsertProductAsync(ProductList);
+
+	        PersistencyService.InsertProductAsync(p);
         }
         public void DeleteProduct(Product p)
         {
