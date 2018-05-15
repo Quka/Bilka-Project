@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using Stock_Management.Model;
 using Stock_Management.Viewmodel;
 
@@ -12,6 +13,11 @@ namespace Stock_Management.Handler
     class ProductHandler : IProductHandler
     {
         public ProductViewModel ProductViewModel { get; set; }
+
+	    public ProductHandler(ProductViewModel productViewModel)
+	    {
+		    ProductViewModel = productViewModel;
+	    }
         
         public List<Product> FindProducts(string s)
         {
@@ -25,8 +31,22 @@ namespace Stock_Management.Handler
 
         public void CreateProduct()
         {
-            throw new NotImplementedException();
-        }
+	        // TODO add dynamic product and remove test produt
+	        Product testProduct = new Product(
+		        1,
+		        9909,
+		        "Test Product",
+		        500.50m,
+		        5,
+		        "Test status",
+		        "test description",
+		        3,
+		        2,
+		        DateTime.Now
+	        );
+
+			ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
+		}
 
         public void UpdateProduct()
         {
@@ -57,5 +77,10 @@ namespace Stock_Management.Handler
         {
             throw new NotImplementedException();
         }
-    }
+
+	    private void CommandInvokedHandler(IUICommand command)
+	    {
+		    ProductViewModel.ProductCatalogSingleton.DeleteProduct(ProductViewModel.SelectedProduct);
+	    }
+	}
 }

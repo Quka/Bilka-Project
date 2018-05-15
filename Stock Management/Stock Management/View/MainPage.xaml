@@ -55,7 +55,12 @@
 				</Core:EventTriggerBehavior>
 			</Interactivity:Interaction.Behaviors>
 		</Button>
-		<AppBarButton HorizontalAlignment="Left" Icon="Accept" Label="Se Produkt (hardcoded)" Margin="495,587,0,0" VerticalAlignment="Top" Width="138"/>
-
+		<Button Content="View CreateProductPage" HorizontalAlignment="Left" Margin="264,367,0,0" VerticalAlignment="Top">
+			<Interactivity:Interaction.Behaviors>
+				<Core:EventTriggerBehavior EventName="Click">
+					<Core:NavigateToPageAction TargetPage="Stock_Management.View.CreateProduct"/>
+				</Core:EventTriggerBehavior>
+			</Interactivity:Interaction.Behaviors>
+		</Button>
 	</Grid>
 </Page>

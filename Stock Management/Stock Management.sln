@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagementWS", "StockM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebservice", "TestWebservice\TestWebservice.csproj", "{F9EA6F82-DFE2-46FB-BC8B-42AEBCC91634}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockManagementTest", "StockManagementTest\StockManagementTest.csproj", "{31C1B259-257A-4CBD-A89A-E9976C0FC16D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,26 @@ Global
 		{F9EA6F82-DFE2-46FB-BC8B-42AEBCC91634}.Release|x64.Build.0 = Release|Any CPU
 		{F9EA6F82-DFE2-46FB-BC8B-42AEBCC91634}.Release|x86.ActiveCfg = Release|Any CPU
 		{F9EA6F82-DFE2-46FB-BC8B-42AEBCC91634}.Release|x86.Build.0 = Release|Any CPU
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|ARM.Build.0 = Debug|ARM
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|x64.ActiveCfg = Debug|x64
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|x64.Build.0 = Debug|x64
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|x64.Deploy.0 = Debug|x64
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|x86.ActiveCfg = Debug|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|x86.Build.0 = Debug|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Debug|x86.Deploy.0 = Debug|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|Any CPU.ActiveCfg = Release|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|ARM.ActiveCfg = Release|ARM
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|ARM.Build.0 = Release|ARM
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|ARM.Deploy.0 = Release|ARM
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|x64.ActiveCfg = Release|x64
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|x64.Build.0 = Release|x64
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|x64.Deploy.0 = Release|x64
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|x86.ActiveCfg = Release|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|x86.Build.0 = Release|x86
+		{31C1B259-257A-4CBD-A89A-E9976C0FC16D}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
