@@ -31,22 +31,32 @@ namespace Stock_Management.Handler
 
         public void CreateProduct()
         {
-	        // TODO add dynamic product and remove test produt
-	        Product testProduct = new Product(
-		        1,
-		        9909,
-		        "Test Product",
-		        500.50m,
-		        5,
-		        "Test status",
-		        "test description",
-		        3,
-		        2,
-		        DateTime.Now
-	        );
+            // TODO add dynamic product and remove test produt
 
-			ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
-		}
+            Product createNewProduct =
+                new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name,
+                            ProductViewModel.Price, ProductViewModel.Stock, ProductViewModel.Status,
+                            ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
+                            DateTime.Now);
+            ProductViewModel.ProductCatalogSingleton.CreateProduct(createNewProduct);
+
+
+
+
+             //       //1,
+            //       //9909,
+            //       //"Test Product",
+            //       //500.50m,
+            //       //5,
+            //       //"Test status",
+            //       //"test description",
+            //       //3,
+            //       //2,
+            //       //DateTime.Now
+            //      );
+
+            //ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
+        }
 
         public void UpdateProduct()
         {
