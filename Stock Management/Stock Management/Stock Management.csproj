@@ -104,6 +104,9 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
     <Compile Include="Model\Xaml tools\AutoSuggestBox.cs" />
+    <Compile Include="Scrollviewer.xaml.cs">
+      <DependentUpon>Scrollviewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Viewmodel\LoginViewModel.cs" />
     <Compile Include="Viewmodel\ProductViewModel.cs" />
     <Compile Include="View\CreateProduct.xaml.cs">
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Scrollviewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CreateProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
