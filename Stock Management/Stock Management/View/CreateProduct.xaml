@@ -107,14 +107,12 @@
                 <Run Text=" "/>
                 <Run Text="Tlf."/>
                 </TextBlock>
-                <TextBox HorizontalAlignment="Left" Margin="909,701,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="74"/>
                 <TextBlock HorizontalAlignment="Left" Margin="882,676,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4">
                 <Run Text="Periode"/>
                 <Run Text=":"/>
                 </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="882,706,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Fra"/>
-                <TextBlock HorizontalAlignment="Left" Margin="987,706,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Til"/>
-                <TextBox HorizontalAlignment="Left" Margin="1008,701,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="74"/>
+                <TextBlock HorizontalAlignment="Left" Margin="882,701,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Til"/>
+                <TextBox HorizontalAlignment="Left" Margin="930,701,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="74"/>
             </Grid>
 
             <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
