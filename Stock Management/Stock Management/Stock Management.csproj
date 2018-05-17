@@ -104,6 +104,9 @@
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
     <Compile Include="Model\Xaml tools\AutoSuggestBox.cs" />
+    <Compile Include="Scrollviewer.xaml.cs">
+      <DependentUpon>Scrollviewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Viewmodel\LoginViewModel.cs" />
     <Compile Include="Viewmodel\ProductViewModel.cs" />
     <Compile Include="View\CreateProduct.xaml.cs">
@@ -111,6 +114,12 @@
     </Compile>
     <Compile Include="View\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FindProductView.xaml.cs">
+      <DependentUpon>FindProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogInView.xaml.cs">
+      <DependentUpon>LogInView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,8 +139,14 @@
     <Compile Include="Persistency\Interface\IPersistencyService.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ProductOrderView.xaml.cs">
+      <DependentUpon>ProductOrderView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReturnOrderView.xaml.cs">
+      <DependentUpon>ReturnOrderView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Scrollviewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CreateProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
