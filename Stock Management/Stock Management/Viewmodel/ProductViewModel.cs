@@ -22,6 +22,7 @@ namespace Stock_Management.Viewmodel
 	    public int ItemNr { get; set; }
 	    public string Name { get; set; }
 	    public decimal Price { get; set; }
+	    public string StringPrice { get; set; }
 	    public int Stock { get; set; }
 	    public string Status { get; set; }
 	    public string Description { get; set; }

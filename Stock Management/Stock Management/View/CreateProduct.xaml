@@ -37,7 +37,7 @@
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding SupplierId, Mode=TwoWay}" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ItemNr, Mode=TwoWay}" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding StringPrice, Mode=TwoWay}"/>
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Stock, Mode=TwoWay}" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Status, Mode=TwoWay}" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top"/>
