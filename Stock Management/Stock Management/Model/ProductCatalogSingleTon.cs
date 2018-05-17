@@ -37,6 +37,7 @@ namespace Stock_Management.Model
 
 		        // Add to ProductList
 		        ProductList.Add(p);
+
 			}
 	        catch (Exception e)
 	        {
