@@ -38,9 +38,9 @@ namespace Stock_Management.Persistency
 					HttpResponseMessage httpResponseMessage = client.PostAsync("api/Products", content).Result;
 					await new MessageDialog(httpResponseMessage.Content.ReadAsStringAsync().Result).ShowAsync();
 		        }
-		        catch (Exception ex)
+		        catch (Exception e)
 		        {
-			        await new MessageDialog(ex.Message).ShowAsync();
+			        await new MessageDialog(e.Message).ShowAsync();
 		        }
 	        }
 		}
@@ -68,16 +68,35 @@ namespace Stock_Management.Persistency
 					HttpResponseMessage httpResponseMessage = client.PutAsync("api/Products/" + p.Id, content).Result;
 					await new MessageDialog("Updated: " + httpResponseMessage.IsSuccessStatusCode.ToString()).ShowAsync();
 				}
-				catch (Exception ex)
+				catch (Exception e)
 				{
-					await new MessageDialog(ex.Message).ShowAsync();
+					await new MessageDialog(e.Message).ShowAsync();
 				}
 			}
 		}
 		public static async void DeleteProductAsync(Product p)
         {
-            throw new NotImplementedException();
-        }
+			const string serverUrl = "http://localhost:55001";
+	        HttpClientHandler handler = new HttpClientHandler();
+	        handler.UseDefaultCredentials = true;
+
+	        using (var client = new HttpClient(handler))
+	        {
+		        client.BaseAddress = new Uri(serverUrl);
+		        client.DefaultRequestHeaders.Clear();
+		        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+		        try
+		        {
+			        HttpResponseMessage httpResponseMessage = client.DeleteAsync("api/Products/" + p.Id).Result;
+					await new MessageDialog("Deleted: " + httpResponseMessage.Content.ReadAsStringAsync().Result).ShowAsync();
+				}
+		        catch (Exception e)
+		        {
+			        await new MessageDialog(e.Message).ShowAsync();
+		        }
+	        }
+		}
 
         public static async Task<Employee> GetUser(string username, string password)
         {
@@ -86,7 +105,33 @@ namespace Stock_Management.Persistency
 
         public static async void InsertOrder(Order o)
         {
-            throw new NotImplementedException();
+            const string serverUrl = "http://localhost:55001";
+			HttpClientHandler handler = new HttpClientHandler();
+			handler.UseDefaultCredentials = true;
+
+		    using (var client = new HttpClient(handler))
+	        {
+		        string postBody = JsonConvert.SerializeObject(o);
+
+		        // Convert the string body to bytes, because json returns 400 status errors
+		        byte[] msgBytes = Encoding.UTF8.GetBytes(postBody);
+		        var content = new ByteArrayContent(msgBytes);
+		        content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+		        client.BaseAddress = new Uri(serverUrl);
+		        client.DefaultRequestHeaders.Clear();
+		        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+		        try
+		        {
+					HttpResponseMessage httpResponseMessage = client.PostAsync("api/Orders", content).Result;
+					await new MessageDialog(httpResponseMessage.Content.ReadAsStringAsync().Result).ShowAsync();
+		        }
+		        catch (Exception e)
+		        {
+			        await new MessageDialog(e.Message).ShowAsync();
+		        }
+	        }
         }
 
         public static async Task<List<Order>> LoadOrdersAsync()
@@ -122,9 +167,9 @@ namespace Stock_Management.Persistency
 
 					return null;
 				}
-				catch (Exception ex)
+				catch (Exception e)
 				{
-					await new MessageDialog(ex.Message).ShowAsync();
+					await new MessageDialog(e.Message).ShowAsync();
 					return null;
 				}
 			}

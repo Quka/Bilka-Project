@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,30 +28,33 @@ namespace Stock_Management.Handler
 
         public void SetSelectedProduct(Product p)
         {
-            throw new NotImplementedException();
+            ProductViewModel.SelectedProduct = p;
         }
 
         public void CreateProduct()
         {
-	        // TODO add dynamic product and remove test produt
-	        Product testProduct = new Product(
-		        1,
-		        9909,
-		        "Test Product",
-		        500.50m,
-		        5,
-		        "Test status",
-		        "test description",
-		        3,
-		        2,
-		        DateTime.Now
-	        );
-
-			ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
-		}
+            // TODO add dynamic product and remove test produt
+			// Instead of dot notation in to every property (ProductViewModel.SupplierId),
+			// instantiate a new product 
+			/*
+            Product createNewProduct =
+                new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name,
+                          Convert.ToDecimal(ProductViewModel.StringPrice), ProductViewModel.Stock, ProductViewModel.Status,
+                            ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
+                            DateTime.Now);*/
+	        try
+	        {
+		        ProductViewModel.ProductCatalogSingleton.CreateProduct(ProductViewModel.Product);
+			}
+			catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+	        }
+        }
 
         public void UpdateProduct()
         {
+			// TEST
 			// TODO make this update dynamic, is hardcoded now
 	        Product testProduct = new Product(
 		        1,
@@ -64,7 +69,7 @@ namespace Stock_Management.Handler
 		        DateTime.Now
 	        );
 
-			// Update Product with ID 2
+			// Update Product with ID 4
 	        testProduct.Id = 4;
 
 	        ProductViewModel.ProductCatalogSingleton.UpdateProduct(testProduct);
@@ -72,12 +77,30 @@ namespace Stock_Management.Handler
 
         public void DeleteProduct()
         {
-            throw new NotImplementedException();
+			// TEST
+			// TODO Make productToDelete dynamic. Currently deletes the latest product
+	        ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
+	        Product productToDelete = productList[productList.Count-1];
+
+	        try
+	        {
+		        ProductViewModel.ProductCatalogSingleton.DeleteProduct(productToDelete);
+			}
+	        catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+	        }
         }
 
         public void ManualOrder()
         {
-            throw new NotImplementedException();
+			// TEST
+	        // TODO Make Product to order dynamic. Currently creates an order for the latest product in the list
+			ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
+	        Product p = productList[productList.Count - 1];
+	        int amount = 77;
+
+			ProductViewModel.ProductCatalogSingleton.OrderProduct(p, amount);
         }
 
         public void ReturnProduct()
