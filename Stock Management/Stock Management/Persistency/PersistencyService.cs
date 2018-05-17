@@ -76,7 +76,7 @@ namespace Stock_Management.Persistency
 		}
 		public static async void DeleteProductAsync(Product p)
         {
-            throw new NotImplementedException();
+            
         }
 
         public static async Task<Employee> GetUser(string username, string password)
