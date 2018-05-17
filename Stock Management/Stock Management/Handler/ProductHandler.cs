@@ -35,7 +35,7 @@ namespace Stock_Management.Handler
 
             Product createNewProduct =
                 new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name,
-                            ProductViewModel.Price, ProductViewModel.Stock, ProductViewModel.Status,
+                          Convert.ToDecimal(ProductViewModel.StringPrice), ProductViewModel.Stock, ProductViewModel.Status,
                             ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
                             DateTime.Now);
             ProductViewModel.ProductCatalogSingleton.CreateProduct(createNewProduct);
