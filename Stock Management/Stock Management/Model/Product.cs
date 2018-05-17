@@ -10,12 +10,19 @@ namespace Stock_Management.Model
 {
     public class Product : IProduct
 	{
+		private decimal _price;
 		public int Id { get; set; }
 		public int SupplierId { get; set; }
         public int ItemNr { get; set; }
 	    public string Name { get; set; }
-	    public decimal Price { get; set; }
-	    public int Stock { get; set; }
+
+		public decimal Price
+		{
+			get { return _price; }
+			set { _price = value; }
+		}
+
+		public int Stock { get; set; }
 		/*
 		 public enum EnumStatus
 		{
@@ -31,8 +38,12 @@ namespace Stock_Management.Model
 	    public DateTime RestockPeriod { get; set; }
 		public Supplier Supplier { get; set; }
 		public ObservableCollection<Order> OrderList { get; set; }
-		public ObservableCollection<ProductReturn> ProductReturns { get; set; }	
+		public ObservableCollection<ProductReturn> ProductReturns { get; set; }
 
+		public Product()
+		{
+			// Overload with empty constructor
+		}
         public Product(int supplierId, int itemNr, string name, decimal price, int stock, string status, string description, int minStock, int restockAmount, DateTime restockPeriod)
         {
 	        SupplierId = supplierId;

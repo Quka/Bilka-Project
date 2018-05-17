@@ -9,48 +9,50 @@
     x:Class="Stock_Management.View.CreateProduct"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <Viewmodel:ProductViewModel/>
-    </Page.DataContext>
+	<Page.DataContext>
+		<Viewmodel:ProductViewModel/>
+	</Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Create TestProduct" HorizontalAlignment="Left" Margin="726,527,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
-        <Button Content="Tilbage" HorizontalAlignment="Left" Margin="278,244,0,0" VerticalAlignment="Top">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="Click">
-                    <Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-        </Button>
-        <StackPanel HorizontalAlignment="Left" Height="349" Margin="661,127,0,0" VerticalAlignment="Top" Width="100">
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding SupplierId, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ItemNr, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Stock, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Status, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MinStock, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding RestockAmount, Mode=TwoWay}" VerticalAlignment="Top"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="349" Margin="545,127,0,0" VerticalAlignment="Top" Width="111">
-            <TextBlock TextWrapping="Wrap" Height="32" SelectionChanged="TextBlock_SelectionChanged">
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<Button Content="Create TestProduct" HorizontalAlignment="Left" Margin="726,527,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
+		<Button Content="Tilbage" HorizontalAlignment="Left" Margin="278,244,0,0" VerticalAlignment="Top">
+			<Interactivity:Interaction.Behaviors>
+				<Core:EventTriggerBehavior EventName="Click">
+					<Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
+				</Core:EventTriggerBehavior>
+			</Interactivity:Interaction.Behaviors>
+		</Button>
+		<StackPanel HorizontalAlignment="Left" Height="349" Margin="661,127,0,0" VerticalAlignment="Top" Width="326">
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.SupplierId, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.ItemNr, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Name, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Price, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Stock, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Status, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Description, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.MinStock, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.RestockAmount, Mode=TwoWay}" VerticalAlignment="Top"/>
+			<DatePicker HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Date="{Binding Product.RestockPeriod}"/>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Left" Height="349" Margin="503,127,0,0" VerticalAlignment="Top" Width="153">
+			<TextBlock TextWrapping="Wrap" Height="32" SelectionChanged="TextBlock_SelectionChanged">
                 <Run Text="Supplier Id"/>
                 <LineBreak/>
                 <Run/>
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" Height="32">
+			</TextBlock>
+			<TextBlock TextWrapping="Wrap" Height="32">
                 <Run Text="ItemNr"/>
                 <LineBreak/>
                 <Run/>
-            </TextBlock>
-            <TextBlock TextWrapping="Wrap" Text="Name" Height="32" SelectionChanged="TextBlock_SelectionChanged_1"/>
-            <TextBlock TextWrapping="Wrap" Text="Price" Height="32"/>
-            <TextBlock TextWrapping="Wrap" Text="Stock" Height="32"/>
-            <TextBlock TextWrapping="Wrap" Text="Status" Height="32" SelectionChanged="TextBlock_SelectionChanged_2"/>
-            <TextBlock TextWrapping="Wrap" Text="Description" Height="32"/>
-            <TextBlock TextWrapping="Wrap" Text="MinStock" Height="32"/>
-            <TextBlock TextWrapping="Wrap" Text="RestockAmount" Height="32" SelectionChanged="TextBlock_SelectionChanged_3"/>
-        </StackPanel>
-    </Grid>
+			</TextBlock>
+			<TextBlock TextWrapping="Wrap" Text="Name" Height="32" SelectionChanged="TextBlock_SelectionChanged_1"/>
+			<TextBlock TextWrapping="Wrap" Text="Price" Height="32"/>
+			<TextBlock TextWrapping="Wrap" Text="Stock" Height="32"/>
+			<TextBlock TextWrapping="Wrap" Text="Status" Height="32" SelectionChanged="TextBlock_SelectionChanged_2"/>
+			<TextBlock TextWrapping="Wrap" Text="Description" Height="32"/>
+			<TextBlock TextWrapping="Wrap" Text="MinStock" Height="32"/>
+			<TextBlock TextWrapping="Wrap" Text="RestockAmount" Height="32" SelectionChanged="TextBlock_SelectionChanged_3"/>
+			<TextBlock TextWrapping="Wrap" Text="RestockDate" Height="32" SelectionChanged="TextBlock_SelectionChanged_3"/>
+		</StackPanel>
+	</Grid>
 </Page>

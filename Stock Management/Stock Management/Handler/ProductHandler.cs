@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,18 +33,28 @@ namespace Stock_Management.Handler
         public void CreateProduct()
         {
             // TODO add dynamic product and remove test produt
-
+			// Instead of dot notation in to every property (ProductViewModel.SupplierId),
+			// instantiate a new product 
+			/*
             Product createNewProduct =
                 new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name,
                             ProductViewModel.Price, ProductViewModel.Stock, ProductViewModel.Status,
                             ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
-                            DateTime.Now);
-            ProductViewModel.ProductCatalogSingleton.CreateProduct(createNewProduct);
+                            DateTime.Now);*/
+	        try
+	        {
+		        ProductViewModel.ProductCatalogSingleton.CreateProduct(ProductViewModel.Product);
+			}
+			catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+	        }
+            
 
 
 
 
-             //       //1,
+            //       //1,
             //       //9909,
             //       //"Test Product",
             //       //500.50m,
@@ -74,7 +85,7 @@ namespace Stock_Management.Handler
 		        DateTime.Now
 	        );
 
-			// Update Product with ID 2
+			// Update Product with ID 4
 	        testProduct.Id = 4;
 
 	        ProductViewModel.ProductCatalogSingleton.UpdateProduct(testProduct);

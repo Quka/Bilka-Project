@@ -12,26 +12,9 @@ namespace Stock_Management.Viewmodel
 {
     class ProductViewModel
 	{
-        // We might only need Product property, instead of itemnr etc...
-        // Pretty sure we need the other properties when we bind them later on, at least they were indeeded in the eventmaker example.
-
-
-        #region Søren's playzone
-
-	    public int SupplierId { get; set; }
-	    public int ItemNr { get; set; }
-	    public string Name { get; set; }
-	    public decimal Price { get; set; }
-	    public int Stock { get; set; }
-	    public string Status { get; set; }
-	    public string Description { get; set; }
-	    public int MinStock { get; set; }
-	    public int RestockAmount { get; set; }
-	    public DateTime RestockPeriod { get; set; } 
-
-        #endregion
-
-
+        // Instantiate Product obj and set it through the view
+		// example: we can later post the entire Product object to the webservice
+		// this way we don't need individual properties of Product, in the ViewModel
         public Product Product { get; set; }
 		public List<Supplier> ListSupplier { get; set; }
 
@@ -44,8 +27,6 @@ namespace Stock_Management.Viewmodel
 		private ICommand _updateProductCommand;
 
 		public ICommand FindProductsCommand { get; set; }
-
-
         public ICommand CreateProductCommand
         {
             get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
@@ -56,7 +37,6 @@ namespace Stock_Management.Viewmodel
 			get { return _updateProductCommand ?? (_updateProductCommand = new RelayCommand(ProductHandler.UpdateProduct)); }
 			set { _createProductCommand = value; }
 		}
-
 		public ICommand DeleteProductCommand { get; set; }
 		public ICommand ManualOrderCommand { get; set; }
 		public ICommand ReturnProductCommand { get; set; }
@@ -76,7 +56,9 @@ namespace Stock_Management.Viewmodel
             ProductCatalogSingleton = ProductCatalogSingleton.Instance;
 	        ProductHandler = new ProductHandler(this);
 
-            CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
+			Product = new Product();
+
+            //CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
 
 		}
 
