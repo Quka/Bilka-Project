@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -49,28 +50,11 @@ namespace Stock_Management.Handler
 	        {
 		        Debug.WriteLine(e);
 	        }
-            
-
-
-
-
-            //       //1,
-            //       //9909,
-            //       //"Test Product",
-            //       //500.50m,
-            //       //5,
-            //       //"Test status",
-            //       //"test description",
-            //       //3,
-            //       //2,
-            //       //DateTime.Now
-            //      );
-
-            //ProductViewModel.ProductCatalogSingleton.CreateProduct(testProduct);
         }
 
         public void UpdateProduct()
         {
+			// TEST
 			// TODO make this update dynamic, is hardcoded now
 	        Product testProduct = new Product(
 		        1,
@@ -93,12 +77,30 @@ namespace Stock_Management.Handler
 
         public void DeleteProduct()
         {
-            throw new NotImplementedException();
+			// TEST
+			// TODO Make productToDelete dynamic. Currently deletes the latest product
+	        ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
+	        Product productToDelete = productList[productList.Count-1];
+
+	        try
+	        {
+		        ProductViewModel.ProductCatalogSingleton.DeleteProduct(productToDelete);
+			}
+	        catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+	        }
         }
 
         public void ManualOrder()
         {
-            throw new NotImplementedException();
+			// TEST
+	        // TODO Make Product to order dynamic. Currently creates an order for the latest product in the list
+			ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
+	        Product p = productList[productList.Count - 1];
+	        int amount = 77;
+
+			ProductViewModel.ProductCatalogSingleton.OrderProduct(p, amount);
         }
 
         public void ReturnProduct()

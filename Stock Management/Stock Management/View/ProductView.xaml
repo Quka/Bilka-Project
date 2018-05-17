@@ -27,6 +27,7 @@
 		<TextBlock HorizontalAlignment="Left" Margin="535,291,0,0" TextWrapping="Wrap" Text="{Binding Product.ItemNr}" VerticalAlignment="Top" Height="44" Width="266"/>
 		<TextBlock HorizontalAlignment="Left" Margin="535,340,0,0" TextWrapping="Wrap" Text="{Binding Product.Description}" VerticalAlignment="Top" Height="44" Width="266"/>
 		<Button Content="DeleteProduct (Hardcoded)" HorizontalAlignment="Left" Margin="220,286,0,0" VerticalAlignment="Top" Click="Button_Click" Command="{Binding DeleteProductCommand}"/>
+		<Button Content="InsertOrder for Product ID1" HorizontalAlignment="Left" Margin="220,340,0,0" VerticalAlignment="Top" Click="Button_Click" Command="{Binding ManualOrderCommand}"/>
 
 	</Grid>
 </Page>

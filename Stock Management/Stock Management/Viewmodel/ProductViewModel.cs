@@ -22,12 +22,20 @@ namespace Stock_Management.Viewmodel
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }
 
+		private ICommand _selectedProductCommand;
 		private ICommand _createProductCommand;
-	    private ICommand _selectedProductCommand;
 		private ICommand _updateProductCommand;
+		private ICommand _deleteProductCommand;
+		private ICommand _manualOrderCommand;
 
 		public ICommand FindProductsCommand { get; set; }
-        public ICommand CreateProductCommand
+		public ICommand SelectProductCommand
+		{
+			get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
+			set { _selectedProductCommand = value; }
+		}
+
+		public ICommand CreateProductCommand
         {
             get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
             set { _createProductCommand = value; }
@@ -37,18 +45,23 @@ namespace Stock_Management.Viewmodel
 			get { return _updateProductCommand ?? (_updateProductCommand = new RelayCommand(ProductHandler.UpdateProduct)); }
 			set { _createProductCommand = value; }
 		}
-		public ICommand DeleteProductCommand { get; set; }
-		public ICommand ManualOrderCommand { get; set; }
+		public ICommand DeleteProductCommand
+		{
+			get { return _deleteProductCommand ?? (_deleteProductCommand = new RelayCommand(ProductHandler.DeleteProduct)); }
+			set { _deleteProductCommand = value; }
+		}
+
+		public ICommand ManualOrderCommand
+		{
+			get { return _manualOrderCommand ?? (_manualOrderCommand = new RelayCommand(ProductHandler.ManualOrder)); }
+			set { _manualOrderCommand = value; }
+		}
 		public ICommand ReturnProductCommand { get; set; }
 		public ICommand ApproveOrderCommand { get; set; }
 		public ICommand KeyUpSearchSupplier { get; set; }
        
 
-        public ICommand SelectProductCommand
-        {
-            get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
-            set { _selectedProductCommand = value; }
-        }
+        
 
 
         public ProductViewModel()

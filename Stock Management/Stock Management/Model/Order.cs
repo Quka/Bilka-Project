@@ -12,31 +12,28 @@ namespace Stock_Management.Model
 		public int Id { get; set; }
 		public int ProductId { get; set; }
 		public int SupplierId { get; set; }
-
 		public enum EnumStatus
 		{
 			PENDING,
 			RECEIVED,
 			CONFIRMED
 		}
-		public EnumStatus Status { get; set; }
+		public string Status { get; set; }
 		public int Amount { get; set; }
 		public DateTime Date { get; set; }
 		public DateTime EstDelivery { get; set; }
 		public bool Approved { get; set; }
-
 		public Product Product { get; set; }
-
-	    
-
 	    public Supplier Supplier { get; set; }
-		
 
-		
-
-	    
-
-	    
-
+		public Order(int productId, int supplierId, string status, int amount, DateTime date, DateTime estDelivery)
+		{
+			ProductId = productId;
+			SupplierId = supplierId;
+			Status = status;
+			Amount = amount;
+			Date = date;
+			EstDelivery = estDelivery;
+		}
 	}
 }
