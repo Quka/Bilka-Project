@@ -21,6 +21,7 @@ namespace TestWebservice
 			handler.UseDefaultCredentials = true;
 
 			// SELECT example
+			/*
 			using (var client = new HttpClient(handler))
 			{
 				client.BaseAddress = new Uri(serverUrl);
@@ -48,10 +49,10 @@ namespace TestWebservice
 				{
 					throw;
 				}
-			}
+			}*/
 
 			// INSERT example
-			/*
+			
 			using (var client = new HttpClient(handler))
 			{
 				Product p = new Product(1, 1234, "test", 123.12m, 5, "Test status", "test description", 3, 2, DateTime.Now);
@@ -69,10 +70,15 @@ namespace TestWebservice
 				try
 				{
 					Console.WriteLine("INSERT Product");
-					Console.WriteLine(postBody);
-					Console.WriteLine(content.ToString());
+					/*Console.WriteLine(postBody);
+					Console.WriteLine(content.ToString());*/
 
-					Console.WriteLine(client.PostAsync("api/Products", content).Result);
+					
+					HttpResponseMessage response = client.PostAsync("api/Products", content).Result;
+
+					string responseBody = response.Content.ReadAsStringAsync().ToString();
+
+					Console.WriteLine(responseBody);
 					Console.ReadKey();
 				}
 				catch (Exception ex)
@@ -81,7 +87,7 @@ namespace TestWebservice
 					Console.WriteLine(ex);
 				}
 			}
-			*/
+			
 
 			// UPDATE example
 			/*
