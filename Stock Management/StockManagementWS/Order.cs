@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace StockManagementWS
 {
     using System;
