@@ -84,7 +84,6 @@
                 <TextBox HorizontalAlignment="Left" Margin="530,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="126" Width="501"/>
                 <TextBlock HorizontalAlignment="Left" Margin="532,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Specifikationer"/>
                 <CheckBox Content="Auto Genbestilling" HorizontalAlignment="Left" Margin="530,467,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Margin="534,545,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="145"/>
                 <TextBlock HorizontalAlignment="Left" Margin="534,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Leverandør"/>
                 <TextBox HorizontalAlignment="Left" Margin="882,548,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="201"/>
                 <TextBlock HorizontalAlignment="Left" Margin="882,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4">
@@ -125,6 +124,7 @@
             <Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308" d:IsLocked="True"/>
             <Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
             <Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
+            <AutoSuggestBox x:Name="SupplierBox" HorizontalAlignment="Left" Margin="532,206,0,0" Grid.Row="1" VerticalAlignment="Top" Width="145" TextChanged="SupplierBox_OnTextChanged" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}"/>
         </Grid>
     </ScrollViewer>
 </Page>

@@ -16,7 +16,7 @@ namespace Stock_Management.Viewmodel
 		// example: we can later post the entire Product object to the webservice
 		// this way we don't need individual properties of Product, in the ViewModel
         public Product Product { get; set; }
-		public List<Supplier> ListSupplier { get; set; }
+		
 
 		public static Product SelectedProduct { get; set; }
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }

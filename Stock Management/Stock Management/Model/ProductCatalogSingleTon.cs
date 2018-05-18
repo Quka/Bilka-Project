@@ -20,13 +20,19 @@ namespace Stock_Management.Model
         }
 
         public ObservableCollection<Product> ProductList { get; set; }
+        public ObservableCollection<Supplier> SupplierList { get; set; }
 
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
             LoadProductsAsync();
-            
+
+            SupplierList  = new ObservableCollection<Supplier>();
+            LoadSuppliersAsync();
+
         }
+
+        
 
         public void CreateProduct(Product p)
         {
@@ -103,6 +109,19 @@ namespace Stock_Management.Model
 			// Insert order
 	        PersistencyService.InsertOrder(o);
         }
-      
+
+        private async void LoadSuppliersAsync()
+        {
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            //var suppliers = await PersistencyService.LoadSuppliersAsync();
+
+        }
+
     }
 }

@@ -74,7 +74,13 @@ namespace Stock_Management.Persistency
 				}
 			}
 		}
-		public static async void DeleteProductAsync(Product p)
+
+        public static async Task<List<Supplier>> LoadSuppliersAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static async void DeleteProductAsync(Product p)
         {
 			const string serverUrl = "http://localhost:55001";
 	        HttpClientHandler handler = new HttpClientHandler();
