@@ -35,14 +35,16 @@ namespace Stock_Management.Model
 				// Add in DB1
 		        PersistencyService.InsertProductAsync(p);
 
-		        // Add to ProductList
+				// Add to ProductList
 		        ProductList.Add(p);
 			}
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
 	        }
-		}
+            
+	        
+        }
         public void DeleteProduct(Product p)
         {
 	        try
