@@ -76,20 +76,17 @@ namespace Stock_Management.Handler
         }
 
         public void DeleteProduct()
-        {
-			// TEST
-			// TODO Make productToDelete dynamic. Currently deletes the latest product
-	        ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
-	        Product productToDelete = productList[productList.Count-1];
+        {   
 
 	        try
 	        {
-		        ProductViewModel.ProductCatalogSingleton.DeleteProduct(productToDelete);
-			}
+	            ProductCatalogSingleton.Instance.DeleteProduct(ProductViewModel.SelectedProduct);
+            }
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
 	        }
+            
         }
 
         public void ManualOrder()
