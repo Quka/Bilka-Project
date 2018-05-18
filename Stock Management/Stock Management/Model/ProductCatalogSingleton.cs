@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,21 @@ namespace Stock_Management.Model
 
         public void CreateProduct(Product p)
         {
-            ProductList.Add(p);
-	        PersistencyService.InsertProductAsync(p);
+	        //decimal pPrice = Decimal.Parse(p.Price);
+	        try
+	        {
+				// Add in DB1
+		        PersistencyService.InsertProductAsync(p);
+
+				// Add to ProductList
+		        ProductList.Add(p);
+			}
+	        catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+	        }
+            
+	        
         }
         public void DeleteProduct(Product p)
         {
