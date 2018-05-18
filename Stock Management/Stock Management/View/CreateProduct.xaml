@@ -36,15 +36,15 @@
                 </Button>
                 <Button Content="Gem" HorizontalAlignment="Left" Margin="876,773,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
                 <StackPanel HorizontalAlignment="Left" Height="349" Margin="303,342,0,0" VerticalAlignment="Top" Width="100">
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding SupplierId, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ItemNr, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Price, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Stock, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Status, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding MinStock, Mode=TwoWay}" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding RestockAmount, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.SupplierId, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.ItemNr, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Name, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding StringPrice, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Stock, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Status, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.Description, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.MinStock, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.RestockAmount, Mode=TwoWay}" VerticalAlignment="Top"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="349" Margin="187,342,0,0" VerticalAlignment="Top" Width="111">
                     <TextBlock TextWrapping="Wrap" Height="32" SelectionChanged="TextBlock_SelectionChanged">
