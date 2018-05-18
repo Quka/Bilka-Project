@@ -32,10 +32,10 @@ namespace Stock_Management.Model
 	        //decimal pPrice = Decimal.Parse(p.Price);
 	        try
 	        {
-				// Add in DB
+				// Add in DB1
 		        PersistencyService.InsertProductAsync(p);
 
-		        // Add to ProductList
+				// Add to ProductList
 		        ProductList.Add(p);
 
 			}
@@ -43,7 +43,9 @@ namespace Stock_Management.Model
 	        {
 		        Debug.WriteLine(e);
 	        }
-		}
+            
+	        
+        }
         public void DeleteProduct(Product p)
         {
 	        try
