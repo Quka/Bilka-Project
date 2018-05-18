@@ -74,7 +74,13 @@ namespace Stock_Management.Persistency
 				}
 			}
 		}
-		public static async void DeleteProductAsync(Product p)
+
+        public static async Task<List<Supplier>> LoadSuppliersAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static async void DeleteProductAsync(Product p)
         {
             throw new NotImplementedException();
         }

@@ -34,7 +34,7 @@ namespace Stock_Management.Viewmodel
 
 
         public Product Product { get; set; }
-		public List<Supplier> ListSupplier { get; set; }
+		
 
 		public static Product SelectedProduct { get; set; }
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }

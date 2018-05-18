@@ -19,12 +19,19 @@ namespace Stock_Management.Model
         }
 
         public ObservableCollection<Product> ProductList { get; set; }
+        public ObservableCollection<Supplier> SupplierList { get; set; }
 
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
             LoadProductsAsync();
+
+            SupplierList  = new ObservableCollection<Supplier>();
+            LoadSuppliersAsync();
+
         }
+
+        
 
         public void CreateProduct(Product p)
         {
@@ -56,19 +63,6 @@ namespace Stock_Management.Model
 
         public async void LoadProductsAsync()
         {
-            /*
-            ProductList.Add(new Product(1,1, "Cola", 19.95m, Product.EnumStatus.AVAILABLE, 5, "Den er light", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,2, "Vand", 32.95m, Product.EnumStatus.AVAILABLE, 2, "Vand uden brus", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,3, "Samsung Galaxy s8", 2999.95m, Product.EnumStatus.AVAILABLE, 5, "Lækkert mobil fordi Benjamin har den.", new Supplier(), 1,5, DateTime.Now));
-            ProductList.Add(new Product(1,4, "Lenovo Legion Y520", 7999.95m, Product.EnumStatus.AVAILABLE, 2,"lækkert PC", new Supplier(), 1,5,DateTime.Now));
-            ProductList.Add(new Product(1,5, "Samsung Galaxy s9", 5000m, Product.EnumStatus.AVAILABLE, 3, "Nyeste i serien", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,6, "Græsk Pony", 34999.95m, Product.EnumStatus.AVAILABLE, 2,"Flot hest, som minder om hakan<3",new Supplier(), 1,3,DateTime.Now));
-            ProductList.Add(new Product(1,7, "Dildo", 999.95m, 2, "lækkert forlængerledning", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,8, "Swordfish", 99.95m, 2, "Skulle smage godt", new Supplier(), 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,9, "Gamer Stol fra SHABZ", 9999.95m, 2, Product.EnumStatus.AVAILABLE, "Det ikke en stol", 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,10, "Mus", 7999.95m, 2, Product.EnumStatus.AVAILABLE, "Gamer mus fra MacDonald", 1, 5, DateTime.Now));
-            ProductList.Add(new Product(1,11,"Lolita Søren", 9.95m, 4,Product.EnumStatus.AVAILABLE,"Hygge med Søren",1,5,DateTime.Now));
-            */
             var products = await PersistencyService.LoadProductsAsync();
             foreach (Product p in products)
             {
@@ -80,6 +74,19 @@ namespace Stock_Management.Model
         {
             throw new NotImplementedException();
         }
-      
+
+        private async void LoadSuppliersAsync()
+        {
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            //var suppliers = await PersistencyService.LoadSuppliersAsync();
+
+        }
+
     }
 }
