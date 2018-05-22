@@ -34,15 +34,18 @@ namespace Stock_Management.Handler
         public void CreateProduct()
         {
             // TODO add dynamic product and remove test produt
-			// Instead of dot notation in to every property (ProductViewModel.SupplierId),
-			// instantiate a new product 
-			/*
+            // Instead of dot notation in to every property (ProductViewModel.SupplierId),
+            // instantiate a new product 
+            /*
             Product createNewProduct =
                 new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name,
                           Convert.ToDecimal(ProductViewModel.StringPrice), ProductViewModel.Stock, ProductViewModel.Status,
                             ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
                             DateTime.Now);*/
-	        try
+            ProductViewModel.Product.RestockPeriod = DateTime.Now;
+            ProductViewModel.Product.Price = Convert.ToDecimal(ProductViewModel.StringPrice);
+
+            try
 	        {
 		        ProductViewModel.ProductCatalogSingleton.CreateProduct(ProductViewModel.Product);
 			}
@@ -76,20 +79,17 @@ namespace Stock_Management.Handler
         }
 
         public void DeleteProduct()
-        {
-			// TEST
-			// TODO Make productToDelete dynamic. Currently deletes the latest product
-	        ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
-	        Product productToDelete = productList[productList.Count-1];
+        {   
 
 	        try
 	        {
-		        ProductViewModel.ProductCatalogSingleton.DeleteProduct(productToDelete);
-			}
+	            ProductCatalogSingleton.Instance.DeleteProduct(ProductViewModel.SelectedProduct);
+            }
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
 	        }
+            
         }
 
         public void ManualOrder()

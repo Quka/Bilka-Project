@@ -16,5 +16,19 @@ namespace Stock_Management.Model
 	    public string Email { get; set; }
 		
 	    public string Phone { get; set; }
+
+	    public Supplier(string name, string address, string email, string phone)
+	    {
+	        Name = name;
+	        Address = address;
+	        Email = email;
+	        Phone = phone;
+	    }
+
+	    public override string ToString()
+	    {
+	        return $"{nameof(Name)}: {Name}, {nameof(Address)}: {Address}, {nameof(Email)}: {Email}, {nameof(Phone)}: {Phone}";
+	    }
 	}
+
 }

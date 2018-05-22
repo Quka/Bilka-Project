@@ -20,23 +20,29 @@ namespace Stock_Management.Model
         }
 
         public ObservableCollection<Product> ProductList { get; set; }
+        public ObservableCollection<Supplier> SupplierList { get; set; }
 
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
             LoadProductsAsync();
-            
+
+            SupplierList  = new ObservableCollection<Supplier>();
+            LoadSuppliersAsync();
+
         }
+
+        
 
         public void CreateProduct(Product p)
         {
 	        //decimal pPrice = Decimal.Parse(p.Price);
 	        try
 	        {
-				// Add in DB
+				// Add in DB1   
 		        PersistencyService.InsertProductAsync(p);
 
-		        // Add to ProductList
+				// Add to ProductList
 		        ProductList.Add(p);
 
 			}
@@ -44,7 +50,9 @@ namespace Stock_Management.Model
 	        {
 		        Debug.WriteLine(e);
 	        }
-		}
+            
+	        
+        }
         public void DeleteProduct(Product p)
         {
 	        try
@@ -68,6 +76,7 @@ namespace Stock_Management.Model
 	        PersistencyService.UpdateProductAsync(p);
 		}
 
+        #region Exeptions
         public Product FindSpecificProduct(int x)
         {
             throw new NotImplementedException();
@@ -109,6 +118,19 @@ namespace Stock_Management.Model
 			// Insert order
 	        PersistencyService.InsertOrder(o);
         }
-      
+
+        private async void LoadSuppliersAsync()
+        {
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            //var suppliers = await PersistencyService.LoadSuppliersAsync();
+
+        }
+
     }
 }

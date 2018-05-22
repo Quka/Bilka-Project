@@ -8,39 +8,39 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Stock_Management.MainPage"
     mc:Ignorable="d">
-	<Page.Resources>
-		<DataTemplate x:Key="ProductTemplate1">
-			<Grid Height="215" Width="184">
-				<StackPanel HorizontalAlignment="Left" Height="171" Margin="10,34,0,0" VerticalAlignment="Top" Width="164">
-					<TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
-					<TextBlock TextWrapping="Wrap" Text="{Binding Description}"/>
-					<TextBlock TextWrapping="Wrap" Text="{Binding Price}"/>
-					<TextBlock TextWrapping="Wrap" Text="{Binding Stock}"/>
-				</StackPanel>
-			</Grid>
-		</DataTemplate>
-	</Page.Resources>
-	<Page.DataContext>
-		<Viewmodel:ProductViewModel/>
-	</Page.DataContext>
+    <Page.Resources>
+        <DataTemplate x:Key="ProductTemplate1">
+            <Grid Height="215" Width="184">
+                <StackPanel HorizontalAlignment="Left" Height="171" Margin="10,34,0,0" VerticalAlignment="Top" Width="164">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Name}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Description}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Price}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Stock}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.DataContext>
+        <Viewmodel:ProductViewModel/>
+    </Page.DataContext>
 
-	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="502.5"/>
-			<RowDefinition Height="497.5"/>
-		</Grid.RowDefinitions>
-		<Grid Margin="-1,0,440,330.5" d:IsLocked="True"/>
-		<Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
-		<Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True" Grid.RowSpan="2"/>
-		<Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
-		<Grid HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" d:IsLocked="True" Grid.RowSpan="2"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="502.5"/>
+            <RowDefinition Height="497.5"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="-1,0,440,330.5" d:IsLocked="True"/>
+        <Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
+        <Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True" Grid.RowSpan="2"/>
+        <Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
+        <Grid HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" d:IsLocked="True" Grid.RowSpan="2"/>
 
-		<Grid HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500" d:IsLocked="True"/>
-		<Button Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317"/>
-		<TextBlock HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241">
+        <Grid HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500" d:IsLocked="True"/>
+        <Button Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241">
             <Run Text="Skal bindes til employee "/>
             <Run Text="i"/>
             <Run Text="d"/>
