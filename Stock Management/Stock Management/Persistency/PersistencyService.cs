@@ -136,8 +136,34 @@ namespace Stock_Management.Persistency
 
         public static async Task<List<Order>> LoadOrdersAsync()
         {
-            throw new NotImplementedException();
-        }
+			const string serverUrl = "http://localhost:55001";
+	        HttpClientHandler handler = new HttpClientHandler();
+	        handler.UseDefaultCredentials = true;
+
+	        using (var client = new HttpClient(handler))
+	        {
+		        client.BaseAddress = new Uri(serverUrl);
+		        client.DefaultRequestHeaders.Clear();
+		        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+		        try
+		        {
+			        var response = client.GetAsync("api/Orders").Result;
+			        if (response.IsSuccessStatusCode)
+			        {
+				        var orders = response.Content.ReadAsAsync<IEnumerable<Order>>().Result;
+				        return orders.ToList();
+			        }
+
+			        return null;
+		        }
+		        catch (Exception e)
+		        {
+			        await new MessageDialog(e.Message).ShowAsync();
+			        return null;
+		        }
+	        }
+		}
 
         public static async Task<List<ProductReturn>> LoadProductReturnsAsync()
         {

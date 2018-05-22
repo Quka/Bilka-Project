@@ -80,11 +80,19 @@ namespace Stock_Management.Model
 
         public async void LoadProductsAsync()
         {
-            var products = await PersistencyService.LoadProductsAsync();
-            foreach (Product p in products)
-            {
-                ProductList.Add(p);
-            }
+	        try
+	        {
+		        List<Product> products = await PersistencyService.LoadProductsAsync();
+		        foreach (Product p in products)
+		        {
+			        ProductList.Add(p);
+		        }
+			}
+	        catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+		        throw;
+	        }
         }
 
         public void OrderProduct(Product p, int amount)

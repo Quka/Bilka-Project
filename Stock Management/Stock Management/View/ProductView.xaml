@@ -32,8 +32,9 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
-            <ListView HorizontalAlignment="Left" Height="260" Margin="490,314,0,0" VerticalAlignment="Top" Width="418" ItemsSource="{Binding ProductCatalogSingleton.ProductList}"/>
-        </Grid>
+            <ListView HorizontalAlignment="Left" Height="260" Margin="490,314,0,0" VerticalAlignment="Top" Width="418" ItemsSource="{Binding SelectedProduct.OrderList}"/>
+			<TextBlock HorizontalAlignment="Left" Margin="490,289,0,0" TextWrapping="Wrap" Text="Loaded orders for Product ID 5" VerticalAlignment="Top"/>
+		</Grid>
 
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
         <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>

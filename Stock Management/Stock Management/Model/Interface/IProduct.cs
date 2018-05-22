@@ -9,8 +9,8 @@ namespace Stock_Management.Model.Interface
 {
 	interface IProduct
 	{
-		ObservableCollection<Order> GetOrderList();
+		void GetOrderList();
 		void ApproveOrder(Order o);
-		ObservableCollection<ProductReturn> GetProductReturnList();
+		void GetProductReturnList();
 	}
 }
