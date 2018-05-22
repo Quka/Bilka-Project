@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Stock_Management.Model;
+using Stock_Management.View;
 using Stock_Management.Viewmodel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -58,12 +59,14 @@ namespace Stock_Management
             result = Suggestions.Where(x => x.Name.Contains(Text)).ToList();
 
             return result;
-
         }
 
 		private void SelectSuggestionProduct(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
 		{
+			Product p = Suggestions.Where(product => product.Name.Contains(sender.Text)).ToList()[0];
+			ProductViewModel.SelectedProduct = p;
 
+			Frame.Navigate(typeof(ProductView));
 		}
 	}
 }

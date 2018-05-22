@@ -84,7 +84,7 @@ namespace Stock_Management.Model
 
 	    public override string ToString()
 	    {
-	        return $"{nameof(ItemNr)}: {ItemNr}, {nameof(Name)}: {Name}, {nameof(Price)}: {Price}, {nameof(Stock)}: {Stock}, {nameof(Description)}: {Description}, {nameof(Supplier)}: {Supplier}, {nameof(MinStock)}: {MinStock}, {nameof(RestockAmount)}: {RestockAmount}, {nameof(RestockPeriod)}: {RestockPeriod}";
+		    return Name;
 	    }
 	}
 }
