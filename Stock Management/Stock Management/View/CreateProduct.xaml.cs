@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Stock_Management.Model;
+using Stock_Management.Viewmodel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -76,5 +77,14 @@ namespace Stock_Management.View
 
 	        return result;
 	    }
-    }
+
+	    private void SupplierBox_OnSuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+	    {
+	        Supplier s = Suggestions.Where(supplier => supplier.Name.Contains(sender.Text)).ToList()[0];
+	        ProductViewModel.SelectedSupplier = s;
+
+	        SupplierAddress.Text = s.Address;
+	    }
+
+	}
 }

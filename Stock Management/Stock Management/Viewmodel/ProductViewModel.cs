@@ -20,10 +20,13 @@ namespace Stock_Management.Viewmodel
 	    public string StringPrice { get; set; }
 
 		public static Product SelectedProduct { get; set; }
+	    public static Supplier SelectedSupplier { get; set; }
+
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _selectedProductCommand;
+	    private ICommand _selectedSupplierCommand;
 		private ICommand _createProductCommand;
 		private ICommand _updateProductCommand;
 		private ICommand _deleteProductCommand;
@@ -36,7 +39,13 @@ namespace Stock_Management.Viewmodel
 			set { _selectedProductCommand = value; }
 		}
 
-		public ICommand CreateProductCommand
+	    public ICommand SelectSupplierCommand
+	    {
+	        get { return _selectedSupplierCommand ?? (_selectedSupplierCommand = new RelayArgCommand<Supplier>(s => ProductHandler.SetSelectedSupplier(s))); }
+	        set { _selectedSupplierCommand = value; }
+	    }
+
+	    public ICommand CreateProductCommand
         {
             get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
             set { _createProductCommand = value; }

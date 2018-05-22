@@ -31,6 +31,11 @@ namespace Stock_Management.Handler
             ProductViewModel.SelectedProduct = p;
         }
 
+        public void SetSelectedSupplier(Supplier s)
+        {
+            ProductViewModel.SelectedSupplier = s;
+        }
+
         public void CreateProduct()
         {
             // TODO add dynamic product and remove test produt

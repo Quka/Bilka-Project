@@ -5,9 +5,26 @@
     xmlns:local="using:Stock_Management.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="660,352,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Height="24" Width="99" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="258" Margin="10,10,0,0" VerticalAlignment="Top" Width="1480"/>
+        <TextBox HorizontalAlignment="Left" Margin="660,371,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="29" Width="182"/>
+        <TextBlock HorizontalAlignment="Left" Margin="660,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="99" FontWeight="Bold">
+            <Run Text="Password"/>
+            <Run Text=":"/>
+        </TextBlock>
+        <TextBox HorizontalAlignment="Left" Margin="660,441,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="29" Width="182"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="777,478,0,0" VerticalAlignment="Top" Width="65">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Click">
+                    <core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
 
     </Grid>
 </Page>
