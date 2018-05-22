@@ -18,12 +18,19 @@ namespace Stock_Management.Viewmodel
 
         public Product Product { get; set; }
 	    public string StringPrice { get; set; }
+        //public DateTimeOffset DateTimeWorks { get; set; }
+
+        public DateTimeOffset Date { get; set; }
+
 
 		public static Product SelectedProduct { get; set; }
+	    public static Supplier SelectedSupplier { get; set; }
+
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _selectedProductCommand;
+	    private ICommand _selectedSupplierCommand;
 		private ICommand _createProductCommand;
 		private ICommand _updateProductCommand;
 		private ICommand _deleteProductCommand;
@@ -36,7 +43,13 @@ namespace Stock_Management.Viewmodel
 			set { _selectedProductCommand = value; }
 		}
 
-		public ICommand CreateProductCommand
+	    public ICommand SelectSupplierCommand
+	    {
+	        get { return _selectedSupplierCommand ?? (_selectedSupplierCommand = new RelayArgCommand<Supplier>(s => ProductHandler.SetSelectedSupplier(s))); }
+	        set { _selectedSupplierCommand = value; }
+	    }
+
+	    public ICommand CreateProductCommand
         {
             get { return _createProductCommand ?? (_createProductCommand = new RelayCommand(ProductHandler.CreateProduct)); }
             set { _createProductCommand = value; }
@@ -69,11 +82,14 @@ namespace Stock_Management.Viewmodel
         {
             ProductCatalogSingleton = ProductCatalogSingleton.Instance;
 	        ProductHandler = new ProductHandler(this);
+            //DateTime dt = DateTime.Now;
 
-			Product = new Product();
+            Product = new Product();
+            //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, 0, 0, new TimeSpan());
 
             //CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
 
+            
 		}
 
         

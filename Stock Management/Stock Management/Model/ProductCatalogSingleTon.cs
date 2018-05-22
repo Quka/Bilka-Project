@@ -21,6 +21,8 @@ namespace Stock_Management.Model
 
         public ObservableCollection<Product> ProductList { get; set; }
         public ObservableCollection<Supplier> SupplierList { get; set; }
+        
+
 
         private ProductCatalogSingleton()
         {
@@ -75,7 +77,8 @@ namespace Stock_Management.Model
 	        // Update product in DB
 	        PersistencyService.UpdateProductAsync(p);
 		}
-		
+
+        
         public Product FindSpecificProduct(int x)
         {
             throw new NotImplementedException();

@@ -31,6 +31,11 @@ namespace Stock_Management.Handler
             ProductViewModel.SelectedProduct = p;
         }
 
+        public void SetSelectedSupplier(Supplier s)
+        {
+            ProductViewModel.SelectedSupplier = s;
+        }
+
         public void CreateProduct()
         {
             // TODO add dynamic product and remove test produt
@@ -42,9 +47,9 @@ namespace Stock_Management.Handler
                           Convert.ToDecimal(ProductViewModel.StringPrice), ProductViewModel.Stock, ProductViewModel.Status,
                             ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
                             DateTime.Now);*/
-            ProductViewModel.Product.RestockPeriod = DateTime.Now;
+            
             ProductViewModel.Product.Price = Convert.ToDecimal(ProductViewModel.StringPrice);
-
+            ProductViewModel.Product.RestockPeriod = ProductViewModel.Date.Date;
             try
 	        {
 		        ProductViewModel.ProductCatalogSingleton.CreateProduct(ProductViewModel.Product);

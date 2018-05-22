@@ -12,14 +12,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="511"/>
-            <RowDefinition Height="489"/>
+            <RowDefinition Height="1000"/>
+            <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
         <Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
-        <Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True" Grid.RowSpan="2"/>
+        <Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
         <Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
-        <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" Grid.RowSpan="2">
-        </Grid>
+        <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501"/>
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
         <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
         <TextBlock x:Name="Worker_id" HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241" d:IsLocked="True">

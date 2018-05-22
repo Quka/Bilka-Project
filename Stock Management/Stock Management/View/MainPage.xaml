@@ -39,7 +39,13 @@
         <Grid HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" d:IsLocked="True" Grid.RowSpan="2"/>
 
         <Grid HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500" d:IsLocked="True"/>
-        <Button Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317"/>
+        <Button Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Stock_Management.View.LogInView"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
         <TextBlock HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241">
             <Run Text="Skal bindes til employee "/>
             <Run Text="i"/>
