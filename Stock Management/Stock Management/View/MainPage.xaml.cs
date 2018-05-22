@@ -60,5 +60,10 @@ namespace Stock_Management
             return result;
 
         }
-    }
+
+		private void SelectSuggestionProduct(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+		{
+
+		}
+	}
 }
