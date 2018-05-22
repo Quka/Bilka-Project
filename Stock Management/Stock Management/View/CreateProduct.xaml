@@ -65,8 +65,10 @@
                     <TextBlock TextWrapping="Wrap" Text="MinStock" Height="32"/>
                     <TextBlock TextWrapping="Wrap" Text="RestockAmount" Height="32" SelectionChanged="TextBlock_SelectionChanged_3"/>
                 </StackPanel>
+
                 <TextBlock HorizontalAlignment="Left" Margin="746,52,0,0" TextWrapping="Wrap" Text="Opret vare" VerticalAlignment="Top" FontSize="18" Height="28" Width="94" FontWeight="Bold"/>
                 <TextBox HorizontalAlignment="Left" Margin="303,153,0,0" TextWrapping="Wrap" Text="{Binding Product.Name, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="214"/>
+
                 <TextBlock HorizontalAlignment="Left" Margin="303,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4">
                 <Run Text="Produkt "/>
                 <Run Text="navn"/>
