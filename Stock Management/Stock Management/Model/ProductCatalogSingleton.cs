@@ -78,7 +78,7 @@ namespace Stock_Management.Model
 	        PersistencyService.UpdateProductAsync(p);
 		}
 
-        #region Exeptions
+        
         public Product FindSpecificProduct(int x)
         {
             throw new NotImplementedException();
