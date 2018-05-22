@@ -9,9 +9,9 @@
     x:Class="Stock_Management.View.CreateProduct"
     mc:Ignorable="d">
 
-	<Page.DataContext>
-		<Viewmodel:ProductViewModel/>
-	</Page.DataContext>
+    <Page.DataContext>
+        <Viewmodel:ProductViewModel/>
+    </Page.DataContext>
 
     <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top">
 
@@ -78,7 +78,11 @@
                 <Run Text="pris"/>
                 </TextBlock>
                 <TextBox HorizontalAlignment="Left" Margin="303,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="214"/>
-                <TextBlock HorizontalAlignment="Left" Margin="303,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Årgang"/>
+                <TextBlock HorizontalAlignment="Left" Margin="303,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Width="214">
+                    <Run Text="Produkt nummer"/>
+                    <LineBreak/>
+                    <Run/>
+                </TextBlock>
                 <TextBox HorizontalAlignment="Left" Margin="1032,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="34" Width="208"/>
                 <TextBlock HorizontalAlignment="Left" Margin="1032,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Antal"/>
                 <TextBox HorizontalAlignment="Left" Margin="530,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="126" Width="501"/>
