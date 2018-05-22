@@ -112,9 +112,6 @@
     <Compile Include="View\CreateProduct.xaml.cs">
       <DependentUpon>CreateProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EditProductView.xaml.cs">
-      <DependentUpon>EditProductView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\FindProductView.xaml.cs">
       <DependentUpon>FindProductView.xaml</DependentUpon>
     </Compile>
@@ -177,10 +174,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CreateProduct.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
