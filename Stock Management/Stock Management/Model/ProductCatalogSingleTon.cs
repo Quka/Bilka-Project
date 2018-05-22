@@ -21,6 +21,8 @@ namespace Stock_Management.Model
 
         public ObservableCollection<Product> ProductList { get; set; }
         public ObservableCollection<Supplier> SupplierList { get; set; }
+        
+
 
         private ProductCatalogSingleton()
         {

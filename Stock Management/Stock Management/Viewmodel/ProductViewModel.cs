@@ -18,8 +18,12 @@ namespace Stock_Management.Viewmodel
 
         public Product Product { get; set; }
 	    public string StringPrice { get; set; }
+        //public DateTimeOffset DateTimeWorks { get; set; }
 
-		public static Product SelectedProduct { get; set; }
+        public DateTimeOffset Date { get; set; }
+
+
+        public static Product SelectedProduct { get; set; }
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }
 
@@ -69,11 +73,14 @@ namespace Stock_Management.Viewmodel
         {
             ProductCatalogSingleton = ProductCatalogSingleton.Instance;
 	        ProductHandler = new ProductHandler(this);
+            //DateTime dt = DateTime.Now;
 
-			Product = new Product();
+            Product = new Product();
+            //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, 0, 0, new TimeSpan());
 
             //CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
 
+            
 		}
 
         
