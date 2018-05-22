@@ -76,5 +76,10 @@ namespace Stock_Management.View
 
 	        return result;
 	    }
+
+        private void TextBlock_SelectionChanged_5(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
