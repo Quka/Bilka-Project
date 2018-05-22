@@ -35,5 +35,10 @@ namespace Stock_Management.Model
 			Date = date;
 			EstDelivery = estDelivery;
 		}
+
+		public override string ToString()
+		{
+			return $"{nameof(Id)}: {Id}, {nameof(ProductId)}: {ProductId}, {nameof(SupplierId)}: {SupplierId}, {nameof(Status)}: {Status}, {nameof(Amount)}: {Amount}, {nameof(Date)}: {Date}, {nameof(EstDelivery)}: {EstDelivery}, {nameof(Approved)}: {Approved}, {nameof(Product)}: {Product}, {nameof(Supplier)}: {Supplier}";
+		}
 	}
 }
