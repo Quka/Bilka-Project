@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Stock_Management.Model.Interface;
+using Stock_Management.Persistency;
 
 namespace Stock_Management.Model
 {
     public class Product : IProduct
 	{
-		private decimal _price;
 		public int Id { get; set; }
 		public int SupplierId { get; set; }
         public int ItemNr { get; set; }
 	    public string Name { get; set; }
-
-		public decimal Price
-		{
-			get { return _price; }
-			set { _price = value; }
-		}
+		public decimal Price { get; set; }
 
 		public int Stock { get; set; }
 		/*
@@ -58,9 +54,22 @@ namespace Stock_Management.Model
 			RestockPeriod = restockPeriod;
 		}
         
-	    public ObservableCollection<Order> GetOrderList()
+	    public async void GetOrderList()
 	    {
-	        throw new NotImplementedException();
+		    try
+		    {
+			    List<Order> Orders = await PersistencyService.LoadOrdersAsync();
+
+			    foreach (Order order in Orders)
+			    {
+				    OrderList.Add(order);
+			    }
+			}
+		    catch (Exception e)
+		    {
+			    Debug.WriteLine(e);
+			    throw;
+		    }
 	    }
 
         public void ApproveOrder(Order o)
@@ -68,7 +77,7 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-	    public ObservableCollection<ProductReturn> GetProductReturnList()
+	    public void GetProductReturnList()
 	    {
 	        throw new NotImplementedException();
 	    }
