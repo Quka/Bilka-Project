@@ -33,40 +33,38 @@ namespace Stock_Management
             this.InitializeComponent();
             
         }
-        
 
-        private void AutoSuggestBox_TextChanged(AutoSuggestBox Sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
-            {
-                if (Sender.Text.Length>0)
-                {
-                    Sender.ItemsSource = GetSuggestions(Sender.Text);
-                }
-                else
-                {
-                    Sender.ItemsSource = Suggestions;
-                }   
-            }
-            
-        }
-
-        
-        private List<Product> GetSuggestions(string Text)
-        {
-            List<Product> result = null;
-
-            result = Suggestions.Where(x => x.Name.Contains(Text)).ToList();
-
-            return result;
-        }
-
-		private void SelectSuggestionProduct(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-		{
-			Product p = Suggestions.Where(product => product.Name.Contains(sender.Text)).ToList()[0];
-			ProductViewModel.SelectedProduct = p;
-
-			Frame.Navigate(typeof(ProductView));
+	    private void FindProduct_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+	    {
+			if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+			{
+				if (args.CheckCurrent())
+				{
+					sender.ItemsSource = GetSuggestions(sender.Text);
+				}
+			}
 		}
-	}
+
+	    private void AutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+	    {
+		    if (args.ChosenSuggestion != null)
+		    {
+			    Product p = (Product) args.ChosenSuggestion;
+			    ProductViewModel.SelectedProduct = p;
+
+			    OutputBox.Text = ProductViewModel.SelectedProduct.Id.ToString();
+
+			    Frame.Navigate(typeof(ProductView));
+			}
+		}
+
+	    private List<Product> GetSuggestions(string text)
+	    {
+		    List<Product> result = null;
+
+		    result = Suggestions.Where(x => x.Name.Contains(text)).ToList();
+
+		    return result;
+	    }
+    }
 }

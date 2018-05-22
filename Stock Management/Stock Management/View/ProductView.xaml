@@ -9,105 +9,107 @@
     x:Class="Stock_Management.View.ProductView"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <Viewmodel:ProductViewModel/>
-    </Page.DataContext>
+	<Page.DataContext>
+		<Viewmodel:ProductViewModel/>
+	</Page.DataContext>
 
-    <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top">
+	<ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top">
 
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" Width="1500">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1000"/>
-                <RowDefinition Height="0"/>
-            </Grid.RowDefinitions>
-            <Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
-            <Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
-            <Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
-            <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="0,177,-1,-5" VerticalAlignment="Top" Width="1501" Grid.RowSpan="2">
-                <Button Content="Tilbage" HorizontalAlignment="Left" Margin="229,48,0,0" VerticalAlignment="Top">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="Click">
-                            <Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </Button>
-                <Button Content="Gem" HorizontalAlignment="Left" Margin="876,773,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
-                <StackPanel HorizontalAlignment="Left" Height="349" Margin="303,342,0,0" VerticalAlignment="Top" Width="100"/>
-                <StackPanel HorizontalAlignment="Left" Height="349" Margin="187,342,0,0" VerticalAlignment="Top" Width="111"/>
-                <TextBlock HorizontalAlignment="Left" Margin="746,52,0,0" TextWrapping="Wrap" Text="Vare info" VerticalAlignment="Top" FontSize="18" Height="28" Width="94" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="303,153,0,0" TextWrapping="Wrap" Text="{Binding Product.Name, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="214" IsReadOnly="True"/>
-                <TextBlock HorizontalAlignment="Left" Margin="303,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+		<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" Width="1500">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1000"/>
+				<RowDefinition Height="0"/>
+			</Grid.RowDefinitions>
+			<Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
+			<Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
+			<Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
+			<Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="0,177,-1,-5" VerticalAlignment="Top" Width="1501" Grid.RowSpan="2">
+				<Button Content="Tilbage" HorizontalAlignment="Left" Margin="229,48,0,0" VerticalAlignment="Top">
+					<Interactivity:Interaction.Behaviors>
+						<Core:EventTriggerBehavior EventName="Click">
+							<Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
+						</Core:EventTriggerBehavior>
+					</Interactivity:Interaction.Behaviors>
+				</Button>
+				<Button Content="Gem" HorizontalAlignment="Left" Margin="876,773,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
+				<StackPanel HorizontalAlignment="Left" Height="349" Margin="303,342,0,0" VerticalAlignment="Top" Width="100"/>
+				<StackPanel HorizontalAlignment="Left" Height="349" Margin="187,342,0,0" VerticalAlignment="Top" Width="111"/>
+				<TextBlock HorizontalAlignment="Left" Margin="746,52,0,0" TextWrapping="Wrap" Text="Vare info" VerticalAlignment="Top" FontSize="18" Height="28" Width="94" FontWeight="Bold"/>
+				<TextBox HorizontalAlignment="Left" Margin="303,153,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="214" IsReadOnly="True"/>
+				<TextBlock HorizontalAlignment="Left" Margin="303,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                 <Run Text="Produkt "/>
                 <Run Text="navn"/>
-                </TextBlock>
-                <TextBox HorizontalAlignment="Left" Margin="1032,153,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Price, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="208"/>
-                <TextBlock HorizontalAlignment="Left" Margin="1032,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+				</TextBlock>
+				<TextBox HorizontalAlignment="Left" Margin="1032,153,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Price, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="208"/>
+				<TextBlock HorizontalAlignment="Left" Margin="1032,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                     <Run Text="P"/>
                     <Run Text="rodukt"/>
                     <Run Text=" "/>
                     <Run Text="pris"/>
-                </TextBlock>
-                <TextBox HorizontalAlignment="Left" Margin="303,257,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Status, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="214"/>
-                <TextBlock HorizontalAlignment="Left" Margin="303,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="214" Text="Status "/>
-                <TextBox HorizontalAlignment="Left" Margin="1032,257,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Stock, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="208"/>
-                <TextBlock HorizontalAlignment="Left" Margin="1032,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Antal"/>
-                <TextBox HorizontalAlignment="Left" Margin="530,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="126" Width="501"/>
-                <TextBlock HorizontalAlignment="Left" Margin="532,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Specifikationer"/>
-                <CheckBox Content="Auto Genbestilling" HorizontalAlignment="Left" Margin="530,467,0,0" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="534,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Leverandør"/>
-                <TextBox HorizontalAlignment="Left" Margin="882,548,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Address, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="201"/>
-                <TextBlock HorizontalAlignment="Left" Margin="882,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
+				</TextBlock>
+				<TextBox HorizontalAlignment="Left" Margin="303,257,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Status, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="214"/>
+				<TextBlock HorizontalAlignment="Left" Margin="303,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="214" Text="Status "/>
+				<TextBox HorizontalAlignment="Left" Margin="1032,257,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Stock, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="208"/>
+				<TextBlock HorizontalAlignment="Left" Margin="1032,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Antal"/>
+				<TextBox HorizontalAlignment="Left" Margin="530,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="126" Width="501"/>
+				<TextBlock HorizontalAlignment="Left" Margin="532,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Specifikationer"/>
+				<CheckBox Content="Auto Genbestilling" HorizontalAlignment="Left" Margin="530,467,0,0" VerticalAlignment="Top"/>
+				<TextBlock HorizontalAlignment="Left" Margin="534,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Leverandør"/>
+				<TextBox HorizontalAlignment="Left" Margin="882,548,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Address, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="201"/>
+				<TextBlock HorizontalAlignment="Left" Margin="882,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
                 <Run Text="Leverandør"/>
                 <Run Text=" Addresse"/>
-                </TextBlock>
-                <TextBox HorizontalAlignment="Left" Margin="534,623,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Email, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
-                <TextBlock HorizontalAlignment="Left" Margin="534,598,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
+				</TextBlock>
+				<TextBox HorizontalAlignment="Left" Margin="534,623,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Email, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
+				<TextBlock HorizontalAlignment="Left" Margin="534,598,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
                 <Run Text="Leverandør"/>
                 <Run Text=" mail"/>
-                </TextBlock>
-                <TextBox HorizontalAlignment="Left" Margin="534,701,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.MinStock, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
-                <TextBlock HorizontalAlignment="Left" Margin="534,676,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Min. beholdning"/>
-                <TextBox HorizontalAlignment="Left" Margin="534,773,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.RestockAmount, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
-                <TextBlock HorizontalAlignment="Left" Margin="534,748,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Bestil antal"/>
-                <TextBlock HorizontalAlignment="Left" Margin="705,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Auto bestilling panel" FontWeight="Bold"/>
-                <TextBox HorizontalAlignment="Left" Margin="882,626,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Phone, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="201"/>
-                <TextBlock HorizontalAlignment="Left" Margin="882,601,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
+				</TextBlock>
+				<TextBox HorizontalAlignment="Left" Margin="534,701,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.MinStock, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
+				<TextBlock HorizontalAlignment="Left" Margin="534,676,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Min. beholdning"/>
+				<TextBox HorizontalAlignment="Left" Margin="534,773,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.RestockAmount, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
+				<TextBlock HorizontalAlignment="Left" Margin="534,748,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Bestil antal"/>
+				<TextBlock HorizontalAlignment="Left" Margin="705,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Auto bestilling panel" FontWeight="Bold"/>
+				<TextBox HorizontalAlignment="Left" Margin="882,626,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Phone, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="201"/>
+				<TextBlock HorizontalAlignment="Left" Margin="882,601,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
                 <Run Text="Leverandør"/>
                 <Run Text=" "/>
                 <Run Text="Tlf."/>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="882,676,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
+				</TextBlock>
+				<TextBlock HorizontalAlignment="Left" Margin="882,676,0,0" TextWrapping="Wrap" VerticalAlignment="Top" >
                 <Run Text="Periode"/>
                 <Run Text=":"/>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="882,701,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Til"/>
-                <TextBox HorizontalAlignment="Left" Margin="930,701,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.RestockPeriod, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="74"/>
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Vare nr:" VerticalAlignment="Top" Margin="341,64,0,0"/>
-                <TextBox HorizontalAlignment="Left" Height="20" Margin="396,64,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.ItemNr, Mode=TwoWay}" VerticalAlignment="Top" Width="121"/>
-            </Grid>
+				</TextBlock>
+				<TextBlock HorizontalAlignment="Left" Margin="882,701,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Til"/>
+				<TextBox HorizontalAlignment="Left" Margin="930,701,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.RestockPeriod, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="74"/>
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Vare nr:" VerticalAlignment="Top" Margin="341,64,0,0"/>
+				<TextBox HorizontalAlignment="Left" Height="20" Margin="396,64,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.ItemNr, Mode=TwoWay}" VerticalAlignment="Top" Width="121"/>
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Margin="373,32,0,0"/>
+				<TextBox HorizontalAlignment="Left" Height="20" Margin="396,26,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Id, Mode=TwoWay}" VerticalAlignment="Top" Width="121"/>
+			</Grid>
 
-            <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
-            <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
-            <TextBlock x:Name="Worker_id" HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241" d:IsLocked="True">
+			<Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
+			<Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
+			<TextBlock x:Name="Worker_id" HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241" d:IsLocked="True">
             <Run Text="Skal bindes til employee "/>
             <Run Text="i"/>
             <Run Text="d"/>
-            </TextBlock>
-            <Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308" d:IsLocked="True"/>
-            <Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
-            <Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
-            <AutoSuggestBox x:Name="SupplierBox" HorizontalAlignment="Right" Margin="0,725,823,0" VerticalAlignment="Top" Width="145"  ItemsSource="{Binding ProductCatalogSingleton.SupplierList}" Height="32"/>
-            <Button Content="Rediger&#xD;&#xA;" HorizontalAlignment="Left" Height="38" Margin="1306,261,0,0" VerticalAlignment="Top" Width="167"/>
-            <Button Content="Slet&#xD;&#xA;" HorizontalAlignment="Left" Height="38" Margin="1306,306,0,0" VerticalAlignment="Top" Width="167"/>
-            <Button Content="Manuel bestilling" HorizontalAlignment="Left" Height="38" Margin="1306,352,0,0" VerticalAlignment="Top" Width="167"/>
-            <Button Content="Se ordre" HorizontalAlignment="Left" Height="38" Margin="1306,396,0,0" VerticalAlignment="Top" Width="167"/>
-            <Button Content="Returner vare" HorizontalAlignment="Left" Height="38" Margin="1306,441,0,0" VerticalAlignment="Top" Width="167"/>
-            <Button Content="Godkend ordre&#xD;&#xA;" HorizontalAlignment="Left" Height="38" Margin="1306,486,0,0" VerticalAlignment="Top" Width="167"/>
-            <Button Content="Søg" HorizontalAlignment="Left" Height="38" Margin="1428,193,0,0" VerticalAlignment="Top" Width="45"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="1392,970,-76,0" Height="20" Width="184" Text="SHABZ™" FontSize="18"/>
-        </Grid>
-    </ScrollViewer>
+			</TextBlock>
+			<Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308" d:IsLocked="True"/>
+			<Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
+			<Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
+			<AutoSuggestBox x:Name="SupplierBox" HorizontalAlignment="Right" Margin="0,725,823,0" VerticalAlignment="Top" Width="145"  ItemsSource="{Binding ProductCatalogSingleton.SupplierList}" Height="32"/>
+			<Button Content="Rediger&#xD;&#xA;" HorizontalAlignment="Left" Height="38" Margin="1306,261,0,0" VerticalAlignment="Top" Width="167"/>
+			<Button Content="Slet&#xD;&#xA;" HorizontalAlignment="Left" Height="38" Margin="1306,306,0,0" VerticalAlignment="Top" Width="167" Command="{Binding DeleteProductCommand}"/>
+			<Button Content="Manuel bestilling" HorizontalAlignment="Left" Height="38" Margin="1306,352,0,0" VerticalAlignment="Top" Width="167"/>
+			<Button Content="Se ordre" HorizontalAlignment="Left" Height="38" Margin="1306,396,0,0" VerticalAlignment="Top" Width="167"/>
+			<Button Content="Returner vare" HorizontalAlignment="Left" Height="38" Margin="1306,441,0,0" VerticalAlignment="Top" Width="167"/>
+			<Button Content="Godkend ordre&#xD;&#xA;" HorizontalAlignment="Left" Height="38" Margin="1306,486,0,0" VerticalAlignment="Top" Width="167"/>
+			<Button Content="Søg" HorizontalAlignment="Left" Height="38" Margin="1428,193,0,0" VerticalAlignment="Top" Width="45"/>
+			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="1392,970,-76,0" Height="20" Width="184" Text="SHABZ™" FontSize="18"/>
+		</Grid>
+	</ScrollViewer>
 </Page>
