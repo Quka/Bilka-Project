@@ -34,7 +34,7 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-                <Button Content="Gem" HorizontalAlignment="Left" Margin="876,773,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
+                <Button x:Name="CreateProductSave" Content="Gem" HorizontalAlignment="Left" Margin="876,773,0,0" VerticalAlignment="Top" Command="{Binding CreateProductCommand}"/>
                 <StackPanel HorizontalAlignment="Left" Height="349" Margin="303,342,0,0" VerticalAlignment="Top" Width="100">
                     <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.SupplierId, Mode=TwoWay}" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Product.ItemNr, Mode=TwoWay}" VerticalAlignment="Top"/>
@@ -91,18 +91,18 @@
                 <TextBlock HorizontalAlignment="Left" Margin="532,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Specifikationer"/>
                 <CheckBox Content="Auto Genbestilling" HorizontalAlignment="Left" Margin="530,467,0,0" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="534,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4" Text="Leverandør"/>
-                <AutoSuggestBox x:Name="SupplierBox" HorizontalAlignment="Left" Margin="534,550,0,0" VerticalAlignment="Top" Width="145" TextChanged="SupplierBox_OnTextChanged" SuggestionChosen="SupplierBox_OnSuggestionChosen" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}"/>
-                    <TextBox x:Name="SupplierAddress" HorizontalAlignment="Left" Margin="882,548,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Address, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Height="34" Width="201"/>
+				<AutoSuggestBox x:Name="SupplierBox" HorizontalAlignment="Left" Margin="534,550,0,0" VerticalAlignment="Top" Width="145" TextChanged="SupplierBox_OnTextChanged" QuerySubmitted="SupplierBox_OnQuerySubmitted" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}"/>
+				<TextBox x:Name="SupplierAddress" HorizontalAlignment="Left" Margin="882,548,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Address}" VerticalAlignment="Top" Height="34" Width="201"/>
                 <TextBlock HorizontalAlignment="Left" Margin="882,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4">
                 <Run Text="Leverandør"/>
                 <Run Text=" Addresse"/>
                 </TextBlock>
-                <TextBox x:Name="SupplierEmail" HorizontalAlignment="Left" Margin="534,623,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Email, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="145"/>
+                <TextBox x:Name="SupplierEmail" HorizontalAlignment="Left" Margin="534,623,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Email}" VerticalAlignment="Top" Height="34" Width="145"/>
                 <TextBlock HorizontalAlignment="Left" Margin="534,598,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4">
                 <Run Text="Leverandør"/>
                 <Run Text=" mail"/>
                 </TextBlock>
-                <TextBox x:Name="SupplierPhone" HorizontalAlignment="Left" Margin="882,626,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Phone, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="201"/>
+                <TextBox x:Name="SupplierPhone" HorizontalAlignment="Left" Margin="882,626,0,0" TextWrapping="Wrap" Text="{Binding SelectedSupplier.Phone}" VerticalAlignment="Top" Height="34" Width="201"/>
                 <TextBlock HorizontalAlignment="Left" Margin="882,601,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged_4">
                 <Run Text="Leverandør"/>
                 <Run Text=" "/>

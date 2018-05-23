@@ -38,26 +38,18 @@ namespace Stock_Management.Handler
 
         public void CreateProduct()
         {
-            // TODO add dynamic product and remove test produt
-            // Instead of dot notation in to every property (ProductViewModel.SupplierId),
-            // instantiate a new product 
-            /*
-            Product createNewProduct =
-                new Product(ProductViewModel.SupplierId, ProductViewModel.ItemNr, ProductViewModel.Name,
-                          Convert.ToDecimal(ProductViewModel.StringPrice), ProductViewModel.Stock, ProductViewModel.Status,
-                            ProductViewModel.Description, ProductViewModel.MinStock, ProductViewModel.RestockAmount,
-                            DateTime.Now);*/
-            
-            ProductViewModel.Product.Price = Convert.ToDecimal(ProductViewModel.StringPrice);
+			ProductViewModel.Product.Price = Convert.ToDecimal(ProductViewModel.StringPrice);
             ProductViewModel.Product.RestockPeriod = ProductViewModel.Date.Date;
-            try
+	        ProductViewModel.Product.Supplier = ProductViewModel.SelectedSupplier;
+
+			try
 	        {
 		        ProductViewModel.ProductCatalogSingleton.CreateProduct(ProductViewModel.Product);
 			}
-			catch (Exception e)
-	        {
-		        Debug.WriteLine(e);
-	        }
+			catch (ArgumentNullException e)
+			{
+				new MessageDialog(e.Message);
+			}
         }
 
         public void UpdateProduct()
@@ -114,11 +106,6 @@ namespace Stock_Management.Handler
         }
 
         public void ApproveOrder()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICommand KeyUpSearchSupplier()
         {
             throw new NotImplementedException();
         }

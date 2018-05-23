@@ -12,13 +12,15 @@ namespace Stock_Management.Handler
     {
         List<Product> FindProducts(String s);
         void SetSelectedProduct(Product p);
+	    void SetSelectedSupplier(Supplier s);
+
         void CreateProduct();
         void UpdateProduct();
         void DeleteProduct();
-        void ManualOrder();
+
+	    void ManualOrder();
         void ReturnProduct();
         void ApproveOrder();
-        ICommand KeyUpSearchSupplier();
 
 
     }

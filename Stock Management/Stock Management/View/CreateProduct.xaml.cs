@@ -57,34 +57,56 @@ namespace Stock_Management.View
         }
 	    private void SupplierBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
 	    {
-	        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
-	        {
-	            if (sender.Text.Length > 0)
-	            {
-	                sender.ItemsSource = GetSuggestions(sender.Text);
-	            }
-	            else
-	            {
-	                sender.ItemsSource = Suggestions;
-	            }
-	        }
-        }
-	    private List<Supplier> GetSuggestions(string Text)
-	    {
-	        List<Supplier> result = null;
+			if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+			{
+				if (args.CheckCurrent())
+				{
+					sender.ItemsSource = Suggestions.Where(s => s.Name.ToUpper().Contains(sender.Text.ToUpper())).ToList();
+				}
+			}
+		}
 
-	        result = Suggestions.Where(supplier => supplier.Name.Contains(Text)).ToList();
+		private void SupplierBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+		{
+			if (args.ChosenSuggestion != null)
+			{
+				Supplier s = (Supplier) args.ChosenSuggestion;
+				ProductViewModel.SelectedSupplier = s;
 
-	        return result;
-	    }
+				
+				SupplierEmail.Text = s.Email;
+				SupplierAddress.Text = s.Address;
+				SupplierPhone.Text = s.Phone;
+			}
+			else
+			{
+				// If SelectedSupplier is null, a new supplier is to be created
+				//ProductViewModel.SelectedSupplier = null;
+				
+				
+				
+				/*
+				 * CODE BELOW IS NOT USABLE
+				 * Reason: Supplier should be created at Product Creation, not before
+				 */
 
-	    private void SupplierBox_OnSuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-	    {
-	        Supplier s = Suggestions.Where(supplier => supplier.Name.Contains(sender.Text)).ToList()[0];
-	        ProductViewModel.SelectedSupplier = s;
+				// If user haven't selected a Supplier from the dropdown
+				// Get the text from all Supplier textBoxes and create a new Supplier
 
-	        SupplierAddress.Text = s.Address;
-	    }
+				// Validate the Supplier 
+				/*
+				
 
+				// Call the ICommand through the ProductViewModel
+				ProductViewModel vm = (ProductViewModel) DataContext;
+
+				if (vm.QuerySubmitSupplier.CanExecute(s))
+				{
+					// Execute the ICommand with <string>QueryText as param
+					vm.QuerySubmitSupplier.Execute(s);
+				}
+				*/
+			}
+		}
 	}
 }

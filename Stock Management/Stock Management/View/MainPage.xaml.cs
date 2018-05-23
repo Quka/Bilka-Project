@@ -40,7 +40,7 @@ namespace Stock_Management
 			{
 				if (args.CheckCurrent())
 				{
-					sender.ItemsSource = GetSuggestions(sender.Text);
+					sender.ItemsSource = Suggestions.Where(p => p.Name.ToUpper().Contains(sender.Text.ToUpper())).ToList();
 				}
 			}
 		}
@@ -52,19 +52,8 @@ namespace Stock_Management
 			    Product p = (Product) args.ChosenSuggestion;
 			    ProductViewModel.SelectedProduct = p;
 
-			    OutputBox.Text = ProductViewModel.SelectedProduct.Id.ToString();
-
 			    Frame.Navigate(typeof(ProductView));
 			}
 		}
-
-	    private List<Product> GetSuggestions(string text)
-	    {
-		    List<Product> result = null;
-
-		    result = Suggestions.Where(x => x.Name.Contains(text)).ToList();
-
-		    return result;
-	    }
     }
 }
