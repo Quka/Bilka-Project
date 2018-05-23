@@ -17,18 +17,53 @@ namespace Stock_Management.Model
         public int ItemNr { get; set; }
 	    public string Name { get; set; }
 		public decimal Price { get; set; }
-
 		public int Stock { get; set; }
-		/*
-		 public enum EnumStatus
+
+
+
+        #region Status
+        public enum EnumStatus
 		{
 			AVAILABLE,
-			SOLDOUT
+			UNAVAILIBLE,
+            ORDERED
 		}
-		public EnumStatus Status { get; set; }
-        */
-	    public string Status { get; set; }
-	    public string Description { get; set; }
+
+        private EnumStatus enumStatus;
+
+        public void SetEnumStatus(EnumStatus value)
+        {
+            enumStatus = value;
+        }
+
+        public EnumStatus GetEnumStatus()
+        {
+            return enumStatus;
+        }
+
+        public static String GetString( this EnumStatus state)
+        {
+
+            switch (state)
+            {
+                case EnumStatus.AVAILABLE:
+                    return " På Lager";
+                case EnumStatus.UNAVAILIBLE:
+                    return "Udsolgt";
+                case EnumStatus.ORDERED:
+                    return "Bestilt";
+                default:
+                    return "Ingen status";
+            }
+
+        }
+        #endregion
+
+
+        //public EnumStatus Status { get; set; }
+
+
+        public string Description { get; set; }
 	    public int MinStock { get; set; }
 	    public int RestockAmount { get; set; }
 	    public DateTime RestockPeriod { get; set; }
@@ -47,7 +82,7 @@ namespace Stock_Management.Model
 			Name = name;
 			Price = price;
 			Stock = stock;
-	        Status = status;
+
 			Description = description;
 			MinStock  = minStock;
 			RestockAmount = restockAmount;
