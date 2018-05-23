@@ -31,16 +31,12 @@ namespace Stock_Management.Handler
             ProductViewModel.SelectedProduct = p;
         }
 
-        public void SetSelectedSupplier(Supplier s)
-        {
-            ProductViewModel.SelectedSupplier = s;
-        }
-
         public void CreateProduct()
         {
 			ProductViewModel.Product.Price = Convert.ToDecimal(ProductViewModel.StringPrice);
             ProductViewModel.Product.RestockPeriod = ProductViewModel.Date.Date;
-	        ProductViewModel.Product.Supplier = ProductViewModel.SelectedSupplier;
+
+			ProductViewModel.Product.Supplier = ProductViewModel.Supplier;
 
 			try
 	        {
@@ -48,7 +44,7 @@ namespace Stock_Management.Handler
 			}
 			catch (ArgumentNullException e)
 			{
-				new MessageDialog(e.Message);
+				new MessageDialog(e.Message).ShowAsync();
 			}
         }
 

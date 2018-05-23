@@ -22,15 +22,17 @@ namespace Stock_Management.Viewmodel
         //public DateTimeOffset DateTimeWorks { get; set; }
         public DateTimeOffset Date { get; set; }
 
+		public Supplier Supplier { get; set; }
 
 		public static Product SelectedProduct { get; set; }
-	    public static Supplier SelectedSupplier { get; set; }
+		
+		// TODO selectedSupplier to be deleted
+	    //public static Supplier SelectedSupplier { get; set; }
 
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _selectedProductCommand;
-	    private ICommand _selectedSupplierCommand;
 		private ICommand _createProductCommand;
 		private ICommand _updateProductCommand;
 		private ICommand _deleteProductCommand;
@@ -42,11 +44,6 @@ namespace Stock_Management.Viewmodel
 			get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
 			set { _selectedProductCommand = value; }
 		}
-	    public ICommand SelectSupplierCommand
-	    {
-	        get { return _selectedSupplierCommand ?? (_selectedSupplierCommand = new RelayArgCommand<Supplier>(s => ProductHandler.SetSelectedSupplier(s))); }
-	        set { _selectedSupplierCommand = value; }
-	    }
 
 	    public ICommand CreateProductCommand
         {
@@ -83,6 +80,7 @@ namespace Stock_Management.Viewmodel
 
             Product = new Product();
             //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, 0, 0, new TimeSpan());
+			Supplier = new Supplier();
 
             //CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
 		}

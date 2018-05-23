@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store;
+using Windows.UI.Popups;
 using Stock_Management.Model.Interface;
 using Stock_Management.Persistency;
 
@@ -37,10 +38,24 @@ namespace Stock_Management.Model
 	        if (p.Supplier == null)
 	        {
 				// Supplier or any of suppliers properties are null
-				throw new ArgumentNullException();
+				throw new ArgumentNullException("Some supplier information is missing");
 	        }
 
-	        try
+			// Check if the Supplier already exists in the list
+			// TODO : Should it check the DB as well?
+	        if (SupplierList.Contains(p.Supplier))
+	        {
+				// Update Supplier instead
+		        UpdateSupplier(p.Supplier);
+		        new MessageDialog("Updating Supplier").ShowAsync();
+	        }
+	        else
+	        {
+		        CreateSupplier(p.Supplier);
+		        new MessageDialog("Creating Supplier").ShowAsync();
+	        }
+
+			try
 	        {
 				// Add in DB1   
 		        PersistencyService.InsertProductAsync(p);
@@ -54,7 +69,7 @@ namespace Stock_Management.Model
 	        }
         }
 
-        public void DeleteProduct(Product p)
+		public void DeleteProduct(Product p)
         {
 	        try
 	        {
@@ -121,16 +136,6 @@ namespace Stock_Management.Model
 
 		public async Task LoadSuppliersAsync()
         {
-			/*
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-			*/
-
 	        try
 	        {
 		        List<Supplier> suppliers = await PersistencyService.LoadSuppliersAsync();
@@ -148,7 +153,20 @@ namespace Stock_Management.Model
 
 		public void CreateSupplier(Supplier s)
 		{
-			PersistencyService.InsertSupplier(s);
+			try
+			{
+				PersistencyService.InsertSupplier(s);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e);
+				throw;
+			}
 		}
+
+	    public void UpdateSupplier(Supplier s)
+	    {
+		    PersistencyService.UpdateSupplier(Supplier s);
+	    }
 	}
 }

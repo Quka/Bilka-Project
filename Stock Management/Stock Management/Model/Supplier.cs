@@ -11,11 +11,16 @@ namespace Stock_Management.Model
 {
     public class Supplier : ISupplier
 	{
+		public int Id { get; set; }
 	    public string Name { get; set; }
 	    public string Address { get; set; }
 	    public string Email { get; set; }
 	    public string Phone { get; set; }
 
+		public Supplier()
+		{
+			// Overloaded with empty constructor
+		}
 	    public Supplier(string name, string address, string email, string phone)
 	    {
 	        Name = name;

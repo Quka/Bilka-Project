@@ -71,41 +71,10 @@ namespace Stock_Management.View
 			if (args.ChosenSuggestion != null)
 			{
 				Supplier s = (Supplier) args.ChosenSuggestion;
-				ProductViewModel.SelectedSupplier = s;
 
-				
 				SupplierEmail.Text = s.Email;
 				SupplierAddress.Text = s.Address;
 				SupplierPhone.Text = s.Phone;
-			}
-			else
-			{
-				// If SelectedSupplier is null, a new supplier is to be created
-				//ProductViewModel.SelectedSupplier = null;
-				
-				
-				
-				/*
-				 * CODE BELOW IS NOT USABLE
-				 * Reason: Supplier should be created at Product Creation, not before
-				 */
-
-				// If user haven't selected a Supplier from the dropdown
-				// Get the text from all Supplier textBoxes and create a new Supplier
-
-				// Validate the Supplier 
-				/*
-				
-
-				// Call the ICommand through the ProductViewModel
-				ProductViewModel vm = (ProductViewModel) DataContext;
-
-				if (vm.QuerySubmitSupplier.CanExecute(s))
-				{
-					// Execute the ICommand with <string>QueryText as param
-					vm.QuerySubmitSupplier.Execute(s);
-				}
-				*/
 			}
 		}
 	}
