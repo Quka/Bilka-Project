@@ -78,6 +78,7 @@ namespace Stock_Management.Viewmodel
         
 
 
+
         public ProductViewModel()
         {
             ProductCatalogSingleton = ProductCatalogSingleton.Instance;

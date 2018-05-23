@@ -41,7 +41,7 @@ namespace Stock_Management.Model
         //    return enumStatus;
         //}
 
-        public  String GetString( this EnumStatus Status)
+        public  String GetStatus( this EnumStatus Status)
         {
 
             switch (Status)

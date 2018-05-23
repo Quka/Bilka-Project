@@ -16,27 +16,26 @@ namespace Stock_Management.Model
         #region Status
         public enum EnumStatus
 		{
-			PENDING,
 			RECEIVED,
 			CONFIRMED
 		}
 
-        public String GetString(this EnumStatus Status)
+        public String GetStatus(this EnumStatus Status)
         {
 
             switch (Status)
             {
                 case EnumStatus.CONFIRMED:
                     return "Bekræftet";
-                case EnumStatus.PENDING:
-                    return "Afventer";
                 case EnumStatus.RECEIVED:
                     return "Modtaget";
                 default:
-                    return "Ingen status";
+                    return "Afventer";
             }
 
         }
+
+       
 
 
         public string Status { get; set; }
