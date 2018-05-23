@@ -29,25 +29,25 @@ namespace Stock_Management.Model
             ORDERED
 		}
 
-        private EnumStatus enumStatus;
+        //private EnumStatus enumStatus;
 
-        public void SetEnumStatus(EnumStatus value)
+        //public void SetEnumStatus(EnumStatus value)
+        //{
+        //    enumStatus = value;
+        //}
+
+        //public EnumStatus GetEnumStatus()
+        //{
+        //    return enumStatus;
+        //}
+
+        public  String GetString( this EnumStatus Status)
         {
-            enumStatus = value;
-        }
 
-        public EnumStatus GetEnumStatus()
-        {
-            return enumStatus;
-        }
-
-        public static String GetString( this EnumStatus state)
-        {
-
-            switch (state)
+            switch (Status)
             {
                 case EnumStatus.AVAILABLE:
-                    return " På Lager";
+                    return "På Lager";
                 case EnumStatus.UNAVAILIBLE:
                     return "Udsolgt";
                 case EnumStatus.ORDERED:
@@ -57,11 +57,9 @@ namespace Stock_Management.Model
             }
 
         }
-        #endregion
-
 
         //public EnumStatus Status { get; set; }
-
+        #endregion
 
         public string Description { get; set; }
 	    public int MinStock { get; set; }

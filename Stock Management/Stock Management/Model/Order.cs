@@ -12,14 +12,39 @@ namespace Stock_Management.Model
 		public int Id { get; set; }
 		public int ProductId { get; set; }
 		public int SupplierId { get; set; }
-		public enum EnumStatus
+
+        #region Status
+        public enum EnumStatus
 		{
 			PENDING,
 			RECEIVED,
 			CONFIRMED
 		}
-		public string Status { get; set; }
-		public int Amount { get; set; }
+
+        public String GetString(this EnumStatus Status)
+        {
+
+            switch (Status)
+            {
+                case EnumStatus.CONFIRMED:
+                    return "Bekræftet";
+                case EnumStatus.PENDING:
+                    return "Afventer";
+                case EnumStatus.RECEIVED:
+                    return "Modtaget";
+                default:
+                    return "Ingen status";
+            }
+
+        }
+
+
+        public string Status { get; set; }
+
+
+        #endregion
+
+        public int Amount { get; set; }
 		public DateTime Date { get; set; }
 		public DateTime EstDelivery { get; set; }
 		public bool Approved { get; set; }
