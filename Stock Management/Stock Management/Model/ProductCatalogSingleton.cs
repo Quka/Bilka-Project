@@ -22,8 +22,6 @@ namespace Stock_Management.Model
         public ObservableCollection<Product> ProductList { get; set; }
         public ObservableCollection<Supplier> SupplierList { get; set; }
         
-
-
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
@@ -34,11 +32,14 @@ namespace Stock_Management.Model
 
         }
 
-        
-
         public void CreateProduct(Product p)
         {
-	        //decimal pPrice = Decimal.Parse(p.Price);
+	        if (p.Supplier == null)
+	        {
+				// Supplier or any of suppliers properties are null
+				throw new ArgumentNullException();
+	        }
+
 	        try
 	        {
 				// Add in DB1   
@@ -46,15 +47,13 @@ namespace Stock_Management.Model
 
 				// Add to ProductList
 		        ProductList.Add(p);
-
 			}
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
 	        }
-            
-	        
         }
+
         public void DeleteProduct(Product p)
         {
 	        try
@@ -88,23 +87,6 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public async void LoadProductsAsync()
-        {
-	        try
-	        {
-		        List<Product> products = await PersistencyService.LoadProductsAsync();
-		        foreach (Product p in products)
-		        {
-			        ProductList.Add(p);
-		        }
-			}
-	        catch (Exception e)
-	        {
-		        Debug.WriteLine(e);
-		        throw;
-	        }
-        }
-
         public void OrderProduct(Product p, int amount)
         {
 			// Create an order 
@@ -120,18 +102,53 @@ namespace Stock_Management.Model
 	        PersistencyService.InsertOrder(o);
         }
 
-        private async void LoadSuppliersAsync()
-        {
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            //var suppliers = await PersistencyService.LoadSuppliersAsync();
+	    public async Task LoadProductsAsync()
+	    {
+		    try
+		    {
+			    List<Product> products = await PersistencyService.LoadProductsAsync();
+			    foreach (Product p in products)
+			    {
+				    ProductList.Add(p);
+			    }
+		    }
+		    catch (Exception e)
+		    {
+			    Debug.WriteLine(e);
+			    throw;
+		    }
+	    }
 
+		public async Task LoadSuppliersAsync()
+        {
+			/*
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
+			*/
+
+	        try
+	        {
+		        List<Supplier> suppliers = await PersistencyService.LoadSuppliersAsync();
+		        foreach (Supplier supplier in suppliers)
+		        {
+			        SupplierList.Add(supplier);
+		        }
+			}
+	        catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+		        throw;
+	        }
         }
 
-    }
+		public void CreateSupplier(Supplier s)
+		{
+			PersistencyService.InsertSupplier(s);
+		}
+	}
 }
