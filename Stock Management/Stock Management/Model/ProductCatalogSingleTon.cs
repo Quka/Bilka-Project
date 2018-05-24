@@ -168,5 +168,32 @@ namespace Stock_Management.Model
 	    {
 		    PersistencyService.UpdateSupplier(s);
 	    }
-	}
+
+
+
+        public void CreateProductReturn(ProductReturn r)
+        {
+            //if (r.Amount == null)
+            //{
+             
+            //    throw new ArgumentNullException("Amount is not selected");
+            //}
+
+           
+  
+            new MessageDialog("Creating ProductReturn").ShowAsync();
+            try
+            {
+                
+                PersistencyService.InsertProductReturnAsync(r);
+
+                // Add to ProductReturns
+              
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+    }
 }

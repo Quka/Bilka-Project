@@ -63,15 +63,52 @@ namespace Stock_Management.Model
 		    }
 	    }
 
+        /*
+        public string GetStatus()
+        {
+
+            int StatusSwitch = 0;
+            switch (StatusSwitch)
+            {
+                case 1:
+                    return "Bestilt";
+                    break;
+                default:
+                    return "På lager";
+
+            }
+        }
+        */
+
+
+
+            public void CreateProductReturn(ProductReturn r)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ApproveOrder(Order o)
         {
             throw new NotImplementedException();
         }
 
-	    public void GetProductReturnList()
+	    public async void GetProductReturnList()
 	    {
-	        throw new NotImplementedException();
-	    }
+            try
+            {
+                List<ProductReturn> ProductReturns = await PersistencyService.LoadProductReturnsAsync();
+
+                foreach (ProductReturn pr in ProductReturns)
+                {
+                    ProductReturns.Add(pr);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                throw;
+            }
+        }
 
 	    public override string ToString()
 	    {

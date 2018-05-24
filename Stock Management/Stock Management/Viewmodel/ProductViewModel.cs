@@ -23,8 +23,9 @@ namespace Stock_Management.Viewmodel
         public DateTimeOffset Date { get; set; }
 
 		public Supplier Supplier { get; set; }
+        public ProductReturn ProductReturn { get; set; }
 
-		public static Product SelectedProduct { get; set; }
+        public static Product SelectedProduct { get; set; }
 		
 		// TODO selectedSupplier to be deleted
 	    //public static Supplier SelectedSupplier { get; set; }
@@ -38,8 +39,10 @@ namespace Stock_Management.Viewmodel
 		private ICommand _deleteProductCommand;
 		private ICommand _manualOrderCommand;
 		private ICommand _querySubmitSupplier;
+        private ICommand _returnProductCommand;
 
-		public ICommand SelectProductCommand
+
+        public ICommand SelectProductCommand
 		{
 			get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
 			set { _selectedProductCommand = value; }
@@ -60,7 +63,11 @@ namespace Stock_Management.Viewmodel
 			get { return _deleteProductCommand ?? (_deleteProductCommand = new RelayCommand(ProductHandler.DeleteProduct)); }
 			set { _deleteProductCommand = value; }
 		}
-		public ICommand ReturnProductCommand { get; set; }
+		public ICommand ReturnProductCommand
+        {
+            get { return _returnProductCommand ?? (_returnProductCommand = new RelayCommand(ProductHandler.ReturnProduct)); }
+            set { _returnProductCommand = value; }
+        }
 
 		public ICommand ManualOrderCommand
 		{
