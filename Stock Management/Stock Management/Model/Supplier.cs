@@ -9,16 +9,18 @@ using Stock_Management.Model.Interface;
 
 namespace Stock_Management.Model
 {
-    public class Supplier : ISupplier, INotifyPropertyChanged
+    public class Supplier : ISupplier
 	{
+		public int Id { get; set; }
 	    public string Name { get; set; }
-
 	    public string Address { get; set; }
-
 	    public string Email { get; set; }
-		
 	    public string Phone { get; set; }
 
+		public Supplier()
+		{
+			// Overloaded with empty constructor
+		}
 	    public Supplier(string name, string address, string email, string phone)
 	    {
 	        Name = name;
@@ -30,13 +32,6 @@ namespace Stock_Management.Model
 	    public override string ToString()
 	    {
 	        return Name;
-	    }
-
-	    public event PropertyChangedEventHandler PropertyChanged;
-
-	    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-	    {
-	        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 	    }
 	}
 

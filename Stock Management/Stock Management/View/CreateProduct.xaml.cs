@@ -57,38 +57,25 @@ namespace Stock_Management.View
         }
 	    private void SupplierBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
 	    {
-	        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
-	        {
-	            if (sender.Text.Length > 0)
-	            {
-	                sender.ItemsSource = GetSuggestions(sender.Text);
-	            }
-	            else
-	            {
-	                sender.ItemsSource = Suggestions;
-	            }
-	        }
-        }
-	    private List<Supplier> GetSuggestions(string Text)
-	    {
-	        List<Supplier> result = null;
+			if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+			{
+				if (args.CheckCurrent())
+				{
+					sender.ItemsSource = Suggestions.Where(s => s.Name.ToUpper().Contains(sender.Text.ToUpper())).ToList();
+				}
+			}
+		}
 
-	        result = Suggestions.Where(supplier => supplier.Name.Contains(Text)).ToList();
+		private void SupplierBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+		{
+			if (args.ChosenSuggestion != null)
+			{
+				Supplier s = (Supplier) args.ChosenSuggestion;
 
-	        return result;
-	    }
-
-	    private void SupplierBox_OnSuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-	    {
-	        Supplier s = Suggestions.Where(supplier => supplier.Name.Contains(sender.Text)).ToList()[0];
-	        ProductViewModel.SelectedSupplier = s;
-
-	        SupplierAddress.Text = s.Address;
-	    }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            CreateProductStatus.ItemsSource = "Pending..";
-        }
-    }
+				SupplierEmail.Text = s.Email;
+				SupplierAddress.Text = s.Address;
+				SupplierPhone.Text = s.Phone;
+			}
+		}
+	}
 }
