@@ -1,11 +1,18 @@
 ﻿<Page
-    x:Class="Stock_Management.View.ProductOrderView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Stock_Management.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Viewmodel="using:Stock_Management.Viewmodel"
+    x:Class="Stock_Management.View.ProductOrderView"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <Viewmodel:ProductViewModel/>
+    </Page.DataContext>
+
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -19,47 +26,17 @@
         <Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
         <Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
         <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="100" Margin="462,236,0,0">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="100" Margin="462,238,0,0">
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="100" Margin="100,-1,-102,-1"/>
             </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="214" Margin="661,236,0,0"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="214" Margin="875,236,0,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="214" Margin="661,238,0,0"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="214" Margin="875,238,0,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
                 <Border.RenderTransform>
                     <CompositeTransform SkewX="3.009" TranslateX="0.735"/>
                 </Border.RenderTransform>
             </Border>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,357,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,357,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,357,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,357,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,388,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,388,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,388,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,388,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,419,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,419,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,419,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,419,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,451,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,451,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,451,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,451,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,482,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,482,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,482,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,482,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,263,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,263,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,263,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,263,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,294,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,294,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,294,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,294,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="462,325,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="562,325,0,0" Width="100"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="662,325,0,0" Width="214"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="875,325,0,0" Width="214"/>
+
+            <ListView HorizontalAlignment="Left" Height="271" Margin="462,341,0,0" VerticalAlignment="Top" Width="342" ItemsSource="{Binding SelectedProduct.OrderList}"/>
         </Grid>
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
         <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
@@ -76,16 +53,16 @@
             <Run Text="Ordre hist"/>
             <Run Text="orik"/>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="472,411,0,0" Height="20" Width="62" SelectionChanged="TextBlock_SelectionChanged_1">
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="472,413,0,0" Height="20" Width="62" SelectionChanged="TextBlock_SelectionChanged_1">
             <Run FontWeight="Bold" Text="Dato"/>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="566,411,0,0" Height="20" Width="62">
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="566,413,0,0" Height="20" Width="62">
             <Run FontWeight="Bold" Text="Antal"/>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="677,411,0,0" Height="20" Width="85">
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="677,413,0,0" Height="20" Width="85">
             <Run FontWeight="Bold" Text="Leverandør"/>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="878,411,0,0" Height="20" Width="151">
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="878,413,0,0" Height="20" Width="151">
             <Run FontWeight="Bold" Text="Leverings estimat"/>
         </TextBlock>
     </Grid>
