@@ -166,7 +166,7 @@ namespace Stock_Management.Model
 
 	    public void UpdateSupplier(Supplier s)
 	    {
-		    PersistencyService.UpdateSupplier(Supplier s);
+		    PersistencyService.UpdateSupplier(s);
 	    }
 	}
 }
