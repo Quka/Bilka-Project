@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Stock_Management.Common;
 using Stock_Management.Handler;
 using Stock_Management.Model;
+using Windows.UI.Xaml.Controls;
 
 namespace Stock_Management.Viewmodel
 {
@@ -19,35 +20,30 @@ namespace Stock_Management.Viewmodel
         public Product Product { get; set; }
 	    public string StringPrice { get; set; }
         //public DateTimeOffset DateTimeWorks { get; set; }
-
         public DateTimeOffset Date { get; set; }
 
+		public Supplier Supplier { get; set; }
 
 		public static Product SelectedProduct { get; set; }
-	    public static Supplier SelectedSupplier { get; set; }
+		
+		// TODO selectedSupplier to be deleted
+	    //public static Supplier SelectedSupplier { get; set; }
 
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }
 
 		private ICommand _selectedProductCommand;
-	    private ICommand _selectedSupplierCommand;
 		private ICommand _createProductCommand;
 		private ICommand _updateProductCommand;
 		private ICommand _deleteProductCommand;
 		private ICommand _manualOrderCommand;
+		private ICommand _querySubmitSupplier;
 
-		public ICommand FindProductsCommand { get; set; }
 		public ICommand SelectProductCommand
 		{
 			get { return _selectedProductCommand ?? (_selectedProductCommand = new RelayArgCommand<Product>(p => ProductHandler.SetSelectedProduct(p))); }
 			set { _selectedProductCommand = value; }
 		}
-
-	    public ICommand SelectSupplierCommand
-	    {
-	        get { return _selectedSupplierCommand ?? (_selectedSupplierCommand = new RelayArgCommand<Supplier>(s => ProductHandler.SetSelectedSupplier(s))); }
-	        set { _selectedSupplierCommand = value; }
-	    }
 
 	    public ICommand CreateProductCommand
         {
@@ -64,22 +60,19 @@ namespace Stock_Management.Viewmodel
 			get { return _deleteProductCommand ?? (_deleteProductCommand = new RelayCommand(ProductHandler.DeleteProduct)); }
 			set { _deleteProductCommand = value; }
 		}
+		public ICommand ReturnProductCommand { get; set; }
 
 		public ICommand ManualOrderCommand
 		{
 			get { return _manualOrderCommand ?? (_manualOrderCommand = new RelayCommand(ProductHandler.ManualOrder)); }
 			set { _manualOrderCommand = value; }
 		}
-		public ICommand ReturnProductCommand { get; set; }
 		public ICommand ApproveOrderCommand { get; set; }
+
+		public ICommand FindProductsCommand { get; set; }
 		public ICommand KeyUpSearchSupplier { get; set; }
-       
 
-        
-
-
-
-        public ProductViewModel()
+		public ProductViewModel()
         {
             ProductCatalogSingleton = ProductCatalogSingleton.Instance;
 	        ProductHandler = new ProductHandler(this);
@@ -87,10 +80,9 @@ namespace Stock_Management.Viewmodel
 
             Product = new Product();
             //Date = new DateTimeOffset(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, 0, 0, new TimeSpan());
+			Supplier = new Supplier();
 
             //CreateProductCommand = new RelayCommand(ProductHandler.CreateProduct);
-
-            
 		}
 
         
