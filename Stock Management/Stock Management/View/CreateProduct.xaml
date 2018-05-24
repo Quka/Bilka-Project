@@ -84,6 +84,7 @@
 					<TextBox Text="{Binding Product.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,35,10,10" Height="155" VerticalAlignment="Center"/>
 				</Grid>
 				<CheckBox Content="Auto Genbestilling" Grid.Row="4" Margin="89,5,10,63" HorizontalAlignment="Stretch" Grid.Column="1"/>
+
 				<Button x:Name="Tilbage" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Tilbage" Grid.Row="4" Margin="10,10,0,0">
 					<Interactivity:Interaction.Behaviors>
 						<Core:EventTriggerBehavior EventName="Click">
