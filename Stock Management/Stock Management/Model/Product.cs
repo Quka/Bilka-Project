@@ -18,55 +18,13 @@ namespace Stock_Management.Model
 	    public string Name { get; set; }
 		public decimal Price { get; set; }
 		public int Stock { get; set; }
-
-
-
-        #region Status
-        public enum EnumStatus
-		{
-			AVAILABLE,
-			UNAVAILIBLE,
-            ORDERED
-		}
-
-        //private EnumStatus enumStatus;
-
-        //public void SetEnumStatus(EnumStatus value)
-        //{
-        //    enumStatus = value;
-        //}
-
-        //public EnumStatus GetEnumStatus()
-        //{
-        //    return enumStatus;
-        //}
-
-        public  String GetStatus( this EnumStatus Status)
-        {
-
-            switch (Status)
-            {
-                case EnumStatus.AVAILABLE:
-                    return "På Lager";
-                case EnumStatus.UNAVAILIBLE:
-                    return "Udsolgt";
-                case EnumStatus.ORDERED:
-                    return "Bestilt";
-                default:
-                    return "Ingen status";
-            }
-
-        }
-
-        //public EnumStatus Status { get; set; }
-        #endregion
-
         public string Description { get; set; }
 	    public int MinStock { get; set; }
 	    public int RestockAmount { get; set; }
 	    public DateTime RestockPeriod { get; set; }
 		public Supplier Supplier { get; set; }
-		public ObservableCollection<Order> OrderList { get; set; }
+        public String Satus { get; set; }
+        public ObservableCollection<Order> OrderList { get; set; }
 		public ObservableCollection<ProductReturn> ProductReturns { get; set; }
 
 		public Product()

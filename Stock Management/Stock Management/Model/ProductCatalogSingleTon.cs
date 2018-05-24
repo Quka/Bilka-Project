@@ -111,7 +111,7 @@ namespace Stock_Management.Model
 	        DateTime now = DateTime.Now;
 
 	        // EnumStatus: I am using the built in EnumStatus' and do a toString on them as the DB takes a string
-			Order o = new Order(p.Id, p.SupplierId, Order.EnumStatus.PENDING.ToString(), amount, now, now );
+			Order o = new Order(p.Id, p.SupplierId, ToString(), amount, now, now );
 
 			// Insert order
 	        PersistencyService.InsertOrder(o);

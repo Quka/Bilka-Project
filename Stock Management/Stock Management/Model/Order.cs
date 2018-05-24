@@ -12,43 +12,15 @@ namespace Stock_Management.Model
 		public int Id { get; set; }
 		public int ProductId { get; set; }
 		public int SupplierId { get; set; }
-
-        #region Status
-        public enum EnumStatus
-		{
-			RECEIVED,
-			CONFIRMED
-		}
-
-        public String GetStatus(this EnumStatus Status)
-        {
-
-            switch (Status)
-            {
-                case EnumStatus.CONFIRMED:
-                    return "Bekræftet";
-                case EnumStatus.RECEIVED:
-                    return "Modtaget";
-                default:
-                    return "Afventer";
-            }
-
-        }
-
-       
-
-
         public string Status { get; set; }
-
-
-        #endregion
-
         public int Amount { get; set; }
 		public DateTime Date { get; set; }
 		public DateTime EstDelivery { get; set; }
 		public bool Approved { get; set; }
 		public Product Product { get; set; }
 	    public Supplier Supplier { get; set; }
+
+
 
 		public Order(int productId, int supplierId, string status, int amount, DateTime date, DateTime estDelivery)
 		{
@@ -59,6 +31,8 @@ namespace Stock_Management.Model
 			Date = date;
 			EstDelivery = estDelivery;
 		}
+
+
 
 		public override string ToString()
 		{
