@@ -50,31 +50,32 @@
             <Run Text="Skal bindes til employee "/>
             <Run Text="i"/>
             <Run Text="d"/>
-		</TextBlock>
-		<Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308"/>
-		<Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
-		<Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
-		<AutoSuggestBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="246" Margin="627,336,0,0" QueryIcon="Find" ItemsSource="{Binding ProductCatalogSingleton.ProductList}" SuggestionChosen="SelectSuggestionProduct"/>
-		<Button Content="Se produkt (hardcoded)" HorizontalAlignment="Left" Margin="242,0.5,0,0" VerticalAlignment="Top" Height="45" Width="205" Grid.Row="1">
-			<Interactivity:Interaction.Behaviors>
-				<Core:EventTriggerBehavior EventName="Click">
-					<Core:NavigateToPageAction TargetPage="Stock_Management.View.ProductView"/>
-				</Core:EventTriggerBehavior>
-			</Interactivity:Interaction.Behaviors>
-		</Button>
-		<Button Content="View CreateProductPage" HorizontalAlignment="Left" Margin="264,367,0,0" VerticalAlignment="Top">
-			<Interactivity:Interaction.Behaviors>
-				<Core:EventTriggerBehavior EventName="Click">
-					<Core:NavigateToPageAction TargetPage="Stock_Management.View.CreateProduct"/>
-				</Core:EventTriggerBehavior>
-			</Interactivity:Interaction.Behaviors>
-		</Button>
-		<Button Content="View UpdateProductPage" HorizontalAlignment="Left" Margin="264,404,0,0" VerticalAlignment="Top">
-			<Interactivity:Interaction.Behaviors>
-				<Core:EventTriggerBehavior EventName="Click">
-					<Core:NavigateToPageAction TargetPage="Stock_Management.View.EditProductView"/>
-				</Core:EventTriggerBehavior>
-			</Interactivity:Interaction.Behaviors>
-		</Button>
-	</Grid>
+        </TextBlock>
+        <Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308"/>
+        <Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
+        <Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
+        <AutoSuggestBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="246" Margin="684,382,0,0" QueryIcon="Find" ItemsSource="{Binding ProductCatalogSingleton.ProductList}" SuggestionChosen="SelectSuggestionProduct"/>
+        <Button Content="Se produkt (hardcoded)" HorizontalAlignment="Left" Margin="968,381,0,0" VerticalAlignment="Top" Height="45" Width="205">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Stock_Management.View.ProductView"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
+        <Button Content="View CreateProductPage" HorizontalAlignment="Left" Margin="458,381,0,0" VerticalAlignment="Top" Width="189">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Stock_Management.View.CreateProduct"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
+        <Button Content="View UpdateProductPage" HorizontalAlignment="Left" Margin="458,418,0,0" VerticalAlignment="Top">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Stock_Management.View.EditProductView"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="684,178,0,0" TextWrapping="Wrap" Text="Find produkt" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" FontWeight="Bold" FontSize="36"/>
+    </Grid>
 </Page>

@@ -153,6 +153,7 @@
     <None Include="Stock Management_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Bilka.png" />
     <Content Include="Assets\bilka_logo.png" />
     <Content Include="Assets\User-Interface-Logout-icon.png" />
     <Content Include="Properties\Default.rd.xml" />

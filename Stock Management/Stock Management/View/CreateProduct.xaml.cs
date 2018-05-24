@@ -86,5 +86,9 @@ namespace Stock_Management.View
 	        SupplierAddress.Text = s.Address;
 	    }
 
-	}
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CreateProductStatus.ItemsSource = "Pending..";
+        }
+    }
 }
