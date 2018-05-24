@@ -77,8 +77,34 @@ namespace Stock_Management.Persistency
 
         public static async Task<List<Supplier>> LoadSuppliersAsync()
         {
-            throw new NotImplementedException();
-        }
+			const string serverUrl = "http://localhost:55001";
+	        HttpClientHandler handler = new HttpClientHandler();
+	        handler.UseDefaultCredentials = true;
+
+	        using (var client = new HttpClient(handler))
+	        {
+		        client.BaseAddress = new Uri(serverUrl);
+		        client.DefaultRequestHeaders.Clear();
+		        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+		        try
+		        {
+			        var response = client.GetAsync("api/Suppliers").Result;
+			        if (response.IsSuccessStatusCode)
+			        {
+				        var suppliers = response.Content.ReadAsAsync<IEnumerable<Supplier>>().Result;
+				        return suppliers.ToList();
+			        }
+
+			        return null;
+		        }
+		        catch (Exception e)
+		        {
+			        await new MessageDialog(e.Message).ShowAsync();
+			        throw;
+		        }
+	        }
+		}
 
         public static async void DeleteProductAsync(Product p)
         {
@@ -211,5 +237,67 @@ namespace Stock_Management.Persistency
         {
             throw new NotImplementedException();
         }
-	}
+
+	    public static async void InsertSupplier(Supplier s)
+	    {
+		    const string serverUrl = "http://localhost:55001";
+		    HttpClientHandler handler = new HttpClientHandler();
+		    handler.UseDefaultCredentials = true;
+
+		    using (var client = new HttpClient(handler))
+		    {
+			    string postBody = JsonConvert.SerializeObject(s);
+
+			    // Convert the string body to bytes, because json returns 400 status errors
+			    byte[] msgBytes = Encoding.UTF8.GetBytes(postBody);
+			    var content = new ByteArrayContent(msgBytes);
+			    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+			    client.BaseAddress = new Uri(serverUrl);
+			    client.DefaultRequestHeaders.Clear();
+			    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+			    try
+			    {
+				    HttpResponseMessage httpResponseMessage = client.PostAsync("api/Suppliers", content).Result;
+				    await new MessageDialog(httpResponseMessage.Content.ReadAsStringAsync().Result).ShowAsync();
+			    }
+			    catch (Exception e)
+			    {
+				    await new MessageDialog(e.Message).ShowAsync();
+			    }
+		    }
+	    }
+
+	    public static async void UpdateSupplier(Supplier s)
+	    {
+			const string serverUrl = "http://localhost:55001";
+		    HttpClientHandler handler = new HttpClientHandler();
+		    handler.UseDefaultCredentials = true;
+
+		    using (var client = new HttpClient(handler))
+		    {
+			    string postBody = JsonConvert.SerializeObject(s);
+
+			    // Convert the string body to bytes, because json returns 400 status errors
+			    byte[] msgBytes = Encoding.UTF8.GetBytes(postBody);
+			    var content = new ByteArrayContent(msgBytes);
+			    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+			    client.BaseAddress = new Uri(serverUrl);
+			    client.DefaultRequestHeaders.Clear();
+			    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+			    try
+			    {
+				    HttpResponseMessage httpResponseMessage = client.PutAsync("api/Products/" + s.Id, content).Result;
+				    await new MessageDialog("Updated: " + httpResponseMessage.IsSuccessStatusCode.ToString()).ShowAsync();
+			    }
+			    catch (Exception e)
+			    {
+				    await new MessageDialog(e.Message).ShowAsync();
+			    }
+		    }
+		}
+    }
 }

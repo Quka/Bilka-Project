@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store;
+using Windows.UI.Popups;
 using Stock_Management.Model.Interface;
 using Stock_Management.Persistency;
 
@@ -21,7 +22,7 @@ namespace Stock_Management.Model
 
         public ObservableCollection<Product> ProductList { get; set; }
         public ObservableCollection<Supplier> SupplierList { get; set; }
-
+        
         private ProductCatalogSingleton()
         {
             ProductList = new ObservableCollection<Product>();
@@ -32,28 +33,43 @@ namespace Stock_Management.Model
 
         }
 
-        
-
         public void CreateProduct(Product p)
         {
-	        //decimal pPrice = Decimal.Parse(p.Price);
-	        try
+	        if (p.Supplier == null)
+	        {
+				// Supplier or any of suppliers properties are null
+				throw new ArgumentNullException("Some supplier information is missing");
+	        }
+
+			// Check if the Supplier already exists in the list
+			// TODO : Should it check the DB as well?
+	        if (SupplierList.Contains(p.Supplier))
+	        {
+				// Update Supplier instead
+		        UpdateSupplier(p.Supplier);
+		        new MessageDialog("Updating Supplier").ShowAsync();
+	        }
+	        else
+	        {
+		        CreateSupplier(p.Supplier);
+		        new MessageDialog("Creating Supplier").ShowAsync();
+	        }
+
+			try
 	        {
 				// Add in DB1   
 		        PersistencyService.InsertProductAsync(p);
 
 				// Add to ProductList
 		        ProductList.Add(p);
-
 			}
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
 	        }
-            
-	        
         }
-        public void DeleteProduct(Product p)
+
+		public void DeleteProduct(Product p)
         {
 	        try
 	        {
@@ -86,23 +102,6 @@ namespace Stock_Management.Model
             throw new NotImplementedException();
         }
 
-        public async void LoadProductsAsync()
-        {
-	        try
-	        {
-		        List<Product> products = await PersistencyService.LoadProductsAsync();
-		        foreach (Product p in products)
-		        {
-			        ProductList.Add(p);
-		        }
-			}
-	        catch (Exception e)
-	        {
-		        Debug.WriteLine(e);
-		        throw;
-	        }
-        }
-
         public void OrderProduct(Product p, int amount)
         {
 			// Create an order 
@@ -118,18 +117,56 @@ namespace Stock_Management.Model
 	        PersistencyService.InsertOrder(o);
         }
 
-        private async void LoadSuppliersAsync()
-        {
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            SupplierList.Add(new Supplier("Benjamin Kakar", "Lyndmosen 21", "Benjamin@live.dk", "60633636"));
-            //var suppliers = await PersistencyService.LoadSuppliersAsync();
+	    public async Task LoadProductsAsync()
+	    {
+		    try
+		    {
+			    List<Product> products = await PersistencyService.LoadProductsAsync();
+			    foreach (Product p in products)
+			    {
+				    ProductList.Add(p);
+			    }
+		    }
+		    catch (Exception e)
+		    {
+			    Debug.WriteLine(e);
+			    throw;
+		    }
+	    }
 
+		public async Task LoadSuppliersAsync()
+        {
+	        try
+	        {
+		        List<Supplier> suppliers = await PersistencyService.LoadSuppliersAsync();
+		        foreach (Supplier supplier in suppliers)
+		        {
+			        SupplierList.Add(supplier);
+		        }
+			}
+	        catch (Exception e)
+	        {
+		        Debug.WriteLine(e);
+		        throw;
+	        }
         }
 
-    }
+		public void CreateSupplier(Supplier s)
+		{
+			try
+			{
+				PersistencyService.InsertSupplier(s);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e);
+				throw;
+			}
+		}
+
+	    public void UpdateSupplier(Supplier s)
+	    {
+		    PersistencyService.UpdateSupplier(s);
+	    }
+	}
 }
