@@ -58,11 +58,6 @@ namespace Stock_Management.Model
 	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
 	    }
 
-	    public void GetProductReturnList()
-	    {
-	        throw new NotImplementedException();
-	    }
-
 		public void GetSupplier()
 		{
 		}
