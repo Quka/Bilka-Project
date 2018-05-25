@@ -34,11 +34,12 @@ namespace Stock_Management.Model
 			Amount = amount;
 			Date = date;
 			EstDelivery = estDelivery;
+            
 		}
 
 		public override string ToString()
 		{
-			return $"{nameof(Id)}: {Id}, {nameof(ProductId)}: {ProductId}, {nameof(SupplierId)}: {SupplierId}, {nameof(Status)}: {Status}, {nameof(Amount)}: {Amount}, {nameof(Date)}: {Date}, {nameof(EstDelivery)}: {EstDelivery}, {nameof(Approved)}: {Approved}, {nameof(Product)}: {Product}, {nameof(Supplier)}: {Supplier}";
+			return $"{nameof(Date)}: {Date}, {nameof(Amount)}: {Amount}, {nameof(Supplier)}: {Supplier}, {nameof(EstDelivery)}: {EstDelivery}";
 		}
 	}
 }
