@@ -18,7 +18,7 @@ namespace Stock_Management.Model.Interface
 
 		void OrderProduct(Product p, int amount);
 
-		Task LoadProductsAsync();
-		Task LoadSuppliersAsync();
+		void LoadProductsAsync();
+		void LoadSuppliersAsync();
 	}
 }
