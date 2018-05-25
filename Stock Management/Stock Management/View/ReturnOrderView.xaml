@@ -1,11 +1,16 @@
 ﻿<Page
-    x:Class="Stock_Management.View.ReturnOrderView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Stock_Management.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Viewmodel="using:Stock_Management.Viewmodel"
+    x:Class="Stock_Management.View.ReturnOrderView"
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <Viewmodel:ProductViewModel/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -15,10 +20,23 @@
             <RowDefinition Height="511"/>
             <RowDefinition Height="489"/>
         </Grid.RowDefinitions>
+        
         <Path Data="M686.695,341.202" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="757.883,330.452,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True"/>
         <Path Data="M220,0 L220,1000" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="818" Margin="170,172,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1" d:IsLocked="True" Grid.RowSpan="2"/>
         <Path Data="M0,43 L7.28516,43" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1501" Margin="-0.542,172,-0.458,0" d:IsLocked="True"/>
-        <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" Grid.RowSpan="2">
+        <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" Grid.RowSpan="2" RenderTransformOrigin="0.489,0.511">
+            <TextBlock HorizontalAlignment="Left" Margin="507,10,0,0" TextWrapping="Wrap" Text="Retur til leverandør" VerticalAlignment="Top" Height="52" Width="318" SelectionChanged="TextBlock_SelectionChanged" IsTextSelectionEnabled="True" AllowDrop="True" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="259,96,0,0" TextWrapping="Wrap" Text="Produktnavn" VerticalAlignment="Top" Height="36" Width="142" FontSize="22"/>
+            <TextBlock HorizontalAlignment="Left" Margin="775,96,0,0" TextWrapping="Wrap" Text="Retur antal" VerticalAlignment="Top" FontSize="22"/>
+            <TextBox HorizontalAlignment="Left" Margin="259,132,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" VerticalAlignment="Top" Height="42" Width="202" FontSize="22" IsReadOnly="True"/>
+            <TextBlock HorizontalAlignment="Left" Margin="775,242,0,0" TextWrapping="Wrap" Text="Årsag for returnering" VerticalAlignment="Top" FontSize="22"/>
+            <TextBox HorizontalAlignment="Left" Margin="775,132,0,0" TextWrapping="Wrap" Text="{Binding ProductReturn.Amount, Mode=TwoWay}" VerticalAlignment="Top" RenderTransformOrigin="0.563,-9.375" FontSize="22" PlaceholderText="0"/>
+            <TextBox HorizontalAlignment="Left" Margin="775,296,0,0" TextWrapping="Wrap" Text="{Binding ProductReturn.Description, Mode=TwoWay}" VerticalAlignment="Top" Height="174" Width="339" PlaceholderText="" AcceptsReturn="True"/>
+            <TextBlock HorizontalAlignment="Left" Margin="259,564,0,0" TextWrapping="Wrap" Text="Tidligere returneringer" VerticalAlignment="Top" Height="28" Width="340" FontSize="22"/>
+            
+            <Button Content="Returner" HorizontalAlignment="Left" Margin="775,514,0,0" VerticalAlignment="Top" Height="50" Width="204" FontSize="22" Command="{Binding ReturnProductCommand}"/>
+            
+            <ListView HorizontalAlignment="Left" Height="159" Margin="259,619,0,0" VerticalAlignment="Top" Width="813" ItemsSource="{Binding SelectedProduct.ProductReturns}"/>
         </Grid>
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
         <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
@@ -30,7 +48,8 @@
         <Path Data="M1370.41,137 L1370.41,172" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="57" Margin="1311,115,0,0" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" VerticalAlignment="Top" Width="1.308" d:IsLocked="True"/>
         <Image HorizontalAlignment="Left" Height="167" Margin="-1,5,0,0" VerticalAlignment="Top" Width="589" Source="ms-appx:///Assets/bilka_logo.png" Opacity="0.3" />
         <Image HorizontalAlignment="Left" Height="32" Margin="1438,128,0,0" VerticalAlignment="Top" Width="35" Source="ms-appx:///Assets/User-Interface-Logout-icon.png"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
     </Grid>
 
-    
+
 </Page>
