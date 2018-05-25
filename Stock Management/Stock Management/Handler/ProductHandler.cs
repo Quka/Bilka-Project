@@ -101,8 +101,8 @@ namespace Stock_Management.Handler
         {
 			// TEST
 	        // TODO Make Product to order dynamic. Currently creates an order for the latest product in the list
-			ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
-	        Product p = productList[productList.Count - 1];
+		    //ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
+            Product p = ProductViewModel.SelectedProduct;
 	        int amount = 77;
 
 			ProductViewModel.ProductCatalogSingleton.OrderProduct(p, amount);

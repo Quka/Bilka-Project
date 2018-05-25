@@ -29,7 +29,7 @@ namespace Stock_Management.View
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-
+            
 		}
 
 		private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)

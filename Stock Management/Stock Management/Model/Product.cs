@@ -52,6 +52,7 @@ namespace Stock_Management.Model
 			MinStock  = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
+            
 		}
         
 	    public async void GetOrderList()
