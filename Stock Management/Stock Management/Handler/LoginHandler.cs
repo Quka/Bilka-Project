@@ -13,6 +13,11 @@ namespace Stock_Management.Handler
         public LoginViewModel LoginViewModel { get; set; }
         public LoginModel LoginModel { get; set; }
 
+	    public LoginHandler(LoginViewModel loginViewModel)
+	    {
+		    LoginViewModel = loginViewModel;
+	    }
+
         public void Login()
         {
             string username = LoginViewModel.Username;
@@ -20,8 +25,7 @@ namespace Stock_Management.Handler
 
             Employee emp = new Employee(username, password); 
             
-            LoginModel.AuthenticateLogin(emp);
-            
+            //LoginModel.AuthenticateLogin(emp);
         }
 
         public void Logout()

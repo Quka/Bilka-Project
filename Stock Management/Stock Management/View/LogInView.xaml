@@ -19,7 +19,7 @@
         <Image HorizontalAlignment="Left" Height="1217" Margin="210,-60,-248,-139" VerticalAlignment="Top" Width="1892" Source="ms-appx:///Assets/Bilka.png"/>
         <TextBox HorizontalAlignment="Left" Margin="726,427,0,0" TextWrapping="Wrap" Text="{Binding Username, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="182"/>
         <TextBox HorizontalAlignment="Left" Margin="726,479,0,0" TextWrapping="Wrap" Text="{Binding Password, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="182"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="843,516,0,0" VerticalAlignment="Top" Width="65" Command="{Binding LoginCommand}"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="843,516,0,0" VerticalAlignment="Top" Width="65" Command="{Binding LoginCommand}" />
         <TextBlock HorizontalAlignment="Left" Margin="728,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="99" FontWeight="Bold" Foreground="#FFFCFCFC" SelectionChanged="TextBlock_SelectionChanged" Text="Username:"/>
         <TextBlock HorizontalAlignment="Left" Margin="728,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="99" FontWeight="Bold" Foreground="#FFFCFCFC" SelectionChanged="TextBlock_SelectionChanged" Text="Password:"/>
 
