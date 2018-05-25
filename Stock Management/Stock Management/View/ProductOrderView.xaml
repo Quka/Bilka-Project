@@ -5,8 +5,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Viewmodel="using:Stock_Management.Viewmodel"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Stock_Management.View.ProductOrderView"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="OrderDataTemplate">
+            <Grid>
+                <StackPanel HorizontalAlignment="Left" Width="626" Margin="-10,-6,-616,-250"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Margin="0,0,-545,0" Width="616"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
     <Page.DataContext>
         <Viewmodel:ProductViewModel/>
@@ -32,11 +42,17 @@
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="214" Margin="661,238,0,0"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="214" Margin="875,238,0,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
                 <Border.RenderTransform>
-                    <CompositeTransform SkewX="3.009" TranslateX="0.735"/>
+                    <CompositeTransform SkewX="-0.171" TranslateX="-0.043"/>
                 </Border.RenderTransform>
             </Border>
-
-            <ListView HorizontalAlignment="Left" Height="271" Margin="462,341,0,0" VerticalAlignment="Top" Width="342" ItemsSource="{Binding SelectedProduct.OrderList}"/>
+            <Button Content="Tilbage" HorizontalAlignment="Left" Margin="229,48,0,0" VerticalAlignment="Top">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="Stock_Management.View.ProductView"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </Button>
+            <ListView HorizontalAlignment="Left" Height="292" Margin="462,325,0,0" VerticalAlignment="Top" Width="617" ItemsSource="{Binding SelectedProduct.OrderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource OrderDataTemplate}" SelectionChanged="ListView_SelectionChanged_1"/>
         </Grid>
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
         <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
@@ -67,3 +83,4 @@
         </TextBlock>
     </Grid>
 </Page>
+
