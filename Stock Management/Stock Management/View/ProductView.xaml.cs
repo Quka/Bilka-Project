@@ -36,5 +36,10 @@ namespace Stock_Management.View
 		{
 
 		}
-	}
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+    }
 }

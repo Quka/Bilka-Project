@@ -132,6 +132,7 @@ namespace Stock_Management.Model
 			    List<Product> products = await PersistencyService.LoadProductsAsync();
 			    foreach (Product p in products)
 			    {
+                    p.GetOrderList();
 				    ProductList.Add(p);
 			    }
 		    }

@@ -52,12 +52,20 @@ namespace Stock_Management.Model
 			MinStock  = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
-            
-		}
+
+            GetOrderList();
+
+        }
         
 	    public async void GetOrderList()
 	    {
-		    try
+            OrderList = new ObservableCollection<Order>();
+
+            OrderList.Add(new Order(Id,SupplierId,"Arrived",10,DateTime.Now, DateTime.Now));
+	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
+	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
+	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
+            try
 		    {
 			    List<Order> Orders = await PersistencyService.LoadOrdersAsync();
 
