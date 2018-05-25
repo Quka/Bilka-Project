@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store;
 using Windows.UI.Popups;
+using Microsoft.Xaml.Interactions.Core;
 using Stock_Management.Model.Interface;
 using Stock_Management.Persistency;
 
@@ -78,7 +79,9 @@ namespace Stock_Management.Model
 
 				// Remove from List
 		        ProductList.Remove(p);
-			}
+
+	            
+	        }
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
@@ -90,7 +93,12 @@ namespace Stock_Management.Model
 
 	        // Update product in DB
 	        PersistencyService.UpdateProductAsync(p);
-		}
+
+
+            
+            
+
+        }
 		
         public Product FindSpecificProduct(int x)
         {
@@ -124,6 +132,7 @@ namespace Stock_Management.Model
 			    List<Product> products = await PersistencyService.LoadProductsAsync();
 			    foreach (Product p in products)
 			    {
+                    p.GetOrderList();
 				    ProductList.Add(p);
 			    }
 		    }

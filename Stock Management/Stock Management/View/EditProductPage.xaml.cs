@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Stock_Management.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +26,30 @@ namespace Stock_Management.View
         public EditProductPage()
         {
             this.InitializeComponent();
+        }
+        private List<Supplier> Suggestions = ProductCatalogSingleton.Instance.SupplierList.ToList();
+
+        private void SupplierBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                if (args.CheckCurrent())
+                {
+                    sender.ItemsSource = Suggestions.Where(s => s.Name.ToUpper().Contains(sender.Text.ToUpper())).ToList();
+                }
+            }
+        }
+
+        private void SupplierBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            if (args.ChosenSuggestion != null)
+            {
+                Supplier s = (Supplier)args.ChosenSuggestion;
+
+                SupplierEmail.Text = s.Email;
+                SupplierAddress.Text = s.Address;
+                SupplierPhone.Text = s.Phone;
+            }
         }
     }
 }
