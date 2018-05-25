@@ -12,8 +12,7 @@
     <Page.Resources>
         <DataTemplate x:Key="OrderDataTemplate">
             <Grid>
-                <StackPanel HorizontalAlignment="Left" Width="626" Margin="-10,-6,-616,-250"/>
-                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Margin="0,0,-545,0" Width="616"/>
+
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -52,7 +51,24 @@
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </Button>
-            <ListView HorizontalAlignment="Left" Height="292" Margin="462,325,0,0" VerticalAlignment="Top" Width="617" ItemsSource="{Binding SelectedProduct.OrderList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemTemplate="{StaticResource OrderDataTemplate}" SelectionChanged="ListView_SelectionChanged_1"/>
+            <ListView HorizontalAlignment="Left" Height="292" Margin="462,325,0,0" VerticalAlignment="Top" Width="617" SelectionChanged="ListView_SelectionChanged_1">
+                <StackPanel Height="272" Width="595">
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                </StackPanel>
+            </ListView>
         </Grid>
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
         <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
