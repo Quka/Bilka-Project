@@ -201,6 +201,7 @@ namespace Stock_Management.Model
 
         public void CreateProductReturn(ProductReturn r)
         {
+            //add preconditions later
             //if (r.Amount == null)
             //{
              
