@@ -39,7 +39,7 @@ namespace Stock_Management.Model
 
 		public override string ToString()
 		{
-			return $"{nameof(Date)}: {Date}, {nameof(Amount)}: {Amount}, {nameof(Supplier)}: {Supplier}, {nameof(EstDelivery)}: {EstDelivery}";
+			return $"{Date.Day}/{Date.Month}/{Date.Year}{Amount}{nameof(Supplier)}: {Supplier}{EstDelivery}";
 		}
 	}
 }
