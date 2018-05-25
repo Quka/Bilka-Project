@@ -110,7 +110,16 @@ namespace Stock_Management.Handler
 
         public void ReturnProduct()
         {
-            throw new NotImplementedException();
+            try
+            {
+                ProductViewModel.SelectedProduct.CreateProductReturn(ProductViewModel.ProductReturn);
+            }
+            catch (ArgumentNullException e)
+            {
+                new MessageDialog(e.Message).ShowAsync();
+            }
+
+
         }
 
         public void ApproveOrder()

@@ -17,23 +17,14 @@ namespace Stock_Management.Model
         public int ItemNr { get; set; }
 	    public string Name { get; set; }
 		public decimal Price { get; set; }
-
 		public int Stock { get; set; }
-		/*
-		 public enum EnumStatus
-		{
-			AVAILABLE,
-			SOLDOUT
-		}
-		public EnumStatus Status { get; set; }
-        */
-	    public string Status { get; set; }
-	    public string Description { get; set; }
+        public string Description { get; set; }
 	    public int MinStock { get; set; }
 	    public int RestockAmount { get; set; }
 	    public DateTime RestockPeriod { get; set; }
 		public Supplier Supplier { get; set; }
-		public ObservableCollection<Order> OrderList { get; set; }
+        public String Satus { get; set; }
+        public ObservableCollection<Order> OrderList { get; set; }
 		public ObservableCollection<ProductReturn> ProductReturns { get; set; }
 
 		public Product()
@@ -47,7 +38,7 @@ namespace Stock_Management.Model
 			Name = name;
 			Price = price;
 			Stock = stock;
-	        Status = status;
+
 			Description = description;
 			MinStock  = minStock;
 			RestockAmount = restockAmount;
@@ -81,7 +72,25 @@ namespace Stock_Management.Model
 			throw new NotImplementedException();
 		}
 
-		public override string ToString()
+	    public async void GetProductReturnList()
+	    {
+            try
+            {
+                List<ProductReturn> ProductReturns = await PersistencyService.LoadProductReturnsAsync();
+
+                foreach (ProductReturn pr in ProductReturns)
+                {
+                    ProductReturns.Add(pr);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                throw;
+            }
+        }
+
+	    public override string ToString()
 	    {
 		    return Name;
 	    }
