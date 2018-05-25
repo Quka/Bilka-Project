@@ -44,7 +44,39 @@ namespace Stock_Management.Persistency
 		        }
 	        }
 		}
-		public static async void UpdateProductAsync(Product p)
+
+        public static async Task<List<Employee>> LoadEmployeesAsync()
+        {
+            const string serverUrl = "http://localhost:55001";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                try
+                {
+                    var response = client.GetAsync("api/Employees").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var employees = response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
+                        return employees.ToList();
+                    }
+
+                    return null;
+                }
+                catch (Exception e)
+                {
+                    await new MessageDialog(e.Message).ShowAsync();
+                    throw;
+                }
+            }
+        }
+
+        public static async void UpdateProductAsync(Product p)
 	    {
 		    const string serverUrl = "http://localhost:55001";
 		    HttpClientHandler handler = new HttpClientHandler();
@@ -130,7 +162,7 @@ namespace Stock_Management.Persistency
 	        }
 		}
 
-        public static async Task<Employee> GetUser(string username, string password)
+        public static async Task<Employee> GetUser(Employee e)
         {
             throw new NotImplementedException();
         }
