@@ -23,6 +23,8 @@ namespace Stock_Management.Model
 
         public ObservableCollection<Product> ProductList { get; set; }
         public ObservableCollection<Supplier> SupplierList { get; set; }
+	    public ObservableCollection<Order> OrderList { get; set; }
+	    public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
         
         private ProductCatalogSingleton()
         {
@@ -79,8 +81,6 @@ namespace Stock_Management.Model
 
 				// Remove from List
 		        ProductList.Remove(p);
-
-	            
 	        }
 	        catch (Exception e)
 	        {
@@ -132,7 +132,9 @@ namespace Stock_Management.Model
 			    List<Product> products = await PersistencyService.LoadProductsAsync();
 			    foreach (Product p in products)
 			    {
-                    p.GetOrderList();
+				    p.GetSupplier();
+					p.GetOrderList();
+					p.GetProductReturnList();
 				    ProductList.Add(p);
 			    }
 		    }
@@ -159,6 +161,23 @@ namespace Stock_Management.Model
 		        throw;
 	        }
         }
+
+	    public async Task LoadOrdersAsync()
+	    {
+			try
+			{
+				List<Order> orders = await PersistencyService.LoadOrdersAsync();
+				foreach (Order order in orders)
+				{
+					OrderList.Add(order);
+				}
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e);
+				throw;
+			}
+		}
 
 		public void CreateSupplier(Supplier s)
 		{

@@ -251,6 +251,7 @@ namespace Stock_Management.Persistency
 					var response = client.GetAsync("api/Products").Result;
 					if (response.IsSuccessStatusCode)
 					{
+						var result = response.Content.ReadAsStringAsync().Result;
 						var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;
 						return products.ToList();
 					}

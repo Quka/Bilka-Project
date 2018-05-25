@@ -54,7 +54,7 @@ namespace Stock_Management.Model
 			RestockPeriod = restockPeriod;
 
             GetOrderList();
-
+	        GetSupplier();
         }
         
 	    public async void GetOrderList()
@@ -65,33 +65,23 @@ namespace Stock_Management.Model
 	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
 	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
 	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
-            try
-		    {
-			    List<Order> Orders = await PersistencyService.LoadOrdersAsync();
-
-			    foreach (Order order in Orders)
-			    {
-				    OrderList.Add(order);
-			    }
-			}
-		    catch (Exception e)
-		    {
-			    Debug.WriteLine(e);
-			    throw;
-		    }
 	    }
-
-        public void ApproveOrder(Order o)
-        {
-            throw new NotImplementedException();
-        }
 
 	    public void GetProductReturnList()
 	    {
 	        throw new NotImplementedException();
 	    }
 
-	    public override string ToString()
+		public void GetSupplier()
+		{
+		}
+
+		public void ApproveOrder(Order o)
+		{
+			throw new NotImplementedException();
+		}
+
+		public override string ToString()
 	    {
 		    return Name;
 	    }
