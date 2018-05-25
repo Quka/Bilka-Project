@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Store;
 using Windows.UI.Popups;
+using Microsoft.Xaml.Interactions.Core;
 using Stock_Management.Model.Interface;
 using Stock_Management.Persistency;
 
@@ -78,7 +79,9 @@ namespace Stock_Management.Model
 
 				// Remove from List
 		        ProductList.Remove(p);
-			}
+
+	            
+	        }
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
