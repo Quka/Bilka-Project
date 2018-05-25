@@ -90,7 +90,12 @@ namespace Stock_Management.Model
 
 	        // Update product in DB
 	        PersistencyService.UpdateProductAsync(p);
-		}
+
+
+            
+            
+
+        }
 		
         public Product FindSpecificProduct(int x)
         {
