@@ -50,25 +50,37 @@ namespace Stock_Management.Handler
 
         public void UpdateProduct()
         {
-			// TEST
-			// TODO make this update dynamic, is hardcoded now
-	        Product testProduct = new Product(
-		        1,
-		        9909,
-		        "UPDATED Test Product",
-		        500.50m,
-		        5,
-		        "UPDATED Test status",
-				"UPDATED test description",
-		        3,
-		        2,
-		        DateTime.Now
-	        );
 
-			// Update Product with ID 4
-	        testProduct.Id = 4;
+            try
+            {
+                ProductCatalogSingleton.Instance.UpdateProduct(ProductViewModel.SelectedProduct);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                
+            }
 
-	        ProductViewModel.ProductCatalogSingleton.UpdateProduct(testProduct);
+
+            // TEST
+            // TODO make this update dynamic, is hardcoded now
+            //      Product testProduct = new Product(
+            //       1,
+            //       9909,
+            //       "UPDATED Test Product",
+            //       500.50m,
+            //       5,
+            //       "UPDATED Test status",
+            //	"UPDATED test description",
+            //       3,
+            //       2,
+            //       DateTime.Now
+            //      );
+
+            //// Update Product with ID 4
+            //      testProduct.Id = 4;
+
+            //ProductViewModel.ProductCatalogSingleton.UpdateProduct(testProduct);
         }
 
         public void DeleteProduct()
@@ -89,8 +101,8 @@ namespace Stock_Management.Handler
         {
 			// TEST
 	        // TODO Make Product to order dynamic. Currently creates an order for the latest product in the list
-			ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
-	        Product p = productList[productList.Count - 1];
+		    //ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
+            Product p = ProductViewModel.SelectedProduct;
 	        int amount = 77;
 
 			ProductViewModel.ProductCatalogSingleton.OrderProduct(p, amount);
