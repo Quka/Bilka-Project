@@ -112,7 +112,7 @@ namespace Stock_Management.Handler
         {
             try
             {
-                ProductViewModel.SelectedProduct.CreateProductReturn(ProductViewModel.ProductReturn);
+                ProductViewModel.ProductCatalogSingleton.CreateProductReturn(ProductViewModel.ProductReturn);
             }
             catch (ArgumentNullException e)
             {
