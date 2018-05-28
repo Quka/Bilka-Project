@@ -23,16 +23,23 @@ namespace Stock_Management.Model
 
         public ObservableCollection<Product> ProductList { get; set; }
         public ObservableCollection<Supplier> SupplierList { get; set; }
+	    public ObservableCollection<Order> OrderList { get; set; }
+	    public ObservableCollection<ProductReturn> ProductReturnList { get; set; }
         
         private ProductCatalogSingleton()
         {
-            ProductList = new ObservableCollection<Product>();
-            LoadProductsAsync();
-
             SupplierList  = new ObservableCollection<Supplier>();
-            LoadSuppliersAsync();
+	        LoadSuppliersAsync();
 
-        }
+	        OrderList = new ObservableCollection<Order>();
+	        LoadOrdersAsync();
+
+	        ProductReturnList = new ObservableCollection<ProductReturn>();
+	        LoadProductReturnsAsync();
+
+	        ProductList = new ObservableCollection<Product>();
+	        LoadProductsAsync();
+		}
 
         public void CreateProduct(Product p)
         {
@@ -79,8 +86,6 @@ namespace Stock_Management.Model
 
 				// Remove from List
 		        ProductList.Remove(p);
-
-	            
 	        }
 	        catch (Exception e)
 	        {
@@ -93,11 +98,6 @@ namespace Stock_Management.Model
 
 	        // Update product in DB
 	        PersistencyService.UpdateProductAsync(p);
-
-
-            
-            
-
         }
 		
         public Product FindSpecificProduct(int x)
@@ -119,45 +119,152 @@ namespace Stock_Management.Model
 	        DateTime now = DateTime.Now;
 
 	        // EnumStatus: I am using the built in EnumStatus' and do a toString on them as the DB takes a string
-			Order o = new Order(p.Id, p.SupplierId, Order.EnumStatus.PENDING.ToString(), amount, now, now );
+			Order o = new Order(p.Id, p.SupplierId, ToString(), amount, now, now );
 
 			// Insert order
 	        PersistencyService.InsertOrder(o);
         }
 
-	    public async Task LoadProductsAsync()
+		/// <summary>
+		/// Load all Products, and product properties (Supplier, OrderList, ProductReturnList)
+		/// from the DB into the app ProductList
+		/// </summary>
+		public async void LoadProductsAsync()
 	    {
+		    List<Product> products = null;
+
 		    try
 		    {
-			    List<Product> products = await PersistencyService.LoadProductsAsync();
-			    foreach (Product p in products)
-			    {
-				    ProductList.Add(p);
-			    }
+			    products = await PersistencyService.LoadProductsAsync();
 		    }
 		    catch (Exception e)
 		    {
 			    Debug.WriteLine(e);
 			    throw;
 		    }
-	    }
 
-		public async Task LoadSuppliersAsync()
-        {
-	        try
+		    if (products != null)
+		    {
+			    foreach (Product p in products)
+			    {
+				    // Set the Supplier, Orders, and ProductReturns for the current Product
+					// Product has a required supplier
+				    try
+				    {
+						// Find the single supplier matching the supplier foreign key on the product
+					    p.Supplier = SupplierList.Single(s => s.Id.Equals(p.SupplierId));
+				    }
+				    catch (Exception e)
+				    {
+					    Debug.WriteLine(e);
+					    throw;
+				    }
+
+				    
+					// Get Orders in the OrderList with a foreign key to the current Product in the foreach
+					List<Order> productOrderList = OrderList.Where(o => o.ProductId.Equals(p.Id)).ToList();
+				    if (productOrderList != null && productOrderList.Count > 0)
+				    {
+					    p.FillOrderList(productOrderList);
+					}
+
+					// Get ProductReturns in the prList with a foreign key to the current Product in the foreach 
+					List<ProductReturn> prList = ProductReturnList.Where(pr => pr.ProductId.Equals(p.Id)).ToList();
+				    if (prList != null && prList.Count > 0)
+				    {
+					    p.FillProductReturnList(prList);
+					}
+
+					// At last, add the product the productList
+				    ProductList.Add(p);
+			    }
+			}
+		    else
+		    {
+				throw new ArgumentNullException("Products list null");
+		    }
+		}
+
+		public async void LoadSuppliersAsync()
+		{
+			List<Supplier> suppliers = null;
+
+			try
 	        {
-		        List<Supplier> suppliers = await PersistencyService.LoadSuppliersAsync();
-		        foreach (Supplier supplier in suppliers)
-		        {
-			        SupplierList.Add(supplier);
-		        }
+		        suppliers = await PersistencyService.LoadSuppliersAsync();
 			}
 	        catch (Exception e)
 	        {
 		        Debug.WriteLine(e);
 		        throw;
 	        }
-        }
+
+			if (suppliers != null)
+			{
+				foreach (Supplier supplier in suppliers)
+				{
+					SupplierList.Add(supplier);
+				}
+			}
+			else
+			{
+				throw new ArgumentNullException("Suppliers list null");
+			}
+	        
+		}
+
+	    public async void LoadOrdersAsync()
+	    {
+		    List<Order> orders = null;
+			try
+			{
+				orders = await PersistencyService.LoadOrdersAsync();
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e);
+				throw;
+			}
+
+		    if (orders != null)
+		    {
+			    foreach (Order order in orders)
+			    {
+				    OrderList.Add(order);
+			    }
+			}
+		    else
+		    {
+				throw new ArgumentNullException("Orders list null");
+		    }
+		}
+
+	    public async void LoadProductReturnsAsync()
+	    {
+		    List<ProductReturn> productReturns = null;
+
+			try
+		    {
+			    productReturns = await PersistencyService.LoadProductReturnsAsync();
+		    }
+		    catch (Exception e)
+		    {
+			    Debug.WriteLine(e);
+			    throw;
+		    }
+
+		    if (productReturns != null)
+		    {
+			    foreach (ProductReturn pr in productReturns)
+			    {
+				    productReturns.Add(pr);
+			    }
+			}
+		    else
+		    {
+				throw new ArgumentNullException("ProductReturns list null");
+		    }
+		}
 
 		public void CreateSupplier(Supplier s)
 		{
@@ -176,5 +283,32 @@ namespace Stock_Management.Model
 	    {
 		    PersistencyService.UpdateSupplier(s);
 	    }
-	}
+
+
+
+        public void CreateProductReturn(ProductReturn r)
+        {
+            //if (r.Amount == null)
+            //{
+             
+            //    throw new ArgumentNullException("Amount is not selected");
+            //}
+
+           
+  
+            new MessageDialog("Creating ProductReturn").ShowAsync();
+            try
+            {
+                
+                PersistencyService.InsertProductReturnAsync(r);
+
+                // Add to ProductReturns
+              
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+        }
+    }
 }
