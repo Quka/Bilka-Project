@@ -25,6 +25,7 @@ namespace Stock_Management.Viewmodel
 		public Supplier Supplier { get; set; }
 
 		public static Product SelectedProduct { get; set; }
+	    public int OrderAmount { get; set; }
 		
 		// TODO selectedSupplier to be deleted
 	    //public static Supplier SelectedSupplier { get; set; }
