@@ -43,51 +43,58 @@ namespace Stock_Management.Model
 			MinStock  = minStock;
 			RestockAmount = restockAmount;
 			RestockPeriod = restockPeriod;
-
-            GetOrderList();
-	        GetSupplier();
         }
-        
-	    public async void GetOrderList()
-	    {
-            OrderList = new ObservableCollection<Order>();
-
-            OrderList.Add(new Order(Id,SupplierId,"Arrived",10,DateTime.Now, DateTime.Now));
-	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
-	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
-	        OrderList.Add(new Order(Id, SupplierId, "Arrived", 10, DateTime.Now, DateTime.Now));
-	    }
-
-		public void GetSupplier()
-		{
-		}
 
 		public void ApproveOrder(Order o)
 		{
 			throw new NotImplementedException();
 		}
 
-	    public async void GetProductReturnList()
-	    {
-            try
-            {
-                List<ProductReturn> ProductReturns = await PersistencyService.LoadProductReturnsAsync();
 
-                foreach (ProductReturn pr in ProductReturns)
-                {
-                    ProductReturns.Add(pr);
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-                throw;
-            }
-        }
-
-	    public override string ToString()
+		public override string ToString()
 	    {
 		    return Name;
 	    }
+
+		public void CreateProductReturn(ProductReturn productReturn)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void FillOrderList(List<Order> orderList)
+		{
+			OrderList = new ObservableCollection<Order>();
+
+			if (orderList != null || orderList.Count > 0)
+			{
+				// Fill the ObservableCollection<Order> in current Product with the orders
+				foreach (Order order in orderList)
+				{
+					OrderList.Add(order);
+				}
+			}
+			else
+			{
+				throw new ArgumentNullException("'orderList' passed to Product is null");
+			}
+		}
+
+		public void FillProductReturnList(List<ProductReturn> productReturnList)
+		{
+			ProductReturns = new ObservableCollection<ProductReturn>();
+
+			if (productReturnList != null || productReturnList.Count <= 0)
+			{
+				// Fill the ObservableCollection<Order> in current Product with the orders
+				foreach (ProductReturn productReturn in productReturnList)
+				{
+					ProductReturns.Add(productReturn);
+				}
+			}
+			else
+			{
+				throw new ArgumentNullException("'productReturnList' passed to Product is null or empty");
+			}
+		}
 	}
 }
