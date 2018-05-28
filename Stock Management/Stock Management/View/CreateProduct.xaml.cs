@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Stock_Management.Model;
+using Stock_Management.Viewmodel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -56,30 +57,25 @@ namespace Stock_Management.View
         }
 	    private void SupplierBox_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
 	    {
-	        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
-	        {
-	            if (sender.Text.Length > 0)
-	            {
-	                sender.ItemsSource = GetSuggestions(sender.Text);
-	            }
-	            else
-	            {
-	                sender.ItemsSource = Suggestions;
-	            }
-	        }
-        }
-	    private List<Supplier> GetSuggestions(string Text)
-	    {
-	        List<Supplier> result = null;
+			if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+			{
+				if (args.CheckCurrent())
+				{
+					sender.ItemsSource = Suggestions.Where(s => s.Name.ToUpper().Contains(sender.Text.ToUpper())).ToList();
+				}
+			}
+		}
 
-	        result = Suggestions.Where(supplier => supplier.Name.Contains(Text)).ToList();
+		private void SupplierBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+		{
+			if (args.ChosenSuggestion != null)
+			{
+				Supplier s = (Supplier) args.ChosenSuggestion;
 
-	        return result;
-	    }
-
-        private void TextBlock_SelectionChanged_5(object sender, RoutedEventArgs e)
-        {
-
-        }
-    }
+				SupplierEmail.Text = s.Email;
+				SupplierAddress.Text = s.Address;
+				SupplierPhone.Text = s.Phone;
+			}
+		}
+	}
 }

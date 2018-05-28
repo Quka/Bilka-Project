@@ -9,6 +9,12 @@ namespace Stock_Management.Model
 {
     public class Employee : IEmployee
 	{
+	    public Employee(string username, string password)
+	    {
+	        Name = username;
+	        Password = password;
+	    }
+
 	    public int Id { get; set; }
 
 		public string SalNo { get; set; }
@@ -17,5 +23,9 @@ namespace Stock_Management.Model
 
 	    public string Password { get; set; }
 
+	    public override string ToString()
+	    {
+	        return $"{nameof(Id)}: {Id}, {nameof(SalNo)}: {SalNo}, {nameof(Name)}: {Name}, {nameof(Password)}: {Password}";
+	    }
 	}
 }

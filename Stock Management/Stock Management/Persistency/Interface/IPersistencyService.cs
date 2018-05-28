@@ -25,6 +25,6 @@ namespace Stock_Management.Persistency.Interface
 
 		Task<List<ProductReturn>> LoadProductReturnsAsync();
 
-		Employee GetUser(String username, String password);
+		Task<Employee>GetUser(Employee e);
 	}
 }

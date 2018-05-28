@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Stock_Management.Model;
+using Stock_Management.View;
 using Stock_Management.Viewmodel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -32,38 +33,27 @@ namespace Stock_Management
             this.InitializeComponent();
             
         }
-        
 
-        private void AutoSuggestBox_TextChanged(AutoSuggestBox Sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
-            {
-                if (Sender.Text.Length>0)
-                {
-                    Sender.ItemsSource = GetSuggestions(Sender.Text);
-                }
-                else
-                {
-                    Sender.ItemsSource = Suggestions;
-                }   
-            }
-            
-        }
-
-        
-        private List<Product> GetSuggestions(string Text)
-        {
-            List<Product> result = null;
-
-            result = Suggestions.Where(x => x.Name.Contains(Text)).ToList();
-
-            return result;
-
-        }
-
-		private void SelectSuggestionProduct(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-		{
-
+	    private void FindProduct_OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+	    {
+			if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+			{
+				if (args.CheckCurrent())
+				{
+					sender.ItemsSource = Suggestions.Where(p => p.Name.ToUpper().Contains(sender.Text.ToUpper())).ToList();
+				}
+			}
 		}
-	}
+
+	    private void AutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+	    {
+		    if (args.ChosenSuggestion != null)
+		    {
+			    Product p = (Product) args.ChosenSuggestion;
+			    ProductViewModel.SelectedProduct = p;
+
+			    Frame.Navigate(typeof(ProductView));
+			}
+		}
+    }
 }
