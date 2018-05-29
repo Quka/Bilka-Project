@@ -71,6 +71,7 @@ namespace Stock_Management.View
 			if (args.ChosenSuggestion != null)
 			{
 				Supplier s = (Supplier) args.ChosenSuggestion;
+				ProductViewModel.SelectedSupplier = s;
 
 				SupplierEmail.Text = s.Email;
 				SupplierAddress.Text = s.Address;

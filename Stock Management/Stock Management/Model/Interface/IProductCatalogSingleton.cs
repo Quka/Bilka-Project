@@ -12,13 +12,9 @@ namespace Stock_Management.Model.Interface
 		void CreateProduct(Product p);
 		void DeleteProduct(Product p);
 		void UpdateProduct(Product p);
-
-		Product FindSpecificProduct(int i);
-		List<Product> FindProducts(String s);
-
 		void OrderProduct(Product p, int amount);
 
-		Task LoadProductsAsync();
-		Task LoadSuppliersAsync();
+		void LoadProductsAsync();
+		void LoadSuppliersAsync();
 	}
 }

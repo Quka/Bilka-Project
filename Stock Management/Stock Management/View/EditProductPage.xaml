@@ -116,19 +116,19 @@
                 <TextBlock VerticalAlignment="Top" Text="Auto bestilling panel" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Margin="177,-2,176,0"/>
                 <Grid x:Name="SupplierNameGrid">
                     <TextBlock Margin="10,30,0,0" TextWrapping="Wrap" Text="Leverand&#xF8;r" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <AutoSuggestBox Width="230" VerticalAlignment="Bottom" TextChanged="SupplierBox_OnTextChanged" Text="{Binding Supplier.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" QuerySubmitted="SupplierBox_OnQuerySubmitted" x:Name="SupplierBox" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}" HorizontalAlignment="Left" Margin="10,0,0,10" Height="35"/>
+                    <AutoSuggestBox Width="230" VerticalAlignment="Bottom" TextChanged="SupplierBox_OnTextChanged" Text="{Binding SelectedProduct.Supplier.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" QuerySubmitted="SupplierBox_OnQuerySubmitted" x:Name="SupplierBox" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}" HorizontalAlignment="Left" Margin="10,0,0,10" Height="35"/>
                 </Grid>
                 <Grid x:Name="SupplierAddressGrid" Grid.Column="1">
                     <TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r adresse" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,30,0,0"/>
-                    <TextBox Width="230" VerticalAlignment="Bottom" Text="{Binding Supplier.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierAddress" Margin="10,0,0,10" Height="35" HorizontalAlignment="Left"/>
+                    <TextBox Width="230" VerticalAlignment="Bottom" Text="{Binding SelectedProduct.Supplier.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierAddress" Margin="10,0,0,10" Height="35" HorizontalAlignment="Left"/>
                 </Grid>
                 <Grid x:Name="SupplierEmailGrid" Grid.Row="1">
                     <TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r email" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
-                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding Supplier.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierEmail" Margin="10,55,0,0" Height="35" HorizontalAlignment="Left"/>
+                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding SelectedProduct.Supplier.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierEmail" Margin="10,55,0,0" Height="35" HorizontalAlignment="Left"/>
                 </Grid>
                 <Grid x:Name="SupplierPhoneGrid" Grid.Column="1" Grid.Row="1">
                     <TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r telefon" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
-                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding Supplier.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierPhone" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
+                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding SelectedProduct.Supplier.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierPhone" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
                 </Grid>
                 <Grid x:Name="MinStockGrid" Grid.Row="2">
                     <TextBlock VerticalAlignment="Top" Text="Min. beholdning" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>

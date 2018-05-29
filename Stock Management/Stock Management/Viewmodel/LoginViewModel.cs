@@ -17,8 +17,9 @@ namespace Stock_Management.Viewmodel
         public string Username { get; set; }
         public string Password { get; set; }
         public Employee Employee { get; set; }
+	    public LoginModel LoginModel { get; set; }
 
-	    public Handler.LoginHandler LoginHandler { get; set; }
+		public Handler.LoginHandler LoginHandler { get; set; }
 
         public ICommand LoginCommand
         {

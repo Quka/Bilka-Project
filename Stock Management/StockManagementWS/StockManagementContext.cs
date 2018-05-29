@@ -46,10 +46,6 @@ namespace StockManagementWS
 				.HasPrecision(8, 2);
 
 			modelBuilder.Entity<Product>()
-				.Property(e => e.Status)
-				.IsUnicode(false);
-
-			modelBuilder.Entity<Product>()
 				.Property(e => e.Description)
 				.IsUnicode(false);
 

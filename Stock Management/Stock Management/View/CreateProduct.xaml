@@ -58,95 +58,95 @@
 
             </Grid>
 
-            <Grid Grid.RowSpan="4" x:Name="Produktoplysninger" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250*"/>
-                    <ColumnDefinition Width="250*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Width="94" Text="Opret vare" TextWrapping="Wrap" Height="28" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Grid.ColumnSpan="2"/>
-                <Grid x:Name="ProduktNavn">
-                    <TextBlock TextWrapping="Wrap" Text="Produkt navn" VerticalAlignment="Top" Margin="10,30,10,0"/>
-                    <TextBox Text="{Binding Product.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,10,10" Height="35"/>
-                </Grid>
-                <Grid x:Name="Produkt_pris" Grid.Column="1">
-                    <TextBlock Text="Produkt pris" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,30,10,0"/>
-                    <TextBox Text="{Binding StringPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,10,10"/>
-                </Grid>
-                <Grid x:Name="Produkt_varenr" Grid.Row="1">
-                    <TextBlock TextWrapping="Wrap" Text="Produkt varenr." VerticalAlignment="Top" Margin="10,31,10,0"/>
-                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding Product.ItemNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,56,0,0" Height="35" HorizontalAlignment="Left"/>
-                </Grid>
-                <Grid x:Name="Antal_p&#xE5;_lager" Grid.Row="1" Grid.Column="1">
-                    <TextBlock TextWrapping="Wrap" Text="Antal p&#xE5; lager" Margin="10,31,10,49"/>
-                    <TextBox Text="{Binding Product.Stock, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,56,10,10" Height="34" VerticalAlignment="Center"/>
-                </Grid>
-                <Grid x:Name="Produktbeskrivelse" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                    <TextBlock VerticalAlignment="Top" Text="Produktbeskrivelse / specifikationer" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,10,0,0"/>
-                    <TextBox Text="{Binding Product.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,35,10,10" Height="155" VerticalAlignment="Center"/>
-                </Grid>
+			<Grid Grid.RowSpan="4" x:Name="Produktoplysninger" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="250*"/>
+					<ColumnDefinition Width="250*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Width="94" Text="Opret vare" TextWrapping="Wrap" Height="28" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0" Grid.ColumnSpan="2"/>
+				<Grid x:Name="ProduktNavn">
+					<TextBlock TextWrapping="Wrap" Text="Produkt navn" VerticalAlignment="Top" Margin="10,30,10,0"/>
+					<TextBox Text="{Binding Product.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,10,10" Height="35"/>
+				</Grid>
+				<Grid x:Name="Produkt_pris" Grid.Column="1">
+					<TextBlock Text="Produkt pris" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,30,10,0"/>
+					<TextBox Text="{Binding StringPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,10,10"/>
+				</Grid>
+				<Grid x:Name="Produkt_varenr" Grid.Row="1">
+					<TextBlock TextWrapping="Wrap" Text="Produkt varenr." VerticalAlignment="Top" Margin="10,31,10,0"/>
+					<TextBox Width="230" VerticalAlignment="Top" Text="{Binding Product.ItemNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,56,0,0" Height="35" HorizontalAlignment="Left"/>
+				</Grid>
+				<Grid x:Name="Antal_p&#xE5;_lager" Grid.Row="1" Grid.Column="1">
+					<TextBlock TextWrapping="Wrap" Text="Antal p&#xE5; lager" Margin="10,31,10,49"/>
+					<TextBox Text="{Binding Product.Stock, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,56,10,10" Height="34" VerticalAlignment="Center"/>
+				</Grid>
+				<Grid x:Name="Produktbeskrivelse" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+					<TextBlock VerticalAlignment="Top" Text="Produktbeskrivelse / specifikationer" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+					<TextBox Text="{Binding Product.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,35,10,10" Height="155" VerticalAlignment="Center"/>
+				</Grid>
 
-                <Button x:Name="Tilbage" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Tilbage" Grid.Row="4" Margin="10,10,0,0">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="Click">
-                            <Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </Button>
-            </Grid>
-            <Grid x:Name="Genbestillingsoplysninger" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="40*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250*"/>
-                    <ColumnDefinition Width="250*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock VerticalAlignment="Top" Text="Auto bestilling panel" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Margin="177,-2,176,0"/>
-                <Grid x:Name="SupplierNameGrid">
-                    <TextBlock Margin="10,30,0,0" TextWrapping="Wrap" Text="Leverand&#xF8;r" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <AutoSuggestBox Width="230" VerticalAlignment="Bottom" TextChanged="SupplierBox_OnTextChanged" Text="{Binding Supplier.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" QuerySubmitted="SupplierBox_OnQuerySubmitted" x:Name="SupplierBox" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}" HorizontalAlignment="Left" Margin="10,0,0,10" Height="35"/>
-                </Grid>
-                <Grid x:Name="SupplierAddressGrid" Grid.Column="1">
-                    <TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r adresse" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,30,0,0"/>
-                    <TextBox Width="230" VerticalAlignment="Bottom" Text="{Binding Supplier.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierAddress" Margin="10,0,0,10" Height="35" HorizontalAlignment="Left"/>
-                </Grid>
-                <Grid x:Name="SupplierEmailGrid" Grid.Row="1">
-                    <TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r email" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
-                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding Supplier.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierEmail" Margin="10,55,0,0" Height="35" HorizontalAlignment="Left"/>
-                </Grid>
-                <Grid x:Name="SupplierPhoneGrid" Grid.Column="1" Grid.Row="1">
-                    <TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r telefon" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
-                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding Supplier.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierPhone" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
-                </Grid>
-                <Grid x:Name="MinStockGrid" Grid.Row="2">
-                    <TextBlock VerticalAlignment="Top" Text="Min. beholdning" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
-                    <TextBox x:Name="MinStock" Width="230" VerticalAlignment="Top" Text="{Binding Product.MinStock, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
-                </Grid>
-                <Grid x:Name="AmountGrid" Grid.Row="2" Grid.Column="1">
-                    <TextBox Width="230" VerticalAlignment="Top" Text="{Binding Product.RestockAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
-                    <TextBlock x:Name="Amount" VerticalAlignment="Top" Text="Genbestillings m&#xE6;ngde" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
-                </Grid>
-                <Grid x:Name="DateGrid" Grid.Row="3" Grid.ColumnSpan="2">
-                    <TextBlock VerticalAlignment="Top" Text="Genbestelling udl&#xF8;bsperiode" TextWrapping="Wrap" HorizontalAlignment="Left"/>
-                    <DatePicker Width="215" VerticalAlignment="Bottom" RenderTransformOrigin="0.467,0.432" HorizontalAlignment="Left" DataContext="{Binding Date}" Date="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                </Grid>
-                <Button VerticalAlignment="Stretch" x:Name="CreateProductSave" HorizontalAlignment="Right" Command="{Binding CreateProductCommand}" Content="Gem" Grid.Column="1" Grid.Row="3" Margin="0,72,110,96" Grid.RowSpan="2"/>
-            </Grid>
+				<Button x:Name="Tilbage" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Tilbage" Grid.Row="4" Margin="10,10,0,0">
+					<Interactivity:Interaction.Behaviors>
+						<Core:EventTriggerBehavior EventName="Click">
+							<Core:NavigateToPageAction TargetPage="Stock_Management.MainPage"/>
+						</Core:EventTriggerBehavior>
+					</Interactivity:Interaction.Behaviors>
+				</Button>
+			</Grid>
+			<Grid x:Name="Genbestillingsoplysninger" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Grid.Column="3">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+					<RowDefinition Height="40*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="250*"/>
+					<ColumnDefinition Width="250*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock VerticalAlignment="Top" Text="Auto bestilling panel" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Margin="177,-2,176,0"/>
+				<Grid x:Name="SupplierNameGrid">
+					<TextBlock Margin="10,30,0,0" TextWrapping="Wrap" Text="Leverand&#xF8;r" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+					<AutoSuggestBox Width="230" VerticalAlignment="Bottom" TextChanged="SupplierBox_OnTextChanged" Text="{Binding Supplier.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" QuerySubmitted="SupplierBox_OnQuerySubmitted" x:Name="SupplierBox" ItemsSource="{Binding ProductCatalogSingleton.SupplierList}" HorizontalAlignment="Left" Margin="10,0,0,10" Height="35"/>
+				</Grid>
+				<Grid x:Name="SupplierAddressGrid" Grid.Column="1">
+					<TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r adresse" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,30,0,0"/>
+					<TextBox Width="230" VerticalAlignment="Bottom" Text="{Binding Supplier.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierAddress" Margin="10,0,0,10" Height="35" HorizontalAlignment="Left"/>
+				</Grid>
+				<Grid x:Name="SupplierEmailGrid" Grid.Row="1">
+					<TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r email" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
+					<TextBox Width="230" VerticalAlignment="Top" Text="{Binding Supplier.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierEmail" Margin="10,55,0,0" Height="35" HorizontalAlignment="Left"/>
+				</Grid>
+				<Grid x:Name="SupplierPhoneGrid" Grid.Column="1" Grid.Row="1">
+					<TextBlock VerticalAlignment="Top" Text="Leverand&#xF8;r telefon" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
+					<TextBox Width="230" VerticalAlignment="Top" Text="{Binding Supplier.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" x:Name="SupplierPhone" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
+				</Grid>
+				<Grid x:Name="MinStockGrid" Grid.Row="2">
+					<TextBlock VerticalAlignment="Top" Text="Min. beholdning" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
+					<TextBox x:Name="MinStock" Width="230" VerticalAlignment="Top" Text="{Binding Product.MinStock, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
+				</Grid>
+				<Grid x:Name="AmountGrid" Grid.Row="2" Grid.Column="1">
+					<TextBox Width="230" VerticalAlignment="Top" Text="{Binding Product.RestockAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Margin="10,55,0,0" Height="34" HorizontalAlignment="Left" MinHeight="35"/>
+					<TextBlock x:Name="Amount" VerticalAlignment="Top" Text="Genbestillings m&#xE6;ngde" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,30,0,0"/>
+				</Grid>
+				<Grid x:Name="DateGrid" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,90,-10,10" Grid.RowSpan="2">
+					<TextBlock VerticalAlignment="Top" Text="Genbestelling udl&#xF8;bsperiode" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,40,0,0"/>
+					<DatePicker Width="250" VerticalAlignment="Bottom" RenderTransformOrigin="0.467,0.432" HorizontalAlignment="Left" Date="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="35"/>
+				</Grid>
+				<Button VerticalAlignment="Top" x:Name="CreateProductSave" HorizontalAlignment="Left" Command="{Binding CreateProductCommand}" Content="Gem" Grid.Row="4" Margin="10,10,0,0"/>
+			</Grid>
 
         </Grid>
     </ScrollViewer>
