@@ -37,7 +37,13 @@
                         <CompositeTransform SkewY="-0.238" TranslateY="-0.996"/>
                     </Image.RenderTransform>
                 </Image>
-                <Button x:Name="Logout" Content="Log ud" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FocusVisualPrimaryBrush="#FF171317" Grid.Column="4" Margin="0,0,155,137"/>
+                <Button x:Name="Logout" Content="Log ud" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FocusVisualPrimaryBrush="#FF171317" Grid.Column="4" Margin="0,0,155,137">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:NavigateToPageAction TargetPage="Stock_Management.View.LogInView"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
                 <TextBlock x:Name="Worker_id" TextWrapping="Wrap" Grid.Column="4" Margin="0,38,0,37">
 				<Run Text="Skal bindes til employee "/>
 				<Run Text="i"/>

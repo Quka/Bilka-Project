@@ -5,6 +5,8 @@
     xmlns:local="using:Stock_Management.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -21,7 +23,13 @@
         <Grid x:Name="Bottom_Grid" HorizontalAlignment="Left" Height="828" Margin="-1,172,0,0" VerticalAlignment="Top" Width="1501" Grid.RowSpan="2">
         </Grid>
         <Grid x:Name="Top_Grid" HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="1500"/>
-        <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317" d:IsLocked="True"/>
+        <Button x:Name="Log_out_" Content="Log ud" HorizontalAlignment="Left" Margin="1331,128,0,0" VerticalAlignment="Top" Width="102" Height="32" FocusVisualPrimaryBrush="#FF171317">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Click">
+                    <core:NavigateToPageAction TargetPage="Stock_Management.View.LogInView"/>
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
         <TextBlock x:Name="Worker_id" HorizontalAlignment="Left" Margin="1065,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="241" d:IsLocked="True">
             <Run Text="Skal bindes til employee "/>
             <Run Text="i"/>
@@ -34,3 +42,4 @@
 
     
 </Page>
+

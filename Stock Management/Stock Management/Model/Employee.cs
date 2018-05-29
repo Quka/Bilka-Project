@@ -11,7 +11,7 @@ namespace Stock_Management.Model
 	{
 	    public Employee(string username, string password)
 	    {
-	        Name = username;
+	        SalNo = username;
 	        Password = password;
 	    }
 
