@@ -13,7 +13,7 @@ using Stock_Management.Persistency;
 
 namespace Stock_Management.Model
 {
-    class ProductCatalogSingleton : IProductCatalogSingleton
+    public class ProductCatalogSingleton : IProductCatalogSingleton
     {
         private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
