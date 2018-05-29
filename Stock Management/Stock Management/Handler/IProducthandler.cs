@@ -10,7 +10,6 @@ namespace Stock_Management.Handler
 {
     interface IProductHandler
     {
-        List<Product> FindProducts(String s);
         void SetSelectedProduct(Product p);
 
         void CreateProduct();
@@ -20,7 +19,5 @@ namespace Stock_Management.Handler
 	    void ManualOrder();
         void ReturnProduct();
         void ApproveOrder();
-
-
     }
 }

@@ -153,6 +153,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Stock Management_TemporaryKey.pfx" />
+    <None Include="StockManagamentClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Bilka.png" />

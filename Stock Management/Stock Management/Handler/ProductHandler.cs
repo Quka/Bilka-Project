@@ -20,23 +20,25 @@ namespace Stock_Management.Handler
 	    {
 		    ProductViewModel = productViewModel;
 	    }
-        
-        public List<Product> FindProducts(string s)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetSelectedProduct(Product p)
-        {
-            ProductViewModel.SelectedProduct = p;
-        }
 
         public void CreateProduct()
         {
 			ProductViewModel.Product.Price = Convert.ToDecimal(ProductViewModel.StringPrice);
             ProductViewModel.Product.RestockPeriod = ProductViewModel.Date.Date;
 
-			ProductViewModel.Product.Supplier = ProductViewModel.Supplier;
+			if (ProductViewModel.SelectedSupplier != null)
+	        {
+		        // IF a selected supplier exists, that means the supplier was selected from the dropdown
+		        // pass the selectedSupplier to the Product obj
+				ProductViewModel.Product.Supplier = ProductViewModel.SelectedSupplier;
+			}
+			else
+			{
+				// ELSE the selected supplier was typed in, meaning it might be a new supplier to be created
+				// or the supplier should be searched if it already exists, and then should be updated
+				// this supplier is missing an ID
+				ProductViewModel.Product.Supplier = ProductViewModel.Supplier;
+			}
 
 			try
 	        {
@@ -47,7 +49,6 @@ namespace Stock_Management.Handler
 				new MessageDialog(e.Message).ShowAsync();
 			}
         }
-
         public void UpdateProduct()
         {
 
@@ -60,32 +61,9 @@ namespace Stock_Management.Handler
                 Debug.WriteLine(e);
                 
             }
-
-
-            // TEST
-            // TODO make this update dynamic, is hardcoded now
-            //      Product testProduct = new Product(
-            //       1,
-            //       9909,
-            //       "UPDATED Test Product",
-            //       500.50m,
-            //       5,
-            //       "UPDATED Test status",
-            //	"UPDATED test description",
-            //       3,
-            //       2,
-            //       DateTime.Now
-            //      );
-
-            //// Update Product with ID 4
-            //      testProduct.Id = 4;
-
-            //ProductViewModel.ProductCatalogSingleton.UpdateProduct(testProduct);
         }
-
         public void DeleteProduct()
         {   
-
 	        try
 	        {
 	            ProductCatalogSingleton.Instance.DeleteProduct(ProductViewModel.SelectedProduct);
@@ -94,7 +72,6 @@ namespace Stock_Management.Handler
 	        {
 		        Debug.WriteLine(e);
 	        }
-            
         }
 
         public void ManualOrder()
@@ -107,7 +84,6 @@ namespace Stock_Management.Handler
 
 			ProductViewModel.ProductCatalogSingleton.OrderProduct(p, amount);
         }
-
         public void ReturnProduct()
         {
             try
@@ -118,18 +94,15 @@ namespace Stock_Management.Handler
             {
                 new MessageDialog(e.Message).ShowAsync();
             }
-
-
         }
-
-        public void ApproveOrder()
-        {
-            throw new NotImplementedException();
-        }
-
-	    private void CommandInvokedHandler(IUICommand command)
+	    public void ApproveOrder()
 	    {
-		    ProductViewModel.ProductCatalogSingleton.DeleteProduct(ProductViewModel.SelectedProduct);
+		    throw new NotImplementedException();
+	    }
+
+		public void SetSelectedProduct(Product p)
+	    {
+		    ProductViewModel.SelectedProduct = p;
 	    }
 	}
 }

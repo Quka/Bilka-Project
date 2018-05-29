@@ -15,7 +15,8 @@ namespace Stock_Management.Model
 {
     class ProductCatalogSingleton : IProductCatalogSingleton
     {
-        private static ProductCatalogSingleton _instance;
+		//Lazy Loading is initializing the member the first time it is requested
+		private static ProductCatalogSingleton _instance;
         public static ProductCatalogSingleton Instance
         {
             get { return _instance ?? (_instance = new ProductCatalogSingleton()); }
@@ -49,22 +50,35 @@ namespace Stock_Management.Model
 				throw new ArgumentNullException("Some supplier information is missing");
 	        }
 
-			// Check if the Supplier already exists in the list
-			// TODO : Should it check the DB as well?
-	        if (SupplierList.Contains(p.Supplier))
+	        if (p.Supplier.Id != 0)
 	        {
-				// Update Supplier instead
-		        UpdateSupplier(p.Supplier);
-		        new MessageDialog("Updating Supplier").ShowAsync();
+		        // If the supplier is not 0, that means the Supplier was selected from the dropdownlist
+
+				// Set the SupplierId on the Product
+		        p.SupplierId = p.Supplier.Id;
 	        }
 	        else
 	        {
-		        CreateSupplier(p.Supplier);
-		        new MessageDialog("Creating Supplier").ShowAsync();
-	        }
+				// The supplier id is zero, which means it was typed in and not selected
+				// should now check if a supplier already exists with that name or create a new one
+
+		        // Check if the Supplier already exists in the list
+		        if (SupplierList.Where(s => s.Id.Equals(p.SupplierId)).Count() > 0)
+		        {
+			        // Exists in the list update the Supplier instead
+			        UpdateSupplier(p.Supplier);
+			        new MessageDialog("Updating Supplier").ShowAsync();
+				}
+		        else
+		        {
+			        // Does not exist in the list, create a new one
+			        CreateSupplier(p.Supplier);
+			        new MessageDialog("Creating Supplier").ShowAsync();
+				}
+			}
 
 			try
-	        {
+			{
 				// Add in DB1   
 		        PersistencyService.InsertProductAsync(p);
 
@@ -98,16 +112,6 @@ namespace Stock_Management.Model
 
 	        // Update product in DB
 	        PersistencyService.UpdateProductAsync(p);
-        }
-		
-        public Product FindSpecificProduct(int x)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Product> FindProducts(string s)
-        {
-            throw new NotImplementedException();
         }
 
         public void OrderProduct(Product p, int amount)

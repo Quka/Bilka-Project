@@ -30,10 +30,6 @@ namespace StockManagementWS
 
         public int Stock { get; set; }
 
-        [Required]
-        [StringLength(200)]
-        public string Status { get; set; }
-
         [Column(TypeName = "text")]
         [Required]
         public string Description { get; set; }

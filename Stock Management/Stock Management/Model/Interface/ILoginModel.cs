@@ -8,7 +8,7 @@ namespace Stock_Management.Model.Interface
 {
 	interface ILoginModel
 	{
-		Task AuthenticateLogin(Employee employee);
+		void AuthenticateLogin(Employee employee);
 		void Logout();
 	}
 }

@@ -23,7 +23,6 @@ namespace Stock_Management.Model
 	    public int RestockAmount { get; set; }
 	    public DateTime RestockPeriod { get; set; }
 		public Supplier Supplier { get; set; }
-        public String Satus { get; set; }
         public ObservableCollection<Order> OrderList { get; set; }
 		public ObservableCollection<ProductReturn> ProductReturns { get; set; }
 
@@ -31,7 +30,7 @@ namespace Stock_Management.Model
 		{
 			// Overload with empty constructor
 		}
-        public Product(int supplierId, int itemNr, string name, decimal price, int stock, string status, string description, int minStock, int restockAmount, DateTime restockPeriod)
+        public Product(int supplierId, int itemNr, string name, decimal price, int stock, string description, int minStock, int restockAmount, DateTime restockPeriod)
         {
 	        SupplierId = supplierId;
 			ItemNr = itemNr;

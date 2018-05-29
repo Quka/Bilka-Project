@@ -12,7 +12,7 @@ namespace Stock_Management.Model
 {
     class LoginModel : ILoginModel
     {
-        public async Task AuthenticateLogin(Employee employee)
+        public async void AuthenticateLogin(Employee employee)
         {
             try
             {
