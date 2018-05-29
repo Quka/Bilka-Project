@@ -20,6 +20,7 @@ namespace Stock_Management.Viewmodel
 	    public string StringPrice { get; set; }
         //public DateTimeOffset DateTimeWorks { get; set; }
         public DateTimeOffset Date { get; set; }
+		public int OrderAmount { get; set; }
 
 		public Supplier Supplier { get; set; }
         public ProductReturn ProductReturn { get; set; }
@@ -30,9 +31,7 @@ namespace Stock_Management.Viewmodel
 		// this sets the selectedSupplier, which we use to pass to a method
 		// which creates the supplier
 		public static Supplier SelectedSupplier { get; set; }
-		
-		// TODO selectedSupplier to be deleted
-	    //public static Supplier SelectedSupplier { get; set; }
+
 
         public ProductCatalogSingleton ProductCatalogSingleton { get; set; }
 		public Handler.ProductHandler ProductHandler { get; set; }

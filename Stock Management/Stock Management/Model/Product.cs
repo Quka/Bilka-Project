@@ -49,6 +49,7 @@ namespace Stock_Management.Model
 			throw new NotImplementedException();
 		}
 
+
 		public override string ToString()
 	    {
 		    return Name;

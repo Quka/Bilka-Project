@@ -80,7 +80,7 @@ namespace Stock_Management.Handler
 	        // TODO Make Product to order dynamic. Currently creates an order for the latest product in the list
 		    //ObservableCollection<Product> productList = ProductViewModel.ProductCatalogSingleton.ProductList;
             Product p = ProductViewModel.SelectedProduct;
-	        int amount = 77;
+	        int amount = ProductViewModel.OrderAmount;
 
 			ProductViewModel.ProductCatalogSingleton.OrderProduct(p, amount);
         }
@@ -88,7 +88,7 @@ namespace Stock_Management.Handler
         {
             try
             {
-                ProductViewModel.SelectedProduct.CreateProductReturn(ProductViewModel.ProductReturn);
+                ProductViewModel.ProductCatalogSingleton.CreateProductReturn(ProductViewModel.ProductReturn);
             }
             catch (ArgumentNullException e)
             {

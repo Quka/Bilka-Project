@@ -13,7 +13,7 @@ using Stock_Management.Persistency;
 
 namespace Stock_Management.Model
 {
-    class ProductCatalogSingleton : IProductCatalogSingleton
+    public class ProductCatalogSingleton : IProductCatalogSingleton
     {
 		//Lazy Loading is initializing the member the first time it is requested
 		private static ProductCatalogSingleton _instance;
@@ -292,6 +292,7 @@ namespace Stock_Management.Model
 
         public void CreateProductReturn(ProductReturn r)
         {
+            //add preconditions later
             //if (r.Amount == null)
             //{
              
