@@ -123,8 +123,5 @@ namespace Stock_Management.View
 
 
 	    }
-
-        
-
 	}
 }

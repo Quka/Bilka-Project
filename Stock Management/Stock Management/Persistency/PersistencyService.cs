@@ -23,8 +23,7 @@ namespace Stock_Management.Persistency
 
 		    using (var client = new HttpClient(handler))
 	        {
-				Product ptest = new Product(p.SupplierId,123,p.Name,p.Price,p.MinStock,p.Description,p.MinStock,p.RestockAmount, p.RestockPeriod);
-		        string postBody = JsonConvert.SerializeObject(ptest);
+		        string postBody = JsonConvert.SerializeObject(p);
 
 		        // Convert the string body to bytes, because json returns 400 status errors
 		        byte[] msgBytes = Encoding.UTF8.GetBytes(postBody);

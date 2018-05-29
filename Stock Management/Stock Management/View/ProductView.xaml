@@ -54,7 +54,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="303,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="214" Text="Status "/>
                 <TextBox HorizontalAlignment="Left" Margin="1032,257,0,0" TextWrapping="Wrap" Text="{Binding SelectedProduct.Stock, Mode=TwoWay}" VerticalAlignment="Top" Height="34" Width="208" IsReadOnly="True"/>
                 <TextBlock HorizontalAlignment="Left" Margin="1032,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Antal"/>
-                <TextBox HorizontalAlignment="Left" Margin="530,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="126" Width="501" TextChanged="TextBox_TextChanged"/>
+                <TextBox HorizontalAlignment="Left" Margin="530,341,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="126" Width="501" />
                 <TextBlock HorizontalAlignment="Left" Margin="532,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Specifikationer"/>
                 <CheckBox Content="Auto Genbestilling" HorizontalAlignment="Left" Margin="530,467,0,0" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="534,520,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Text="Leverandør"/>
