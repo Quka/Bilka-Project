@@ -44,10 +44,6 @@ namespace Stock_Management.Model
 
         public void CreateProduct(Product p)
         {
-			// TODO check if varenr og navn eksisterer i forvejen
-			// if check here
-
-
 	        if (p.Supplier == null)
 	        {
 				// Supplier or any of suppliers properties are null
