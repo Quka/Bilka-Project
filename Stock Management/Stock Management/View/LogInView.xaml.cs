@@ -31,5 +31,10 @@ namespace Stock_Management.View
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

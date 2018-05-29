@@ -15,6 +15,7 @@ namespace Stock_Management.Handler
 	    public LoginHandler(LoginViewModel loginViewModel)
 	    {
 		    LoginViewModel = loginViewModel;
+            LoginModel = new LoginModel();
 	    }
 
         public void Login()

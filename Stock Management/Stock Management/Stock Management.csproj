@@ -101,6 +101,7 @@
     <Compile Include="Handler\IProductHandler.cs" />
     <Compile Include="Handler\LoginHandler.cs" />
     <Compile Include="Handler\ProductHandler.cs" />
+    <Compile Include="Exceptions\InvalidLoginException.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ProductCatalogSingleton.cs" />
     <Compile Include="Scrollviewer.xaml.cs">

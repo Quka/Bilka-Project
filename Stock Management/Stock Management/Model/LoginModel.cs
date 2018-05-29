@@ -18,13 +18,21 @@ namespace Stock_Management.Model
             {
                 List<Employee> employees = await PersistencyService.LoadEmployeesAsync();
 
-                new MessageDialog(employees.ToString()).ShowAsync();
+                var match = employees.Single(e => e.SalNo.Equals(employee.SalNo));
+
+                if (match == null)
+                {
+                    throw new InvalidLoginException("SalNo or Password is incorrect");
+                }
+
+                new MessageDialog(match.SalNo).ShowAsync();
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e);
                 throw;
             }
+
         }
 
         public void Logout()
